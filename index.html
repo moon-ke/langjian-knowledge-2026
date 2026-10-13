@@ -80,7 +80,7 @@ body{margin:0;background:#f7f8fa;color:#1f2937;font-family:-apple-system,BlinkMa
     badge.textContent='★ '+NAMES[c]+' 版';
     badge.style.cssText='display:inline-block;background:'+color+';color:#fff;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.12)';
     var sub=h.querySelector('.sub');
-    if(sub){var w=h.querySelector('.lj-welcome');if(!w){w=document.createElement('div');w.className='lj-welcome';sub.parentNode.insertBefore(w,sub.nextSibling);}w.textContent='欢迎，'+NAMES[c]+'的同学 · 本版为'+NAMES[c]+'专属导航';w.style.cssText='color:'+color+';font-size:13px;margin:12px 0 0;font-weight:600';}
+    if(sub){var w=h.querySelector('.lj-welcome');if(!w){w=document.createElement('div');w.className='lj-welcome';sub.parentNode.insertBefore(w,sub.nextSibling);}w.textContent='欢迎，'+NAMES[c]+'的同学 · 本版为'+NAMES[c]+'专属导航';w.style.cssText='color:#fff;font-size:13px;margin:12px 0 0;font-weight:600';}
     document.querySelectorAll('.card').forEach(function(card){
       var t=card.querySelector('.card-top');if(!t)return;
       var cb=t.querySelector('.lj-cardbadge');if(!cb){cb=document.createElement('span');cb.className='lj-cardbadge';t.appendChild(cb);}
@@ -124,6 +124,7 @@ body{margin:0;background:#f7f8fa;color:#1f2937;font-family:-apple-system,BlinkMa
   init();
 })();
 </script>
+
 
 
 
