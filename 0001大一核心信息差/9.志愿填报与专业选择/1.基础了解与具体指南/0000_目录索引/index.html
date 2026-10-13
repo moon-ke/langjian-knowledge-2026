@@ -42,7 +42,36 @@ hr{border:none;border-top:1px solid var(--line);margin:2em 0}
 .back{display:inline-block;margin-bottom:14px;font-size:14px}
 @media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
 </style></head>
-<body>
+<body><style>
+#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:flex;align-items:center;justify-content:center;padding:20px}
+#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:400px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4)}
+#lj-gate .lj-box h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-gate .lj-box p{color:#555;font-size:14px;line-height:1.65;margin:0 0 18px}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p>请关注公众号「广工学习通」，发送关键词 <b>验证码</b>，获取阅读密码后填写，即可正常阅读</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，全站解锁</div></div></div>
+<script>
+(function(){
+  var KEY='1yzx',OK='lj_unlocked';
+  try{if(localStorage.getItem(OK)==='1yzx')return;}catch(e){}
+  var g=document.getElementById('lj-gate'),i=document.getElementById('lj-key'),e=g.querySelector('.lj-err');
+  function unlock(){
+    try{
+      if(i.value.trim()===KEY){localStorage.setItem(OK,'1yzx');g.parentNode.removeChild(g);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }catch(err){}
+  }
+  document.getElementById('lj-btn').addEventListener('click',unlock);
+  i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+  i.focus();
+})();
+</script>
+
 <div class="topbar"><div class="inner"><a href="../../../../index.html">🏠 浪尖知识库 2026</a></div></div>
 <div class="wrap">
 <div class="back">← <a href="../../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/9.志愿填报与专业选择/1.基础了解与具体指南/0000_目录索引</div>
