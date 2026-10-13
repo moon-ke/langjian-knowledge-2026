@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大学物理高效学习指南（力学与热学篇） · 浪尖知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body>
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 浪尖知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/12.大学基础公共课/大学物理高效学习指南（力学与热学篇）</div>
+<h1>大学物理高效学习指南（力学与热学篇）</h1>
+
+<h1 id="大学物理高效学习指南力学与热学篇公式推导与物理图像构建">大学物理高效学习指南（力学与热学篇）：公式推导与物理图像构建<a aria-hidden="true" class="internal" data-no-popover="true" href="#大学物理高效学习指南力学与热学篇公式推导与物理图像构建" role="anchor" tabindex="-1"></a></h1>
+<p>说实话，大物里力学和热学是基础中的基础。</p>
+<p>学不好后面电磁学、光学都得完蛋。</p>
+<p>今天学姐分享我的学习经验，帮你少走弯路。</p>
+<h2 id="力学一切的基础">力学：一切的基础<a aria-hidden="true" class="internal" data-no-popover="true" href="#力学一切的基础" role="anchor" tabindex="-1"></a></h2>
+<h3 id="力学模块概览">力学模块概览<a aria-hidden="true" class="internal" data-no-popover="true" href="#力学模块概览" role="anchor" tabindex="-1"></a></h3>
+<div class="table-container"><table><thead><tr><th>模块</th><th>核心内容</th><th>重要程度</th></tr></thead><tbody><tr><td>运动学</td><td>位移、速度、加速度</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>动力学</td><td>牛顿三定律</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>能量守恒</td><td>动能、势能、功</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>动量守恒</td><td>冲量、动量、碰撞</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>刚体转动</td><td>力矩、角动量、转动惯量</td><td>⭐⭐⭐⭐</td></tr></tbody></table></div>
+<h3 id="核心公式体系">核心公式体系<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心公式体系" role="anchor" tabindex="-1"></a></h3>
+<h4 id="运动学公式">运动学公式<a aria-hidden="true" class="internal" data-no-popover="true" href="#运动学公式" role="anchor" tabindex="-1"></a></h4>
+<p><strong>匀变速直线运动：</strong></p>
+<div class="table-container"><table><thead><tr><th>公式</th><th>说明</th></tr></thead><tbody><tr><td>v = v₀ + at</td><td>速度公式</td></tr><tr><td>x = v₀t + ½at²</td><td>位移公式</td></tr><tr><td>v² - v₀² = 2ax</td><td>速度-位移关系</td></tr></tbody></table></div>
+<p><strong>曲线运动：</strong></p>
+<div class="table-container"><table><thead><tr><th>公式</th><th>说明</th></tr></thead><tbody><tr><td>x = Acos(ωt + φ)</td><td>x方向振动</td></tr><tr><td>y = Asin(ωt + φ)</td><td>y方向振动</td></tr><tr><td>a = -ω²x</td><td>加速度公式</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>学姐说</strong></p>
+<p>运动学公式看起来多，其实都是从一个基本公式推导出来的。
+<strong>核心就是：加速度是速度的变化率，速度是位移的变化率。</strong></p>
+</blockquote>
+<h4 id="动力学公式">动力学公式<a aria-hidden="true" class="internal" data-no-popover="true" href="#动力学公式" role="anchor" tabindex="-1"></a></h4>
+<p><strong>牛顿第二定律：</strong></p>
+<pre><code>F = ma
+
+重要推导：
+- 竖直方向：mg - N = ma
+- 水平方向：F - f = ma
+- 斜面方向：mgsinθ - f = ma
+</code></pre>
+<p><strong>常见受力分析：</strong></p>
+<div class="table-container"><table><thead><tr><th>情况</th><th>受力</th><th>加速度</th></tr></thead><tbody><tr><td>自由落体</td><td>只受重力</td><td>g</td></tr><tr><td>竖直上抛</td><td>重力</td><td>-g</td></tr><tr><td>斜面滑行</td><td>重力、弹力、摩擦力</td><td>gsinθ - μgcosθ</td></tr><tr><td>圆周运动</td><td>重力、弹力（向心力）</td><td>v²/r</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>学姐踩过的坑</strong></p>
+<p>我学受力分析的时候，最常犯的错误是<strong>漏力</strong>。
+每次做受力分析题，我都会漏掉摩擦力或者弹力。
+后来我学聪明了：先画重力，再画接触力（弹力、摩擦力），最后画其他力（拉力等）。</p>
+</blockquote>
+<h4 id="能量守恒">能量守恒<a aria-hidden="true" class="internal" data-no-popover="true" href="#能量守恒" role="anchor" tabindex="-1"></a></h4>
+<p><strong>核心公式：</strong></p>
+<div class="table-container"><table><thead><tr><th>类型</th><th>公式</th><th>说明</th></tr></thead><tbody><tr><td>动能</td><td>E_k = ½mv²</td><td>物体由于运动而具有的能量</td></tr><tr><td>重力势能</td><td>E_p = mgh</td><td>物体由于高度而具有的能量</td></tr><tr><td>弹性势能</td><td>E_p = ½kx²</td><td>弹簧形变而具有的能量</td></tr><tr><td>功</td><td>W = F·s·cosθ</td><td>力对物体的作用</td></tr><tr><td>功率</td><td>P = W/t = Fv</td><td>做功的快慢</td></tr></tbody></table></div>
+<p><strong>机械能守恒：</strong></p>
+<pre><code>只有重力/弹力做功时：
+E_k1 + E_p1 = E_k2 + E_p2
+</code></pre>
+<blockquote>
+<p><strong>记忆口诀</strong></p>
+<p>动能定理用全程，重力弹力分别算。
+机械能守恒条件，只有重力或弹力。
+功能关系要记清，合外力做功定动能。</p>
+</blockquote>
+<h4 id="动量守恒">动量守恒<a aria-hidden="true" class="internal" data-no-popover="true" href="#动量守恒" role="anchor" tabindex="-1"></a></h4>
+<p><strong>核心公式：</strong></p>
+<div class="table-container"><table><thead><tr><th>类型</th><th>公式</th><th>说明</th></tr></thead><tbody><tr><td>冲量</td><td>I = Ft</td><td>力对时间的积累</td></tr><tr><td>动量</td><td>p = mv</td><td>物体运动的量度</td></tr><tr><td>动量定理</td><td>I = Δp</td><td>冲量等于动量变化量</td></tr></tbody></table></div>
+<p><strong>动量守恒条件：</strong></p>
+<blockquote>
+<p>系统不受外力或所受外力之和为零</p>
+</blockquote>
+<pre><code>守恒情况：
+p1 + p2 = p1' + p2'
+m₁v₁ + m₂v₂ = m₁v₁' + m₂v₂'
+</code></pre>
+<p><strong>碰撞分类：</strong></p>
+<div class="table-container"><table><thead><tr><th>类型</th><th>特点</th><th>能量</th></tr></thead><tbody><tr><td>完全弹性碰撞</td><td>动量守恒、动能守恒</td><td>不损失</td></tr><tr><td>非完全弹性碰撞</td><td>动量守恒、动能损失</td><td>部分损失</td></tr><tr><td>完全非弹性碰撞</td><td>动量守恒、动能损失最大</td><td>损失最多</td></tr></tbody></table></div>
+<h3 id="力学解题套路">力学解题套路<a aria-hidden="true" class="internal" data-no-popover="true" href="#力学解题套路" role="anchor" tabindex="-1"></a></h3>
+<p><strong>Step 1：选对象</strong></p>
+<blockquote>
+<p>选一个物体或系统作为研究对象</p>
+</blockquote>
+<p><strong>Step 2：画受力分析</strong></p>
+<blockquote>
+<p>画受力图，标注所有力</p>
+</blockquote>
+<p><strong>Step 3：选方法</strong></p>
+<ul>
+<li>动力学方法：F=ma</li>
+<li>能量方法：能量守恒</li>
+<li>动量方法：动量守恒</li>
+</ul>
+<p><strong>Step 4：列方程</strong></p>
+<blockquote>
+<p>根据方法列方程</p>
+</blockquote>
+<p><strong>Step 5：解方程</strong></p>
+<blockquote>
+<p>数学计算</p>
+</blockquote>
+<p><strong>Step 6：检验</strong></p>
+<blockquote>
+<p>检查单位、方向、合理性</p>
+</blockquote>
+<blockquote>
+<p><strong>学姐说</strong></p>
+<p>力学题往往有多种解法。
+但不同方法的计算量差别很大。
+<strong>选对方法，能省一半时间。</strong></p>
+</blockquote>
+<h2 id="热学统计的思维">热学：统计的思维<a aria-hidden="true" class="internal" data-no-popover="true" href="#热学统计的思维" role="anchor" tabindex="-1"></a></h2>
+<h3 id="热学模块概览">热学模块概览<a aria-hidden="true" class="internal" data-no-popover="true" href="#热学模块概览" role="anchor" tabindex="-1"></a></h3>
+<div class="table-container"><table><thead><tr><th>模块</th><th>核心内容</th><th>重要程度</th></tr></thead><tbody><tr><td>气体动理论</td><td>分子动理论、压强、温度</td><td>⭐⭐⭐⭐</td></tr><tr><td>热力学第一定律</td><td>内能、功、热量</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>热力学第二定律</td><td>熵、可逆与不可逆</td><td>⭐⭐⭐⭐</td></tr><tr><td>理想气体状态方程</td><td>PV = nRT</td><td>⭐⭐⭐⭐⭐</td></tr></tbody></table></div>
+<h3 id="核心概念">核心概念<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心概念" role="anchor" tabindex="-1"></a></h3>
+<h4 id="气体动理论">气体动理论<a aria-hidden="true" class="internal" data-no-popover="true" href="#气体动理论" role="anchor" tabindex="-1"></a></h4>
+<p><strong>基本假设：</strong></p>
+<ol>
+<li>气体由大量分子组成</li>
+<li>分子永不停息做无规则运动</li>
+<li>分子间有相互作用力</li>
+<li>分子体积远小于气体体积</li>
+</ol>
+<p><strong>物理量关系：</strong></p>
+<div class="table-container"><table><thead><tr><th>宏观量</th><th>微观解释</th></tr></thead><tbody><tr><td>压强p</td><td>分子撞击容器壁的冲量</td></tr><tr><td>温度T</td><td>分子平均动能的标志</td></tr><tr><td>内能U</td><td>所有分子动能+分子势能</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>学姐说</strong></p>
+<p>热学的思维和力学完全不同。
+力学研究单个物体，热学研究大量分子的集体行为。
+<strong>这是统计物理的入门，要学会用统计的思维看问题。</strong></p>
+</blockquote>
+<h4 id="热力学第一定律">热力学第一定律<a aria-hidden="true" class="internal" data-no-popover="true" href="#热力学第一定律" role="anchor" tabindex="-1"></a></h4>
+<p><strong>核心公式：</strong></p>
+<pre><code>ΔU = Q - W
+
+其中：
+ΔU = 内能变化
+Q = 吸收的热量
+W = 对外做的功
+</code></pre>
+<p><strong>符号规定：</strong></p>
+<blockquote>
+<p>Q &gt; 0：吸热
+Q &lt; 0：放热
+W &gt; 0：气体对外做功
+W &lt; 0：气体被压缩</p>
+</blockquote>
+<p><strong>典型过程：</strong></p>
+<div class="table-container"><table><thead><tr><th>过程</th><th>特点</th><th>公式</th></tr></thead><tbody><tr><td>等温过程</td><td>T不变</td><td>ΔU = 0，Q = W</td></tr><tr><td>等压过程</td><td>p不变</td><td>W = pΔV</td></tr><tr><td>等容过程</td><td>V不变</td><td>W = 0，ΔU = Q</td></tr><tr><td>绝热过程</td><td>Q = 0</td><td>ΔU = -W</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>记忆口诀</strong></p>
+<p>内能变化三因素，吸热放热做功忙。
+吸热内能会增加，做功内能会减小。</p>
+</blockquote>
+<h4 id="热力学第二定律">热力学第二定律<a aria-hidden="true" class="internal" data-no-popover="true" href="#热力学第二定律" role="anchor" tabindex="-1"></a></h4>
+<p><strong>表述：</strong></p>
+<div class="table-container"><table><thead><tr><th>表述方式</th><th>内容</th></tr></thead><tbody><tr><td>克劳修斯表述</td><td>热量不能自发地从低温物体传到高温物体</td></tr><tr><td>开尔文表述</td><td>不可能从单一热库吸热使之完全变成功而不产生其他影响</td></tr></tbody></table></div>
+<p><strong>核心概念：</strong></p>
+<blockquote>
+<p><strong>熵</strong>：描述系统无序程度的物理量
+孤立系统的熵永不减少</p>
+</blockquote>
+<blockquote>
+<p><strong>学姐说</strong></p>
+<p>热力学第二定律告诉我们：<strong>第二类永动机是不可能的。</strong>
+能量可以转化，但有方向；热量可以传递，但不可逆。
+<strong>这就是自然界的”时间之箭”。</strong></p>
+</blockquote>
+<h3 id="热学解题技巧">热学解题技巧<a aria-hidden="true" class="internal" data-no-popover="true" href="#热学解题技巧" role="anchor" tabindex="-1"></a></h3>
+<h4 id="理想气体状态方程">理想气体状态方程<a aria-hidden="true" class="internal" data-no-popover="true" href="#理想气体状态方程" role="anchor" tabindex="-1"></a></h4>
+<p><strong>基本公式：</strong></p>
+<pre><code>PV = nRT
+
+或
+
+PV = (m/M)RT
+P = ρRT/M
+</code></pre>
+<p><strong>常用推论：</strong></p>
+<pre><code>等温变化：P₁V₁ = P₂V₂
+等压变化：V₁/T₁ = V₂/T₂
+等容变化：P₁/T₁ = P₂/T₂
+</code></pre>
+<h4 id="气体图像问题">气体图像问题<a aria-hidden="true" class="internal" data-no-popover="true" href="#气体图像问题" role="anchor" tabindex="-1"></a></h4>
+<p><strong>P-V图：</strong></p>
+<div class="table-container"><table><thead><tr><th>图像</th><th>过程</th><th>特点</th></tr></thead><tbody><tr><td>等温线</td><td>双曲线</td><td>T不变</td></tr><tr><td>等压线</td><td>水平线</td><td>p不变</td></tr><tr><td>等容线</td><td>竖直线</td><td>V不变</td></tr></tbody></table></div>
+<p><strong>P-T图、V-T图：</strong> 类似分析</p>
+<blockquote>
+<p><strong>学姐踩过的坑</strong></p>
+<p>我做气体图像题时，最常犯的错误是<strong>搞混坐标轴</strong>。
+P-V图里，等温线是曲线；
+P-T图里，等容线是直线。
+<strong>一定要看清楚坐标轴是什么！</strong></p>
+</blockquote>
+<h2 id="学姐私房话">学姐私房话<a aria-hidden="true" class="internal" data-no-popover="true" href="#学姐私房话" role="anchor" tabindex="-1"></a></h2>
+<p>说实话，力学和热学是大物里相对”好学”的部分。</p>
+<p><strong>只要掌握方法，就能拿到不错的分数。</strong></p>
+<blockquote>
+<p><strong>学姐的学习经验：</strong></p>
+<ol>
+<li><strong>理解概念第一</strong>：不要死背公式，要理解公式怎么来的</li>
+<li><strong>多做典型题</strong>：每种题型做5-10道，自然就通了</li>
+<li><strong>建立物理图像</strong>：想象物理过程在脑子里发生</li>
+<li><strong>注意单位</strong>：单位错了，答案一定错</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>学姐踩过的坑</strong></p>
+<p>我大一学力学，上来就背公式，结果月考58分。
+后来改用”理解+做题”的方法，期末考了92。
+<strong>死记硬背真的不行！</strong></p>
+</blockquote>
+<p><strong>还有：</strong></p>
+<p>力学和热学是后面课程的基础。</p>
+<p>电磁学里的电场、磁场，本质上就是力学+场论；</p>
+<p>热力学是化学、化工的基础。</p>
+<p><strong>现在学好，以后轻松！</strong></p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/0000_目录索引" href="../0000_目录索引/index.html">12.大学基础公共课 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/0000_目录索引" href="../0000_目录索引/index.html">12.大学基础公共课 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li>暂无明确跨库关联</li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学选课完全指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学选课完全指南" href="../大学选课完全指南/index.html">大学选课完全指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学物理高效学习指南（电磁学与光学篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学物理高效学习指南（电磁学与光学篇）" href="../大学物理高效学习指南（电磁学与光学篇）/index.html">大学物理高效学习指南（电磁学与光学篇）</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学英语常见误区与解决方案" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学英语常见误区与解决方案" href="../大学英语常见误区与解决方案/index.html">大学英语常见误区与解决方案</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学物理高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学物理高效学习指南" href="../大学物理高效学习指南/index.html">大学物理高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学英语核心技能学习方法" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学英语核心技能学习方法" href="../大学英语核心技能学习方法/index.html">大学英语核心技能学习方法</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学体育与体测备考指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学体育与体测备考指南" href="../大学体育与体测备考指南/index.html">大学体育与体测备考指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/编程语言高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/编程语言高效学习指南" href="../编程语言高效学习指南/index.html">编程语言高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南" href="../大学化学高效学习指南/index.html">大学化学高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（理论篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（理论篇）" href="../大学化学高效学习指南（理论篇）/index.html">大学化学高效学习指南（理论篇）</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（实验篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（实验篇）" href="../大学化学高效学习指南（实验篇）/index.html">大学化学高效学习指南（实验篇）</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>大学基础公共课</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学选课完全指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学选课完全指南" href="../大学选课完全指南/index.html">下一篇：大学选课完全指南</a></li>
+</ul>
+
+</div>
+</body></html>

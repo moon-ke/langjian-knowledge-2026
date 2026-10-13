@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI在编程学习中的应用：代码助手全攻略 · 浪尖知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body>
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 浪尖知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/10.冷门专业学AI/AI在编程学习中的应用：代码助手全攻略</div>
+<h1>AI在编程学习中的应用：代码助手全攻略</h1>
+
+<h1 id="ai在编程学习中的应用代码助手全攻略">AI在编程学习中的应用：代码助手全攻略<a aria-hidden="true" class="internal" data-no-popover="true" href="#ai在编程学习中的应用代码助手全攻略" role="anchor" tabindex="-1"></a></h1>
+<p>Hey大家好！我是叶子学姐～</p>
+<p>今天想跟你们聊聊AI在编程学习中的应用。</p>
+<p>说实话，学姐我是新闻传播学院的，按理说跟编程八竿子打不着。但大二那年，我心血来潮选了一门Python课，结果…差点挂科。</p>
+<p>后来我发现了AI代码助手这个神器，才慢慢把编程学明白。现在虽然算不上大神，但至少能自己写点小程序了。</p>
+<p>今天就把我的经验分享给你们，不管你是计算机专业的还是像我一样的小白，都能有点收获！</p>
+<h2 id="先说清楚ai编程助手是什么">先说清楚：AI编程助手是什么？<a aria-hidden="true" class="internal" data-no-popover="true" href="#先说清楚ai编程助手是什么" role="anchor" tabindex="-1"></a></h2>
+<p>简单来说，AI编程助手就是能帮你写代码、解释代码、debug的工具。</p>
+<p><strong>它能帮你干什么？</strong></p>
+<ul>
+<li>✅ 写代码：描述你的需求，AI帮你生成代码</li>
+<li>✅ 解释代码：给你一段代码，AI告诉你这是啥意思</li>
+<li>✅ debug：代码报错，AI帮你找bug</li>
+<li>✅ 优化代码：代码能跑但很烂，AI帮你优化</li>
+<li>✅ 学习解释：遇到不懂的概念，AI用你能听懂的话解释</li>
+</ul>
+<p><strong>它不能帮你干什么？</strong></p>
+<ul>
+<li>❌ 替你理解计算机原理</li>
+<li>❌ 替你学会编程思维</li>
+<li>❌ 替你完成课程设计（老师布置的作业）</li>
+</ul>
+<p><strong>学姐的血泪教训：</strong></p>
+<p>我大一的时候真的干过这种事——让AI帮我写作业，然后把代码提交上去。结果老师一问，这个代码是啥意思、为什么要这样写，我一个都答不上来…</p>
+<p>当场社死。</p>
+<p>后来我学聪明了，<strong>把AI当老师，而不是枪手</strong>。</p>
+<h2 id="主流ai编程工具大盘点">主流AI编程工具大盘点<a aria-hidden="true" class="internal" data-no-popover="true" href="#主流ai编程工具大盘点" role="anchor" tabindex="-1"></a></h2>
+<h3 id="1-cursor学姐最推荐">1. Cursor（学姐最推荐！）<a aria-hidden="true" class="internal" data-no-popover="true" href="#1-cursor学姐最推荐" role="anchor" tabindex="-1"></a></h3>
+<p><strong>适合人群：</strong> 想认真学编程的同学</p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>界面友好，对新手极其友好</li>
+<li>AI直接嵌入编辑器，可以边写边问</li>
+<li>代码补全很智能</li>
+<li>有免费版！</li>
+</ul>
+<p><strong>使用方式：</strong></p>
+<pre><code>1. 下载Cursor编辑器（cursor.com）
+2. 注册账号（可以用GitHub）
+3. 开始写代码，AI自动补全
+4. 选中代码，按Ctrl+K问问题
+5. 按Tab接受AI的建议
+</code></pre>
+<p><strong>学姐踩坑经验：</strong>
+一开始我不会用快捷键，每次都手动复制粘贴AI的建议。后来才知道按Tab就能接受，效率直接翻倍…</p>
+<h3 id="2-github-copilot">2. GitHub Copilot<a aria-hidden="true" class="internal" data-no-popover="true" href="#2-github-copilot" role="anchor" tabindex="-1"></a></h3>
+<p><strong>适合人群：</strong> 有一定编程基础的同学</p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>代码补全能力强</li>
+<li>和VS Code完美集成</li>
+<li>支持多种语言</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>需要付费（学生可以申请免费）</li>
+<li>国内访问不太稳定</li>
+</ul>
+<p><strong>如何白嫖学生版：</strong></p>
+<ol>
+<li>用学校邮箱注册GitHub Education</li>
+<li>申请学生开发者包</li>
+<li>GitHub Copilot免费4年！</li>
+</ol>
+<h3 id="3-通义灵码国产之光">3. 通义灵码（国产之光！）<a aria-hidden="true" class="internal" data-no-popover="true" href="#3-通义灵码国产之光" role="anchor" tabindex="-1"></a></h3>
+<p><strong>适合人群：</strong> 国内用户，不想折腾的同学</p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>免费！免费！免费！</li>
+<li>中文支持好</li>
+<li>和阿里云生态集成</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>代码补全能力比Cursor稍弱</li>
+<li>部分场景反应较慢</li>
+</ul>
+<h3 id="4-其他推荐">4. 其他推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#4-其他推荐" role="anchor" tabindex="-1"></a></h3>
+<div class="table-container"><table><thead><tr><th>工具</th><th>特点</th><th>适合人群</th></tr></thead><tbody><tr><td>Kimi</td><td>可以解释代码，适合学习</td><td>编程小白</td></tr><tr><td>文心一言</td><td>中文理解好</td><td>中文用户</td></tr><tr><td>通义千问</td><td>代码+对话两用</td><td>入门选手</td></tr><tr><td>CodeWhisperer</td><td>亚马逊出品</td><td>AWS用户</td></tr></tbody></table></div>
+<h2 id="正确打开方式ai辅助学习四步法">正确打开方式：AI辅助学习四步法<a aria-hidden="true" class="internal" data-no-popover="true" href="#正确打开方式ai辅助学习四步法" role="anchor" tabindex="-1"></a></h2>
+<p>学姐总结了用AI学编程的正确方式，我称之为”四步法”。</p>
+<h3 id="第一步先自己想再问ai">第一步：先自己想，再问AI<a aria-hidden="true" class="internal" data-no-popover="true" href="#第一步先自己想再问ai" role="anchor" tabindex="-1"></a></h3>
+<p><strong>这是最重要的原则！</strong></p>
+<p>学姐见过太多同学遇到问题就直接问AI，完全不动脑子。结果就是——AI说的他听不懂，代码报错不知道怎么改。</p>
+<p><strong>正确流程：</strong></p>
+<pre><code>1. 遇到问题
+2. 先自己想想：这个错误信息是啥意思？
+3. 尝试搜索引擎搜一下
+4. 还是不懂，再问AI
+5. 问的时候，先说清楚你已经试过什么
+</code></pre>
+<p><strong>prompt模板：</strong></p>
+<pre><code>我遇到了一个问题：
+错误信息：[粘贴错误信息]
+我尝试的解决办法：[你试了什么]
+我认为是哪里出了问题：[你的猜测]
+
+请帮我分析：
+1. 真正的问题在哪里
+2. 为什么会出错
+3. 应该怎么改
+</code></pre>
+<h3 id="第二步让ai解释不要让ai替你写">第二步：让AI解释，不要让AI替你写<a aria-hidden="true" class="internal" data-no-popover="true" href="#第二步让ai解释不要让ai替你写" role="anchor" tabindex="-1"></a></h3>
+<p>学习阶段，最重要的是<strong>理解</strong>，不是<strong>结果</strong>。</p>
+<p><strong>错误用法：</strong></p>
+<pre><code>❌ "帮我写一个学生成绩管理系统"
+→ AI给你代码，你复制粘贴，提交
+→ 结果：代码什么意思你不懂，下次遇到还是不会
+</code></pre>
+<p><strong>正确用法：</strong></p>
+<pre><code>✅ "我想做一个学生成绩管理系统，但不知道从哪里开始"
+→ AI帮你分析需求、拆解步骤
+✅ "这个排序算法的逻辑是什么？"
+→ AI用你能听懂的话解释
+✅ "这段代码为什么要这样写？"
+→ AI给你详细讲解
+</code></pre>
+<p><strong>学姐私房prompt：</strong></p>
+<pre><code>请用我一个大一新生的水平解释这段代码：
+[粘贴代码]
+
+要求：
+1. 用生活中常见的例子类比
+2. 解释每一步在做什么
+3. 指出这段代码的关键知识点
+4. 我可能会在哪些地方卡住
+</code></pre>
+<h3 id="第三步让ai帮你debug但要先自己分析">第三步：让AI帮你debug，但要先自己分析<a aria-hidden="true" class="internal" data-no-popover="true" href="#第三步让ai帮你debug但要先自己分析" role="anchor" tabindex="-1"></a></h3>
+<p>debug是编程最重要的能力之一，一定要好好练习！</p>
+<p><strong>错误用法：</strong></p>
+<pre><code>❌ 代码报错 → 直接把错误信息丢给AI → 复制AI的答案
+→ 结果：下次报错还是不会
+</code></pre>
+<p><strong>正确用法：</strong></p>
+<pre><code>1. 先自己读错误信息，尝试理解
+2. 自己尝试定位问题（是哪个文件、哪一行？）
+3. 然后再问AI
+4. 问的时候，把你的分析也告诉AI
+</code></pre>
+<p><strong>prompt模板：</strong></p>
+<pre><code>我的代码报错了：
+错误信息：[粘贴]
+代码：[粘贴关键部分]
+
+我的分析：
+我认为是[你的猜测]出了问题
+
+请帮我：
+1. 确认或否定我的猜测
+2. 详细解释为什么出错
+3. 告诉我正确的写法是什么
+4. 以后遇到类似问题，应该怎么检查
+</code></pre>
+<h3 id="第四步让ai帮你优化但学习它的思路">第四步：让AI帮你优化，但学习它的思路<a aria-hidden="true" class="internal" data-no-popover="true" href="#第四步让ai帮你优化但学习它的思路" role="anchor" tabindex="-1"></a></h3>
+<p>代码能跑之后，可以让AI帮你看看怎么优化。</p>
+<p><strong>prompt模板：</strong></p>
+<pre><code>我写了一段代码，功能是[功能描述]，但感觉写得很烂：
+
+[粘贴代码]
+
+请帮我：
+1. 分析这段代码有哪些问题
+2. 告诉我优化思路
+3. 给出优化后的版本
+4. 解释优化后好在哪里
+</code></pre>
+<h2 id="实战场景教学">实战场景教学<a aria-hidden="true" class="internal" data-no-popover="true" href="#实战场景教学" role="anchor" tabindex="-1"></a></h2>
+<h3 id="场景一刚学python完全听不懂课">场景一：刚学Python，完全听不懂课<a aria-hidden="true" class="internal" data-no-popover="true" href="#场景一刚学python完全听不懂课" role="anchor" tabindex="-1"></a></h3>
+<p>这是学姐最懂的经历！大二选Python课，老师讲函数的时候，我完全懵了。</p>
+<p><strong>我的用法：</strong></p>
+<pre><code>我：老师课上讲的函数是什么意思？我完全听不懂。
+AI：[用生活例子解释]
+举例：函数就像是一个饮料机，你投入硬币（参数），它给你饮料（返回值）。中间发生了什么你不用管。
+
+我：能不能给我一个具体的例子？
+AI：[代码例子]
+
+我：这个例子能帮我理解老师讲的什么知识点？
+AI：[把代码和课堂知识对应起来]
+</code></pre>
+<p><strong>效果：</strong> 一节课听不懂的内容，用AI补课20分钟就懂了。</p>
+<h3 id="场景二写代码卡住了完全不知道从哪下手">场景二：写代码卡住了，完全不知道从哪下手<a aria-hidden="true" class="internal" data-no-popover="true" href="#场景二写代码卡住了完全不知道从哪下手" role="anchor" tabindex="-1"></a></h3>
+<p><strong>prompt模板：</strong></p>
+<pre><code>我是Python初学者，想做一个[项目/功能]。
+
+我不知道从哪里开始，请帮我：
+1. 拆解成几个小步骤
+2. 告诉我每个步骤需要用到什么知识
+3. 给出第一个步骤的代码示例
+4. 等我完成第一步后再继续下一步
+
+我的目标是：[具体目标]
+我目前学过的内容是：[你已经学过的内容]
+</code></pre>
+<h3 id="场景三代码报错完全看不懂">场景三：代码报错，完全看不懂<a aria-hidden="true" class="internal" data-no-popover="true" href="#场景三代码报错完全看不懂" role="anchor" tabindex="-1"></a></h3>
+<p><strong>prompt模板：</strong></p>
+<pre><code>我的Python代码报错了，错误信息是：
+[错误信息]
+
+代码是：
+[代码]
+
+这是[你正在做的东西，比如：一个猜数字游戏]
+
+请帮我：
+1. 用大白话解释这个错误是什么意思
+2. 告诉我问题出在哪一行
+3. 怎么修改
+4. 以后遇到类似错误怎么排查
+</code></pre>
+<h3 id="场景四不知道这个函数语法是什么意思">场景四：不知道这个函数/语法是什么意思<a aria-hidden="true" class="internal" data-no-popover="true" href="#场景四不知道这个函数语法是什么意思" role="anchor" tabindex="-1"></a></h3>
+<p><strong>prompt模板：</strong></p>
+<pre><code>我在看别人的代码，发现了这样的写法：
+[代码片段]
+
+我不理解：
+1. 这是什么语法/函数
+2. 为什么要这样写
+3. 有没有其他写法
+
+请用初学者能理解的方式解释。
+</code></pre>
+<h3 id="场景五想练习但没有项目可以做">场景五：想练习，但没有项目可以做<a aria-hidden="true" class="internal" data-no-popover="true" href="#场景五想练习但没有项目可以做" role="anchor" tabindex="-1"></a></h3>
+<p><strong>prompt模板：</strong></p>
+<pre><code>我是[语言]初学者，已经学了[知识点列表]。
+
+请给我设计一个练习项目，要求：
+1. 难度适中，不会太简单也不会太难
+2. 能用到我已经学过的知识
+3. 有一点挑战性，但不会让我卡太久
+4. 有具体的练习步骤
+
+完成这个项目后，我能掌握什么？
+</code></pre>
+<h2 id="踩坑大合集">踩坑大合集<a aria-hidden="true" class="internal" data-no-popover="true" href="#踩坑大合集" role="anchor" tabindex="-1"></a></h2>
+<h3 id="坑一直接复制ai代码完全不理解">坑一：直接复制AI代码，完全不理解<a aria-hidden="true" class="internal" data-no-popover="true" href="#坑一直接复制ai代码完全不理解" role="anchor" tabindex="-1"></a></h3>
+<p>这是最最最大的坑！</p>
+<p>学姐见过太多同学：</p>
+<ul>
+<li>AI给什么代码就交什么</li>
+<li>代码报错了不知道怎么改</li>
+<li>换个题目就完全不会</li>
+</ul>
+<p><strong>教训：AI代码可以参考，但一定要自己理解！</strong></p>
+<p><strong>判断标准：</strong></p>
+<ul>
+<li>你能用自己的话解释这段代码吗？</li>
+<li>如果我删掉这段代码，你能自己写出来吗？</li>
+<li>如果换个场景，你还能用这个思路吗？</li>
+</ul>
+<p>如果答案是”不能”，那你就还没真正学会。</p>
+<h3 id="坑二问题描述不清楚">坑二：问题描述不清楚<a aria-hidden="true" class="internal" data-no-popover="true" href="#坑二问题描述不清楚" role="anchor" tabindex="-1"></a></h3>
+<p>很多人问AI问题的方式是：</p>
+<pre><code>❌ "代码不对"（完全没说清楚是什么问题）
+❌ "帮我写代码"（没说清楚要什么功能）
+❌ "报错"（没贴错误信息）
+</code></pre>
+<p><strong>教训：问问题要具体！</strong></p>
+<p><strong>好的问题应该包含：</strong></p>
+<ol>
+<li>你想做什么</li>
+<li>你遇到了什么问题</li>
+<li>相关的代码/错误信息</li>
+<li>你已经试过什么</li>
+</ol>
+<h3 id="坑三太依赖ai不自己思考">坑三：太依赖AI，不自己思考<a aria-hidden="true" class="internal" data-no-popover="true" href="#坑三太依赖ai不自己思考" role="anchor" tabindex="-1"></a></h3>
+<p>学姐有一个同学，用AI辅助编程学了一年，结果离开AI连一道简单的编程题都做不出来。</p>
+<p><strong>教训：AI是辅助，不是替代。每天留一点时间脱离AI自己写代码。</strong></p>
+<h3 id="坑四不分场景乱用ai">坑四：不分场景乱用AI<a aria-hidden="true" class="internal" data-no-popover="true" href="#坑四不分场景乱用ai" role="anchor" tabindex="-1"></a></h3>
+<p>不是所有情况都适合用AI。</p>
+<p><strong>可以用AI的场景：</strong></p>
+<ul>
+<li>学习新概念</li>
+<li>debug</li>
+<li>优化代码</li>
+<li>解答疑惑</li>
+</ul>
+<p><strong>不建议用AI的场景：</strong></p>
+<ul>
+<li>考试（会被抓）</li>
+<li>老师明确要求独立完成的作业（会被抓）</li>
+<li>代码跑不起来直接问答案（学习效果差）</li>
+</ul>
+<h3 id="坑五不验证ai的答案">坑五：不验证AI的答案<a aria-hidden="true" class="internal" data-no-popover="true" href="#坑五不验证ai的答案" role="anchor" tabindex="-1"></a></h3>
+<p>AI有时候会给出错误的代码或者误导性的解释。</p>
+<p><strong>教训：AI的答案一定要自己验证！</strong></p>
+<p><strong>验证方法：</strong></p>
+<ul>
+<li>自己跑一遍代码</li>
+<li>对照教材/文档检查</li>
+<li>多问几个AI交叉验证</li>
+</ul>
+<h2 id="给不同人群的建议">给不同人群的建议<a aria-hidden="true" class="internal" data-no-popover="true" href="#给不同人群的建议" role="anchor" tabindex="-1"></a></h2>
+<h3 id="如果你是完全的编程小白">如果你是完全的编程小白<a aria-hidden="true" class="internal" data-no-popover="true" href="#如果你是完全的编程小白" role="anchor" tabindex="-1"></a></h3>
+<p><strong>建议：</strong></p>
+<ol>
+<li>先用Kimi等对话式AI补补课</li>
+<li>学会基本的语法和概念</li>
+<li>用AI帮你解释你不懂的地方</li>
+<li>不要急着做项目，先把基础打牢</li>
+</ol>
+<h3 id="如果你正在学一门编程语言">如果你正在学一门编程语言<a aria-hidden="true" class="internal" data-no-popover="true" href="#如果你正在学一门编程语言" role="anchor" tabindex="-1"></a></h3>
+<p><strong>建议：</strong></p>
+<ol>
+<li>跟着课程走，但用AI辅助理解</li>
+<li>遇到不懂的概念，用AI补课</li>
+<li>写代码时让AI帮你检查</li>
+<li>定期脱离AI自己写代码练习</li>
+</ol>
+<h3 id="如果你已经学了一阵子想做项目">如果你已经学了一阵子，想做项目<a aria-hidden="true" class="internal" data-no-popover="true" href="#如果你已经学了一阵子想做项目" role="anchor" tabindex="-1"></a></h3>
+<p><strong>建议：</strong></p>
+<ol>
+<li>用Cursor等工具提效</li>
+<li>让AI帮你拆解项目</li>
+<li>自己完成核心代码，让AI优化</li>
+<li>遇到问题先自己想，再问AI</li>
+</ol>
+<h3 id="如果你是计算机专业以后想当程序员">如果你是计算机专业，以后想当程序员<a aria-hidden="true" class="internal" data-no-popover="true" href="#如果你是计算机专业以后想当程序员" role="anchor" tabindex="-1"></a></h3>
+<p><strong>建议：</strong></p>
+<ol>
+<li>GitHub Copilot + VS Code组合拳</li>
+<li>认真刷LeetCode，AI只能辅助</li>
+<li>学会看文档，AI解释不了底层原理</li>
+<li>参加开源项目，真实项目经验比AI更重要</li>
+</ol>
+<h2 id="碎碎念">碎碎念<a aria-hidden="true" class="internal" data-no-popover="true" href="#碎碎念" role="anchor" tabindex="-1"></a></h2>
+<p>写到最后，学姐想说几句掏心窝的话。</p>
+<p>说实话，我学编程的过程真的很曲折。一开始完全听不懂课，差点放弃；后来依赖AI太严重，差点变成”AI的奴隶”；再后来才慢慢找到正确的平衡点。</p>
+<p><strong>编程这件事，最终还是要靠自己的脑子。AI可以帮你提效，但不能替你思考。</strong></p>
+<p>但AI确实是一个超级好的学习工具。它可以：</p>
+<ul>
+<li>24小时在线，随时解答你的疑惑</li>
+<li>用你能听懂的方式解释复杂概念</li>
+<li>帮你发现代码中的问题</li>
+<li>给你练习项目，检验学习成果</li>
+</ul>
+<p><strong>关键在于，你怎么用它。</strong></p>
+<p>用得好，它是良师益友；用不好，它就是偷懒的借口。AI是学编程的好帮手，但别让它替你写代码。你的思考，才是编程最重要的部分。</p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/10.冷门专业学AI/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/0000_目录索引" href="../0000_目录索引/index.html">10.冷门专业学AI 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/10.冷门专业学AI/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/0000_目录索引" href="../0000_目录索引/index.html">10.冷门专业学AI 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划/index.html">留学：1000「高价值」留学基本认知与四年规划</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/出国申请流程" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/出国申请流程" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/出国申请流程/index.html">留学：出国申请流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学文书写作指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学文书写作指南" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学文书写作指南/index.html">留学：1000「高价值」留学文书写作指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/留学：科研与实习经历积累" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/留学：科研与实习经历积累" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/留学：科研与实习经历积累/index.html">留学：留学：科研与实习经历积累</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差/index.html">创业：0000创业高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目/index.html">创业：怎样从0到1开始跑通一个项目</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目/index.html">创业：1000「高价值」适合学生做的低风险创业项目</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划/index.html">1000「高价值」留学基本认知与四年规划</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/出国申请流程" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/出国申请流程" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/出国申请流程/index.html">出国申请流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学文书写作指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学文书写作指南" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学文书写作指南/index.html">1000「高价值」留学文书写作指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/留学：科研与实习经历积累" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/留学：科研与实习经历积累" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/留学：科研与实习经历积累/index.html">留学：科研与实习经历积累</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差/index.html">0000创业高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目/index.html">怎样从0到1开始跑通一个项目</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目/index.html">1000「高价值」适合学生做的低风险创业项目</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/10.冷门专业学AI/AI在论文写作中的应用：从开题到查重" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/AI在论文写作中的应用：从开题到查重" href="../AI在论文写作中的应用：从开题到查重/index.html">AI在论文写作中的应用：从开题到查重</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/10.冷门专业学AI/AI时代人类不可替代的元技能" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/AI时代人类不可替代的元技能" href="../AI时代人类不可替代的元技能/index.html">AI时代人类不可替代的元技能</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/10.冷门专业学AI/AI在求职就业中的应用：从简历到面试" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/AI在求职就业中的应用：从简历到面试" href="../AI在求职就业中的应用：从简历到面试/index.html">AI在求职就业中的应用：从简历到面试</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>冷门专业学AI</code></li>
+<li><code>留学</code></li>
+<li><code>创业</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/10.冷门专业学AI/AI在论文写作中的应用：从开题到查重" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/AI在论文写作中的应用：从开题到查重" href="../AI在论文写作中的应用：从开题到查重/index.html">下一篇：AI在论文写作中的应用：从开题到查重</a></li>
+</ul>
+
+</div>
+</body></html>

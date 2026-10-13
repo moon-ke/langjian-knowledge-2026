@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>线性代数高效学习指南（特征值与特征向量篇） · 浪尖知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body>
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 浪尖知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/12.大学基础公共课/线性代数高效学习指南（特征值与特征向量篇）</div>
+<h1>线性代数高效学习指南（特征值与特征向量篇）</h1>
+
+<h1 id="线性代数高效学习指南特征值与特征向量篇矩阵的灵魂">线性代数高效学习指南（特征值与特征向量篇）：矩阵的”灵魂”<a aria-hidden="true" class="internal" data-no-popover="true" href="#线性代数高效学习指南特征值与特征向量篇矩阵的灵魂" role="anchor" tabindex="-1"></a></h1>
+<p>说实话，特征值和特征向量是线性代数里最深奥的部分。</p>
+<p>它抽象、难懂，但应用极广——从主成分分析到微分方程，从量子力学到机器学习，都离不开特征值。</p>
+<p>今天学长分享特征值与特征向量的学习方法，帮你拿下这个硬骨头。</p>
+<h2 id="特征值与特征向量的定义">特征值与特征向量的定义<a aria-hidden="true" class="internal" data-no-popover="true" href="#特征值与特征向量的定义" role="anchor" tabindex="-1"></a></h2>
+<h3 id="基本定义">基本定义<a aria-hidden="true" class="internal" data-no-popover="true" href="#基本定义" role="anchor" tabindex="-1"></a></h3>
+<p><strong>特征值：</strong> 设A是n阶矩阵，若存在数λ和n维非零向量x，使得Ax = λx，则称λ是A的<strong>特征值</strong>，x是A的<strong>特征向量</strong>。</p>
+<p><strong>几何意义：</strong></p>
+<blockquote>
+<p>特征向量在变换后方向不变（不共线则反方向），只伸缩λ倍。</p>
+</blockquote>
+<p><strong>代数意义：</strong></p>
+<blockquote>
+<p>Ax = λx → (A-λE)x = 0</p>
+</blockquote>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>特征向量的定义就一句话：<strong>在矩阵变换下方向不变的向量。</strong>
+记住这个，几何意义就理解了。</p>
+</blockquote>
+<h3 id="特征多项式">特征多项式<a aria-hidden="true" class="internal" data-no-popover="true" href="#特征多项式" role="anchor" tabindex="-1"></a></h3>
+<p><strong>特征方程：</strong></p>
+<pre><code>|A - λE| = 0
+</code></pre>
+<p><strong>特征多项式：</strong></p>
+<pre><code>f(λ) = |A - λE| = (-1)^n(λ-λ₁)(λ-λ₂)...(λ-λₙ)
+</code></pre>
+<p><strong>重要结论：</strong></p>
+<ul>
+<li>λ₁+λ₂+…+λₙ = tr(A) = a₁₁+a₂₂+…+aₙₙ （迹）</li>
+<li>λ₁·λ₂·…·λₙ = |A| （行列式）</li>
+</ul>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>特征值之和等于矩阵的迹，特征值之积等于行列式。
+<strong>这是检验特征值是否算错的好方法！</strong></p>
+</blockquote>
+<h2 id="特征值与特征向量的计算">特征值与特征向量的计算<a aria-hidden="true" class="internal" data-no-popover="true" href="#特征值与特征向量的计算" role="anchor" tabindex="-1"></a></h2>
+<h3 id="计算步骤">计算步骤<a aria-hidden="true" class="internal" data-no-popover="true" href="#计算步骤" role="anchor" tabindex="-1"></a></h3>
+<pre><code>Step 1：求特征方程 |A-λE| = 0
+Step 2：解特征方程，得到特征值λ₁,λ₂,...,λₙ
+Step 3：对于每个λᵢ，解方程组 (A-λᵢE)x = 0
+Step 4：求基础解系，即为特征向量
+</code></pre>
+<h3 id="具体计算">具体计算<a aria-hidden="true" class="internal" data-no-popover="true" href="#具体计算" role="anchor" tabindex="-1"></a></h3>
+<p><strong>例：求矩阵A = [[2,1],[1,2]]的特征值和特征向量</strong></p>
+<pre><code>Step 1：特征方程
+|A-λE| = |[2-λ, 1],[1, 2-λ]|
+= (2-λ)(2-λ) - 1
+= (2-λ)² - 1
+= λ² - 4λ + 3
+= (λ-1)(λ-3) = 0
+
+Step 2：特征值
+λ₁ = 1, λ₂ = 3
+
+Step 3：求特征向量
+
+对于λ₁ = 1:
+(A-E)x = 0
+[1, 1],[1, 1] → [1, 1],[0, 0]
+x₁ + x₂ = 0
+x = k[-1, 1]^T (k≠0)
+
+对于λ₂ = 3:
+(A-3E)x = 0
+[-1, 1],[1, -1] → [1, -1],[0, 0]
+x₁ - x₂ = 0
+x = k[1, 1]^T (k≠0)
+</code></pre>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>特征向量不唯一（任意非零倍数都是）。
+<strong>但同一个特征值的特征向量共面（线性相关）。</strong></p>
+</blockquote>
+<h2 id="特征值的性质">特征值的性质<a aria-hidden="true" class="internal" data-no-popover="true" href="#特征值的性质" role="anchor" tabindex="-1"></a></h2>
+<h3 id="代数性质">代数性质<a aria-hidden="true" class="internal" data-no-popover="true" href="#代数性质" role="anchor" tabindex="-1"></a></h3>
+<div class="table-container"><table><thead><tr><th>性质</th><th>说明</th></tr></thead><tbody><tr><td>同一特征值的特征向量不唯一</td><td>任意非零倍数</td></tr><tr><td>不同特征值的特征向量线性无关</td><td>重要结论</td></tr><tr><td>k重特征值最多有k个线性无关特征向量</td><td>可能是0</td></tr><tr><td>λ=0是特征值 ⟺ A不可逆</td><td>可逆判别</td></tr><tr><td>A可逆 ⟺ 特征值全非零</td><td>可逆判别</td></tr></tbody></table></div>
+<h3 id="迹与行列式">迹与行列式<a aria-hidden="true" class="internal" data-no-popover="true" href="#迹与行列式" role="anchor" tabindex="-1"></a></h3>
+<p><strong>迹（trace）：</strong></p>
+<pre><code>tr(A) = Σλᵢ = Σaᵢᵢ
+</code></pre>
+<p><strong>行列式：</strong></p>
+<pre><code>|A| = Πλᵢ
+</code></pre>
+<p><strong>重要推论：</strong></p>
+<ul>
+<li>|A| ≠ 0 ⟺ 0不是特征值</li>
+<li>tr(AB) = tr(BA)</li>
+<li>tr(A+B) = tr(A) + tr(B)</li>
+</ul>
+<h2 id="相似矩阵">相似矩阵<a aria-hidden="true" class="internal" data-no-popover="true" href="#相似矩阵" role="anchor" tabindex="-1"></a></h2>
+<h3 id="相似定义">相似定义<a aria-hidden="true" class="internal" data-no-popover="true" href="#相似定义" role="anchor" tabindex="-1"></a></h3>
+<p><strong>定义：</strong> 若存在可逆矩阵P，使得P⁻¹AP = B，则称A相似于B，记作A～B</p>
+<p><strong>性质：</strong></p>
+<ul>
+<li>反身性：A～A</li>
+<li>对称性：A～B ⟹ B～A</li>
+<li>传递性：A～B, B～C ⟹ A～C</li>
+</ul>
+<p><strong>重要定理：</strong></p>
+<pre><code>A～B ⟹
+- |A| = |B|
+- tr(A) = tr(B)
+- 特征值相同（重数也相同）
+- r(A) = r(B)
+</code></pre>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>相似矩阵的本质：<strong>同一个线性变换在不同基下的表示。</strong>
+它们有相同的”本质”，所以特征值相同。</p>
+</blockquote>
+<h3 id="矩阵对角化">矩阵对角化<a aria-hidden="true" class="internal" data-no-popover="true" href="#矩阵对角化" role="anchor" tabindex="-1"></a></h3>
+<p><strong>可对角化条件：</strong></p>
+<pre><code>A可对角化 ⟺ A有n个线性无关特征向量
+</code></pre>
+<p><strong>对角化步骤：</strong></p>
+<pre><code>Step 1：求A的n个线性无关特征向量
+Step 2：以特征向量为列构成矩阵P
+Step 3：Λ = P⁻¹AP = diag(λ₁,λ₂,...,λₙ)
+</code></pre>
+<p><strong>例：</strong></p>
+<pre><code>A = [[2,1],[1,2]]
+特征值：λ₁=1, λ₂=3
+特征向量：p₁=[-1,1], p₂=[1,1]
+
+P = [[-1,1],[1,1]]
+P⁻¹ = (1/2)[[1,-1],[-1,-1]]
+
+Λ = P⁻¹AP = [[1,0],[0,3]]
+</code></pre>
+<h3 id="实对称矩阵的对角化">实对称矩阵的对角化<a aria-hidden="true" class="internal" data-no-popover="true" href="#实对称矩阵的对角化" role="anchor" tabindex="-1"></a></h3>
+<p><strong>特殊性质：</strong></p>
+<ul>
+<li>实对称矩阵必可对角化</li>
+<li>必有n个线性无关特征向量</li>
+<li>不同特征值的特征向量正交</li>
+</ul>
+<p><strong>正交对角化：</strong></p>
+<pre><code>存在正交矩阵Q，使得 Q⁻¹AQ = Q^T A Q = Λ
+</code></pre>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>求特征值和特征向量</li>
+<li>特征向量正交规范化（施密特正交化）</li>
+<li>以正交规范特征向量构成正交矩阵Q</li>
+<li>Λ = Q^T A Q</li>
+</ol>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>实对称矩阵的对角化是考试重点。
+<strong>施密特正交化是难点，但步骤固定，多练就行。</strong></p>
+</blockquote>
+<h2 id="二次型">二次型<a aria-hidden="true" class="internal" data-no-popover="true" href="#二次型" role="anchor" tabindex="-1"></a></h2>
+<h3 id="二次型的定义">二次型的定义<a aria-hidden="true" class="internal" data-no-popover="true" href="#二次型的定义" role="anchor" tabindex="-1"></a></h3>
+<p><strong>二次型：</strong> 含n个变量的二次齐次多项式</p>
+<p><strong>矩阵表示：</strong></p>
+<pre><code>f(x₁,x₂,...,xₙ) = x^T A x
+其中A是对称矩阵
+</code></pre>
+<p><strong>例：</strong></p>
+<pre><code>f(x,y) = x² + 2xy + y²
+= [x, y] [[1, 1],[1, 1]] [x],[y]
+</code></pre>
+<h3 id="二次型的标准形">二次型的标准形<a aria-hidden="true" class="internal" data-no-popover="true" href="#二次型的标准形" role="anchor" tabindex="-1"></a></h3>
+<p><strong>定义：</strong> 只含平方项的二次型</p>
+<p><strong>方法1：配方法</strong></p>
+<p><strong>例：</strong></p>
+<pre><code>f = x₁² + 2x₁x₂ + x₂² + x₂x₃
+= (x₁ + x₂)² + x₂x₃
+= (x₁ + x₂)² + [(x₂ + x₃/2)² - (x₃/2)²]
+= y₁² + y₂² - y₃²
+
+其中：
+y₁ = x₁ + x₂
+y₂ = x₂ + x₃/2
+y₃ = x₃
+</code></pre>
+<p><strong>方法2：正交变换法</strong></p>
+<pre><code>f = x^T A x → y^T Λ y
+其中x = Qy，Q是正交矩阵
+</code></pre>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>求A的特征值和特征向量</li>
+<li>正交规范化构成Q</li>
+<li>写出标准形</li>
+</ol>
+<h3 id="正定二次型">正定二次型<a aria-hidden="true" class="internal" data-no-popover="true" href="#正定二次型" role="anchor" tabindex="-1"></a></h3>
+<p><strong>定义：</strong> 对任意非零x，x^T Ax &gt; 0</p>
+<p><strong>判别方法：</strong></p>
+<div class="table-container"><table><thead><tr><th>方法</th><th>条件</th></tr></thead><tbody><tr><td>特征值</td><td>所有特征值 &gt; 0</td></tr><tr><td>顺序主子式</td><td>所有顺序主子式 &gt; 0</td></tr><tr><td>定义</td><td>对任意x≠0，f&gt;0</td></tr></tbody></table></div>
+<p><strong>顺序主子式：</strong></p>
+<div class="table-container"><table><thead><tr><th>阶数</th><th>主子式</th></tr></thead><tbody><tr><td>1阶</td><td>a₁₁</td></tr><tr><td>2阶</td><td></td></tr><tr><td>3阶</td><td></td></tr></tbody></table></div>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>正定二次型的判别是考试重点。
+<strong>顺序主子式法最常用，也最简单。</strong></p>
+</blockquote>
+<h2 id="特征值的应用">特征值的应用<a aria-hidden="true" class="internal" data-no-popover="true" href="#特征值的应用" role="anchor" tabindex="-1"></a></h2>
+<h3 id="求矩阵的幂">求矩阵的幂<a aria-hidden="true" class="internal" data-no-popover="true" href="#求矩阵的幂" role="anchor" tabindex="-1"></a></h3>
+<p><strong>方法：</strong></p>
+<pre><code>A = PΛP⁻¹
+A^k = PΛ^k P⁻¹
+= P diag(λ₁^k,...,λₙ^k) P⁻¹
+</code></pre>
+<p><strong>例：</strong></p>
+<pre><code>A = [[2,1],[1,2]], A = PΛP⁻¹
+A^k = P diag(1^k, 3^k) P⁻¹
+= P diag(1, 3^k) P⁻¹
+</code></pre>
+<h3 id="求矩阵指数微分方程">求矩阵指数（微分方程）<a aria-hidden="true" class="internal" data-no-popover="true" href="#求矩阵指数微分方程" role="anchor" tabindex="-1"></a></h3>
+<p><strong>在微分方程中的应用：</strong></p>
+<pre><code>x' = Ax → x(t) = e^(At) x(0)
+e^(At) = P e^(Λt) P⁻¹
+</code></pre>
+<h3 id="主成分分析pca">主成分分析（PCA）<a aria-hidden="true" class="internal" data-no-popover="true" href="#主成分分析pca" role="anchor" tabindex="-1"></a></h3>
+<p><strong>原理：</strong></p>
+<ul>
+<li>数据协方差矩阵的特征值反映主成分的方差</li>
+<li>特征向量是主成分的方向</li>
+</ul>
+<h3 id="量子力学">量子力学<a aria-hidden="true" class="internal" data-no-popover="true" href="#量子力学" role="anchor" tabindex="-1"></a></h3>
+<p><strong>定态薛定谔方程：</strong></p>
+<pre><code>Hψ = Eψ
+</code></pre>
+<p>E是哈密顿算符H的特征值。</p>
+<h2 id="学长私房话">学长私房话<a aria-hidden="true" class="internal" data-no-popover="true" href="#学长私房话" role="anchor" tabindex="-1"></a></h2>
+<p>说实话，特征值和特征向量是线性代数里最”高级”的内容。</p>
+<p><strong>学好了，说明你对线性代数有了深刻理解。</strong></p>
+<blockquote>
+<p><strong>学长的学习方法：</strong></p>
+<ol>
+<li><strong>理解定义</strong>
+<ul>
+<li>几何意义要理解</li>
+<li>特征向量在变换下方向不变</li>
+</ul>
+</li>
+<li><strong>熟练计算</strong>
+<ul>
+<li>求特征值、解方程组要多练</li>
+<li>施密特正交化要掌握</li>
+</ul>
+</li>
+<li><strong>掌握性质</strong>
+<ul>
+<li>迹与行列式的关系</li>
+<li>相似矩阵的性质</li>
+</ul>
+</li>
+<li><strong>理解应用</strong>
+<ul>
+<li>对角化、二次型</li>
+<li>了解实际应用场景</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>学长踩过的坑</strong></p>
+<p>我大一下学特征值，总是把特征向量算错。
+后来发现，问题出在<strong>解方程组时漏掉自由变量</strong>。
+用基础解系表示时，一定要把<strong>所有自由变量</strong>写出来。
+<strong>细节决定成败！</strong></p>
+</blockquote>
+<p><strong>特征值和特征向量是线性代数最美的部分。</strong></p>
+<p><strong>它揭示了矩阵的”本质”——特征。</strong></p>
+<p><strong>学好了，你就能真正理解线性代数的精髓！</strong></p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/0000_目录索引" href="../0000_目录索引/index.html">12.大学基础公共课 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/0000_目录索引" href="../0000_目录索引/index.html">12.大学基础公共课 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li>暂无明确跨库关联</li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/线性代数满分指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/线性代数满分指南" href="../线性代数满分指南/index.html">线性代数满分指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/线性代数高效学习指南（矩阵篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/线性代数高效学习指南（矩阵篇）" href="../线性代数高效学习指南（矩阵篇）/index.html">线性代数高效学习指南（矩阵篇）</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/C语言高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/C语言高效学习指南" href="../C语言高效学习指南/index.html">C语言高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/思政课时政热点关联法" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/思政课时政热点关联法" href="../思政课时政热点关联法/index.html">思政课时政热点关联法</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/Java高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/Java高效学习指南" href="../Java高效学习指南/index.html">Java高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/思政课高效学习指南（习近平思想篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/思政课高效学习指南（习近平思想篇）" href="../思政课高效学习指南（习近平思想篇）/index.html">思政课高效学习指南（习近平思想篇）</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/编程语言高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/编程语言高效学习指南" href="../编程语言高效学习指南/index.html">编程语言高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南" href="../大学化学高效学习指南/index.html">大学化学高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（理论篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（理论篇）" href="../大学化学高效学习指南（理论篇）/index.html">大学化学高效学习指南（理论篇）</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（实验篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（实验篇）" href="../大学化学高效学习指南（实验篇）/index.html">大学化学高效学习指南（实验篇）</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>大学基础公共课</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/线性代数满分指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/线性代数满分指南" href="../线性代数满分指南/index.html">下一篇：线性代数满分指南</a></li>
+</ul>
+
+</div>
+</body></html>

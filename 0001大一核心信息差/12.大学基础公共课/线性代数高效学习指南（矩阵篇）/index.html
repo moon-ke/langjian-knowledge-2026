@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>线性代数高效学习指南（矩阵篇） · 浪尖知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body>
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 浪尖知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/12.大学基础公共课/线性代数高效学习指南（矩阵篇）</div>
+<h1>线性代数高效学习指南（矩阵篇）</h1>
+
+<h1 id="线性代数高效学习指南矩阵篇从行列式到矩阵的完整攻略">线性代数高效学习指南（矩阵篇）：从行列式到矩阵的完整攻略<a aria-hidden="true" class="internal" data-no-popover="true" href="#线性代数高效学习指南矩阵篇从行列式到矩阵的完整攻略" role="anchor" tabindex="-1"></a></h1>
+<p>说实话，线性代数是大学数学里最”结构化”的一门课。</p>
+<p>它的概念、定理都很抽象，但一旦理解了，就会发现其实很有规律。</p>
+<p>今天学长分享矩阵运算与秩的学习方法，帮你建立线性代数的框架。</p>
+<h2 id="行列式矩阵的基础">行列式：矩阵的基础<a aria-hidden="true" class="internal" data-no-popover="true" href="#行列式矩阵的基础" role="anchor" tabindex="-1"></a></h2>
+<h3 id="行列式的定义">行列式的定义<a aria-hidden="true" class="internal" data-no-popover="true" href="#行列式的定义" role="anchor" tabindex="-1"></a></h3>
+<p><strong>二阶行列式：</strong></p>
+<pre><code>|a₁₁  a₁₂|
+|a₂₁  a₂₂| = a₁₁a₂₂ - a₁₂a₂₁
+</code></pre>
+<p><strong>三阶行列式（沙路法）：</strong></p>
+<pre><code>|a₁₁  a₁₂  a₁₃|
+|a₂₁  a₂₂  a₂₃| = a₁₁a₂₂a₃₃ + a₁₂a₂₃a₃₁ + a₁₃a₂₁a₃₂
+|a₃₁  a₃₂  a₃₃|     - a₁₃a₂₂a₃₁ - a₁₂a₂₁a₃₃ - a₁₁a₂₃a₃₂
+</code></pre>
+<h3 id="行列式的性质">行列式的性质<a aria-hidden="true" class="internal" data-no-popover="true" href="#行列式的性质" role="anchor" tabindex="-1"></a></h3>
+<p><strong>基本性质：</strong></p>
+<div class="table-container"><table><thead><tr><th>性质</th><th>说明</th></tr></thead><tbody><tr><td>转置相等</td><td>D = D^T</td></tr><tr><td>互换行</td><td>变号</td></tr><tr><td>两行相等</td><td>D = 0</td></tr><tr><td>行元素公因子</td><td>可提出</td></tr><tr><td>两行成比例</td><td>D = 0</td></tr><tr><td>某行为零</td><td>D = 0</td></tr><tr><td>行加性</td><td>可拆成两个行列式之和</td></tr></tbody></table></div>
+<p><strong>重要推论：</strong></p>
+<ul>
+<li>某行全为0 → D=0</li>
+<li>两行相同 → D=0</li>
+<li>两行成比例 → D=0</li>
+</ul>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>行列式的性质是简化计算的基础。
+<strong>看到行列式，先想能不能用性质化简。</strong></p>
+</blockquote>
+<h3 id="行列式的计算">行列式的计算<a aria-hidden="true" class="internal" data-no-popover="true" href="#行列式的计算" role="anchor" tabindex="-1"></a></h3>
+<h4 id="按行列展开">按行（列）展开<a aria-hidden="true" class="internal" data-no-popover="true" href="#按行列展开" role="anchor" tabindex="-1"></a></h4>
+<p><strong>按第i行展开：</strong></p>
+<pre><code>D = aᵢ₁Aᵢ₁ + aᵢ₂Aᵢ₂ + ... + aᵢₙAᵢₙ
+</code></pre>
+<p>其中Aᵢⱼ是aᵢⱼ的代数余子式（余子式Mᵢⱼ乘以(-1)^(i+j)）</p>
+<h4 id="常用技巧">常用技巧<a aria-hidden="true" class="internal" data-no-popover="true" href="#常用技巧" role="anchor" tabindex="-1"></a></h4>
+<p><strong>技巧1：化三角形</strong></p>
+<blockquote>
+<p>用性质把行列式化成上（下）三角形，主对角线元素乘积即为行列式值。</p>
+</blockquote>
+<p><strong>技巧2：加边法</strong></p>
+<blockquote>
+<p>行列式加一行（列），在满足条件下不影响值。</p>
+</blockquote>
+<p><strong>技巧3：范德蒙行列式</strong></p>
+<pre><code>|1      1       1      ... 1     |
+|a₁    a₂      a₃      ... aₙ   |
+|a₁²   a₂²     a₃²     ... aₙ²  |
+|...   ...     ...     ... ...   |
+|a₁^(n-1) a₂^(n-1) a₃^(n-1) ... aₙ^(n-1)|
+
+= ∏(aⱼ - aᵢ), i&lt;j
+</code></pre>
+<p><strong>技巧4：递推法</strong></p>
+<blockquote>
+<p>用展开式建立递推关系。</p>
+</blockquote>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>行列式计算没有万能方法。
+<strong>观察结构，选择最合适的方法。</strong>
+多做题就会有感觉。</p>
+</blockquote>
+<h2 id="矩阵线性代数的核心">矩阵：线性代数的核心<a aria-hidden="true" class="internal" data-no-popover="true" href="#矩阵线性代数的核心" role="anchor" tabindex="-1"></a></h2>
+<h3 id="矩阵的定义">矩阵的定义<a aria-hidden="true" class="internal" data-no-popover="true" href="#矩阵的定义" role="anchor" tabindex="-1"></a></h3>
+<p><strong>矩阵：</strong> m×n个数排成的数表</p>
+<p><strong>特殊矩阵：</strong></p>
+<div class="table-container"><table><thead><tr><th>类型</th><th>定义</th><th>记号</th></tr></thead><tbody><tr><td>方阵</td><td>m=n</td><td>n阶方阵</td></tr><tr><td>行矩阵</td><td>1×n</td><td>-</td></tr><tr><td>列矩阵</td><td>m×1</td><td>-</td></tr><tr><td>零矩阵</td><td>全部元素为0</td><td>O</td></tr><tr><td>对角矩阵</td><td>除主对角线外均为0</td><td>diag(λ₁,λ₂,…,λₙ)</td></tr><tr><td>单位矩阵</td><td>对角线为1，其余为0</td><td>E或I</td></tr><tr><td>数量矩阵</td><td>对角线为k，其余为0</td><td>kE</td></tr><tr><td>三角形矩阵</td><td>上（下）三角</td><td>-</td></tr></tbody></table></div>
+<h3 id="矩阵的运算">矩阵的运算<a aria-hidden="true" class="internal" data-no-popover="true" href="#矩阵的运算" role="anchor" tabindex="-1"></a></h3>
+<h4 id="加法与数乘">加法与数乘<a aria-hidden="true" class="internal" data-no-popover="true" href="#加法与数乘" role="anchor" tabindex="-1"></a></h4>
+<p><strong>加法：</strong> 同型矩阵对应元素相加</p>
+<p><strong>数乘：</strong> 数乘每个元素</p>
+<p><strong>运算规律：</strong></p>
+<ul>
+<li>A+B = B+A</li>
+<li>(A+B)+C = A+(B+C)</li>
+<li>A+O = A</li>
+<li>A+(-A) = O</li>
+<li>1·A = A</li>
+<li>k(lA) = (kl)A</li>
+<li>(k+l)A = kA + lA</li>
+<li>k(A+B) = kA + kB</li>
+</ul>
+<h4 id="矩阵乘法">矩阵乘法<a aria-hidden="true" class="internal" data-no-popover="true" href="#矩阵乘法" role="anchor" tabindex="-1"></a></h4>
+<p><strong>条件：</strong> A是m×s，B是s×n，则AB是m×n</p>
+<p><strong>计算：</strong> Cij = A的第i行与B的第j列对应元素乘积之和</p>
+<pre><code>Cij = Σ aᵢₖ · bₖⱼ (k=1 to s)
+</code></pre>
+<p><strong>运算规律（注意不是全部满足）：</strong></p>
+<ul>
+<li>(AB)C = A(BC)</li>
+<li>A(B+C) = AB + AC</li>
+<li>(B+C)A = BA + CA</li>
+<li>k(AB) = (kA)B = A(kB)</li>
+<li>AE = EA = A</li>
+</ul>
+<p><strong>注意：</strong></p>
+<pre><code>AB ≠ BA（不一定成立）
+AB = O ⇏ A=O或B=O
+AB = AC ⇏ B=C（除非A可逆）
+</code></pre>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>矩阵乘法不满足交换律，这是最容易出错的地方。
+<strong>做矩阵乘法时，一定要按”行×列”的顺序来。</strong></p>
+</blockquote>
+<h4 id="矩阵的转置">矩阵的转置<a aria-hidden="true" class="internal" data-no-popover="true" href="#矩阵的转置" role="anchor" tabindex="-1"></a></h4>
+<p><strong>定义：</strong> 将矩阵的行换成列</p>
+<p id="T"><strong>记号：</strong> A</p>
+<p><strong>性质：</strong></p>
+<ul>
+<li>(A^T)^T = A</li>
+<li>(A+B)^T = A^T + B</li>
+<li>(kA)^T = kA</li>
+<li>(AB)^T = B^T A</li>
+</ul>
+<p><strong>对称矩阵：</strong> A^T = A
+<strong>反对称矩阵：</strong> A^T = -A</p>
+<h4 id="方阵的幂">方阵的幂<a aria-hidden="true" class="internal" data-no-popover="true" href="#方阵的幂" role="anchor" tabindex="-1"></a></h4>
+<p><strong>定义：</strong> A^k = A·A·…·A（k个A相乘）</p>
+<p><strong>常用技巧：</strong></p>
+<ul>
+<li>找规律（有时需要化简表达式）</li>
+<li>数学归纳法</li>
+<li>秩1矩阵的性质</li>
+</ul>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>方阵的幂计算是难点。
+<strong>关键找规律，找到规律就简单了。</strong></p>
+</blockquote>
+<h2 id="逆矩阵">逆矩阵<a aria-hidden="true" class="internal" data-no-popover="true" href="#逆矩阵" role="anchor" tabindex="-1"></a></h2>
+<h3 id="逆矩阵的定义">逆矩阵的定义<a aria-hidden="true" class="internal" data-no-popover="true" href="#逆矩阵的定义" role="anchor" tabindex="-1"></a></h3>
+<p><strong>定义：</strong> 若存在矩阵B，使得AB = BA = E，则称A可逆，B是A的逆矩阵，记作A⁻¹</p>
+<p><strong>重要性质：</strong></p>
+<ul>
+<li>可逆矩阵必为方阵</li>
+<li>若AB=E，则BA=E（A必可逆）</li>
+<li>A的逆矩阵唯一</li>
+</ul>
+<h3 id="伴随矩阵法求逆">伴随矩阵法求逆<a aria-hidden="true" class="internal" data-no-popover="true" href="#伴随矩阵法求逆" role="anchor" tabindex="-1"></a></h3>
+<p><strong>公式：</strong></p>
+<pre><code>A⁻¹ = A* / |A|
+
+其中 A* 是A的伴随矩阵（A*的(i,j)元是A的(j,i)元的代数余子式）
+</code></pre>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>伴随矩阵法适合小阶矩阵（2阶、3阶）。
+<strong>高阶矩阵一般用初等变换法求逆。</strong></p>
+</blockquote>
+<h3 id="初等变换法求逆">初等变换法求逆<a aria-hidden="true" class="internal" data-no-popover="true" href="#初等变换法求逆" role="anchor" tabindex="-1"></a></h3>
+<p><strong>原理：</strong></p>
+<pre><code>[A|E] → [E|A⁻¹]
+</code></pre>
+<p><strong>行初等变换（行变换法）：</strong></p>
+<pre><code>[A|E] → 初等行变换 → [E|A⁻¹]
+</code></pre>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>写增广矩阵[A|E]</li>
+<li>对A进行行变换，同时对E进行同样的变换</li>
+<li>当A变成E时，E就变成了A⁻¹</li>
+</ol>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>初等变换法是求逆矩阵的通用方法。
+<strong>必须熟练掌握！</strong></p>
+</blockquote>
+<h3 id="逆矩阵的性质">逆矩阵的性质<a aria-hidden="true" class="internal" data-no-popover="true" href="#逆矩阵的性质" role="anchor" tabindex="-1"></a></h3>
+<div class="table-container"><table><thead><tr><th>性质</th><th>说明</th></tr></thead><tbody><tr><td>(A⁻¹)⁻¹ = A</td><td>逆的逆是原矩阵</td></tr><tr><td>(kA)⁻¹ = (1/k)A⁻¹</td><td>数乘的逆</td></tr><tr><td>(AB)⁻¹ = B⁻¹A⁻¹</td><td>乘积的逆</td></tr><tr><td>(A⁻¹)^T = (A^T)⁻¹</td><td>转置的逆</td></tr></tbody></table></div>
+<h2 id="矩阵的秩">矩阵的秩<a aria-hidden="true" class="internal" data-no-popover="true" href="#矩阵的秩" role="anchor" tabindex="-1"></a></h2>
+<h3 id="秩的定义">秩的定义<a aria-hidden="true" class="internal" data-no-popover="true" href="#秩的定义" role="anchor" tabindex="-1"></a></h3>
+<p><strong>k阶子式：</strong> 在矩阵A中任取k行k列，位于交叉处的k²个元素构成的行列式</p>
+<p><strong>矩阵的秩：</strong> A的非零子式的最高阶数，记作r(A)</p>
+<p><strong>等价定义：</strong></p>
+<ul>
+<li>r(A)=r ↔ A中至少有一个r阶子式不为0，所有r+1阶子式均为0</li>
+<li>r(A)=r ↔ A的等价标准形为 diag(Eᵣ, O, O) （对角块）</li>
+</ul>
+<h3 id="秩的性质">秩的性质<a aria-hidden="true" class="internal" data-no-popover="true" href="#秩的性质" role="anchor" tabindex="-1"></a></h3>
+<div class="table-container"><table><thead><tr><th>性质</th><th>说明</th></tr></thead><tbody><tr><td>0 ≤ r(A) ≤ min(m,n)</td><td>m×n矩阵</td></tr><tr><td>r(A) = r(A^T)</td><td>转置不改变秩</td></tr><tr><td>r(kA) = r(A)</td><td>非零数乘不改变秩</td></tr><tr><td>r(AB) ≤ min(r(A), r(B))</td><td>乘积的秩</td></tr><tr><td>r(A+B) ≤ r(A) + r(B)</td><td>和的秩</td></tr><tr><td>r(A) + r(B) - n ≤ r(AB)</td><td>乘积的秩（下界）</td></tr></tbody></table></div>
+<h3 id="秩的计算">秩的计算<a aria-hidden="true" class="internal" data-no-popover="true" href="#秩的计算" role="anchor" tabindex="-1"></a></h3>
+<p><strong>方法1：定义法</strong></p>
+<blockquote>
+<p>计算非零子式的最高阶数</p>
+</blockquote>
+<p><strong>方法2：初等变换法</strong></p>
+<blockquote>
+<p>用初等行变换化行阶梯形，非零行数即为秩</p>
+</blockquote>
+<p><strong>方法3：同时行列变换</strong></p>
+<blockquote>
+<p>既可用行变换也可用列变换</p>
+</blockquote>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>秩的计算是线性代数的基础技能。
+<strong>化行阶梯形是最常用、最简单的方法。</strong></p>
+</blockquote>
+<h3 id="秩的应用">秩的应用<a aria-hidden="true" class="internal" data-no-popover="true" href="#秩的应用" role="anchor" tabindex="-1"></a></h3>
+<p><strong>1. 判断向量组线性相关性</strong></p>
+<pre><code>向量组α₁,α₂,...,αₛ构成矩阵A = [α₁,α₂,...,αₛ]
+r(A) = s → 线性无关
+r(A) &lt; s → 线性相关
+</code></pre>
+<p><strong>2. 判断方程组解的情况</strong></p>
+<pre><code>Ax = b 有解 ⟺ r(A) = r(A|b)
+有唯一解 ⟺ r(A) = r(A|b) = n
+无穷多解 ⟺ r(A) = r(A|b) &lt; n
+</code></pre>
+<p><strong>3. 求最大无关组</strong></p>
+<blockquote>
+<p>初等列变换化行最简形</p>
+</blockquote>
+<h2 id="分块矩阵">分块矩阵<a aria-hidden="true" class="internal" data-no-popover="true" href="#分块矩阵" role="anchor" tabindex="-1"></a></h2>
+<h3 id="分块原则">分块原则<a aria-hidden="true" class="internal" data-no-popover="true" href="#分块原则" role="anchor" tabindex="-1"></a></h3>
+<p><strong>按行列分块：</strong> 根据需要划分</p>
+<p><strong>常用分块：</strong></p>
+<div class="table-container"><table><thead><tr><th>分块方式</th><th>适用情况</th></tr></thead><tbody><tr><td>按列分块</td><td>讨论线性表示</td></tr><tr><td>按行分块</td><td>讨论线性方程组</td></tr><tr><td>对角分块</td><td>简化运算</td></tr></tbody></table></div>
+<h3 id="分块运算">分块运算<a aria-hidden="true" class="internal" data-no-popover="true" href="#分块运算" role="anchor" tabindex="-1"></a></h3>
+<p><strong>加法：</strong> 同维分块，对应块相加</p>
+<p><strong>数乘：</strong> 数乘每个块</p>
+<p><strong>乘法：</strong> 块之间符合矩阵乘法规则</p>
+<p><strong>转置：</strong> 块转置，元素也转置</p>
+<p><strong>分块对角矩阵：</strong></p>
+<pre><code>A = diag(A₁, A₂, ..., Aₛ)
+
+则 |A| = |A₁|·|A₂|·...·|Aₛ|
+A⁻¹ = diag(A₁⁻¹, A₂⁻¹, ..., Aₛ⁻¹)
+</code></pre>
+<h2 id="初等矩阵">初等矩阵<a aria-hidden="true" class="internal" data-no-popover="true" href="#初等矩阵" role="anchor" tabindex="-1"></a></h2>
+<h3 id="初等矩阵的定义">初等矩阵的定义<a aria-hidden="true" class="internal" data-no-popover="true" href="#初等矩阵的定义" role="anchor" tabindex="-1"></a></h3>
+<p><strong>三种初等矩阵：</strong></p>
+<div class="table-container"><table><thead><tr><th>类型</th><th>行变换</th><th>矩阵形式</th></tr></thead><tbody><tr><td>E(i,j)</td><td>交换i,j两行</td><td>对调第i,j行</td></tr><tr><td>E(i(k))</td><td>第i行乘k</td><td>第i行乘k</td></tr><tr><td>E(i,j(k))</td><td>第i行加第j行的k倍</td><td>第i行加第j行的k倍</td></tr></tbody></table></div>
+<h3 id="初等矩阵的性质">初等矩阵的性质<a aria-hidden="true" class="internal" data-no-popover="true" href="#初等矩阵的性质" role="anchor" tabindex="-1"></a></h3>
+<p><strong>性质1：</strong> 初等矩阵左乘A，相当于对A做相应的行变换</p>
+<p><strong>性质2：</strong> 初等矩阵右乘A，相当于对A做相应的列变换</p>
+<p><strong>性质3：</strong> 初等矩阵都是可逆的</p>
+<p><strong>性质4：</strong> 可逆矩阵可以表示为有限个初等矩阵的乘积</p>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>初等矩阵是联系初等变换和矩阵乘法的桥梁。
+<strong>记住：左乘做行变换，右乘做列变换。</strong></p>
+</blockquote>
+<h2 id="学长私房话">学长私房话<a aria-hidden="true" class="internal" data-no-popover="true" href="#学长私房话" role="anchor" tabindex="-1"></a></h2>
+<p>说实话，矩阵是线性代数的核心。</p>
+<p><strong>行列式是工具，矩阵是主角。</strong></p>
+<blockquote>
+<p><strong>学长的学习方法：</strong></p>
+<ol>
+<li><strong>理解概念</strong>
+<ul>
+<li>矩阵和行列式的区别要清楚</li>
+<li>秩的几何意义要理解</li>
+</ul>
+</li>
+<li><strong>熟练计算</strong>
+<ul>
+<li>矩阵乘法要多练</li>
+<li>求逆矩阵要熟练</li>
+</ul>
+</li>
+<li><strong>掌握性质</strong>
+<ul>
+<li>秩的性质要会用</li>
+<li>分块矩阵运算要掌握</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>学长踩过的坑</strong></p>
+<p>我大一学线代，矩阵乘法总是算错。
+后来我发现，问题出在<strong>不按规则来</strong>。
+严格按照”行×列”的规则，一步步算，就不会错。
+<strong>按规则来，就不会出错！</strong></p>
+</blockquote>
+<p><strong>线代学习的关键是理解结构，掌握规则，多做练习！</strong></p>
+<p><strong>加油！</strong></p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/0000_目录索引" href="../0000_目录索引/index.html">12.大学基础公共课 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/0000_目录索引" href="../0000_目录索引/index.html">12.大学基础公共课 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li>暂无明确跨库关联</li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/线性代数高效学习指南（特征值与特征向量篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/线性代数高效学习指南（特征值与特征向量篇）" href="../线性代数高效学习指南（特征值与特征向量篇）/index.html">线性代数高效学习指南（特征值与特征向量篇）</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/思政课时政热点关联法" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/思政课时政热点关联法" href="../思政课时政热点关联法/index.html">思政课时政热点关联法</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/线性代数满分指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/线性代数满分指南" href="../线性代数满分指南/index.html">线性代数满分指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/思政课高效学习指南（习近平思想篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/思政课高效学习指南（习近平思想篇）" href="../思政课高效学习指南（习近平思想篇）/index.html">思政课高效学习指南（习近平思想篇）</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/C语言高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/C语言高效学习指南" href="../C语言高效学习指南/index.html">C语言高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/思政课高效学习指南（思想道德与法治篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/思政课高效学习指南（思想道德与法治篇）" href="../思政课高效学习指南（思想道德与法治篇）/index.html">思政课高效学习指南（思想道德与法治篇）</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/编程语言高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/编程语言高效学习指南" href="../编程语言高效学习指南/index.html">编程语言高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南" href="../大学化学高效学习指南/index.html">大学化学高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（理论篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（理论篇）" href="../大学化学高效学习指南（理论篇）/index.html">大学化学高效学习指南（理论篇）</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（实验篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（实验篇）" href="../大学化学高效学习指南（实验篇）/index.html">大学化学高效学习指南（实验篇）</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>大学基础公共课</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/线性代数高效学习指南（特征值与特征向量篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/线性代数高效学习指南（特征值与特征向量篇）" href="../线性代数高效学习指南（特征值与特征向量篇）/index.html">下一篇：线性代数高效学习指南（特征值与特征向量篇）</a></li>
+</ul>
+
+</div>
+</body></html>

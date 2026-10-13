@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI的常见研究领域 · 浪尖知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body>
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 浪尖知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/10.冷门专业学AI/AI的常见研究领域</div>
+<h1>AI的常见研究领域</h1>
+
+<h1 id="ai的常见研究领域">AI的常见研究领域<a aria-hidden="true" class="internal" data-no-popover="true" href="#ai的常见研究领域" role="anchor" tabindex="-1"></a></h1>
+<p>Yo，我是浩然，CS科班出身，GitHub万星项目维护者。今天从技术视角给你们捋一捋AI的核心研究领域。不整虚的，直接上干货。</p>
+<h2 id="1-计算机视觉-computer-vision">1. 计算机视觉 (Computer Vision)<a aria-hidden="true" class="internal" data-no-popover="true" href="#1-计算机视觉-computer-vision" role="anchor" tabindex="-1"></a></h2>
+<p><strong>干嘛的？</strong> 教计算机”看懂”图片和视频。</p>
+<p>说白了就是让机器有眼睛。你手机解锁用的人脸识别、扫码支付、抖音的美颜滤镜、马路上的车牌识别、无人驾驶汽车感知路况——全是这玩意儿。</p>
+<p><strong>核心原理</strong>：就是让模型学会从像素里提取特征。比如一张猫的照片，模型会逐层识别：边缘→纹理→轮廓→语义概念”猫”。</p>
+<p><strong>实用场景</strong>：</p>
+<ul>
+<li>图像分类、目标检测</li>
+<li>人脸识别、姿态估计</li>
+<li>图像分割、自动驾驶感知</li>
+</ul>
+<figure data-rehype-pretty-code-figure=""><pre data-language="python" data-theme="github-light github-dark" tabindex="0"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line=""><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># 用Python调用视觉模型的简单示例</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">import</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> torch</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">model </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> torch.hub.load(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">'pytorch/vision'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">'resnet50'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">pretrained</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># 输入图片 → 输出类别概率</span></span></code></pre></figure>
+<h2 id="2-自然语言处理-natural-language-processing---nlp">2. 自然语言处理 (Natural Language Processing - NLP)<a aria-hidden="true" class="internal" data-no-popover="true" href="#2-自然语言处理-natural-language-processing---nlp" role="anchor" tabindex="-1"></a></h2>
+<p><strong>干嘛的？</strong> 教计算机”听懂”和”会说”人话。</p>
+<p>Siri、小爱同学、微信翻译、垃圾邮件过滤——都是NLP。你跟AI助手对话、让AI帮你写文章、翻译外语文档，全靠NLP。</p>
+<p><strong>核心任务</strong>：</p>
+<ul>
+<li><strong>NLU（理解）</strong>：让机器看懂你写的啥</li>
+<li><strong>NLG（生成）</strong>：让机器写出人话</li>
+</ul>
+<p><strong>技术演进</strong>：从RNN→LSTM→Transformer，GPT就是NLP的产物。</p>
+<figure data-rehype-pretty-code-figure=""><pre data-language="python" data-theme="github-light github-dark" tabindex="0"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line=""><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># 调用大语言模型的简单示例</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">response </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> openai.ChatCompletion.create(</span></span>
+<span data-line=""><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">model</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">"gpt-4"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line=""><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">messages</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[{</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">"role"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">"user"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">"content"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">"解释一下什么是过拟合"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}]</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span></code></pre></figure>
+<h2 id="3-机器学习-machine-learning">3. 机器学习 (Machine Learning)<a aria-hidden="true" class="internal" data-no-popover="true" href="#3-机器学习-machine-learning" role="anchor" tabindex="-1"></a></h2>
+<p><strong>干嘛的？</strong> 让计算机自己从数据里”学”出规律。</p>
+<p>这是AI的核心——不是人写死规则，而是让机器自己发现规律。你刷抖音的推荐算法、淘宝的”猜你喜欢”、垃圾邮件自动识别，全是机器学习。</p>
+<p><strong>三大类型</strong>：</p>
+<div class="table-container"><table><thead><tr><th>类型</th><th>特点</th><th>例子</th></tr></thead><tbody><tr><td><strong>监督学习</strong></td><td>有标签，数据有正确答案</td><td>猫狗分类、房价预测</td></tr><tr><td><strong>无监督学习</strong></td><td>无标签，让模型自己找规律</td><td>用户分群、异常检测</td></tr><tr><td><strong>强化学习</strong></td><td>通过奖励信号学习策略</td><td>AlphaGo、游戏AI</td></tr></tbody></table></div>
+<p><strong>重要概念</strong>：损失函数、优化器、过拟合/欠拟合、梯度下降。</p>
+<h2 id="4-机器人学-robotics">4. 机器人学 (Robotics)<a aria-hidden="true" class="internal" data-no-popover="true" href="#4-机器人学-robotics" role="anchor" tabindex="-1"></a></h2>
+<p><strong>干嘛的？</strong> 给AI一个身体，让它跟物理世界交互。</p>
+<p>工厂里的机械臂、扫地机器人、能做手术的达芬奇机器人、火星探测器——都是机器人学。把AI的”大脑”和实体机器结合起来。</p>
+<p><strong>核心挑战</strong>：</p>
+<ul>
+<li>感知（视觉、触觉、力反馈）</li>
+<li>规划（路径规划、运动规划）</li>
+<li>控制（精确执行）</li>
+</ul>
+<h2 id="5-语音识别-speech-recognition">5. 语音识别 (Speech Recognition)<a aria-hidden="true" class="internal" data-no-popover="true" href="#5-语音识别-speech-recognition" role="anchor" tabindex="-1"></a></h2>
+<p><strong>干嘛的？</strong> 把人说的声音转成文字。</p>
+<p>微信语音转文字、会议实时字幕、语音助手听懂你说话——都是这技术。本质上是把声波信号转成文本序列。</p>
+<p><strong>技术链路</strong>：声波→特征提取→声学模型→语言模型→文字输出。</p>
+<h2 id="总结ai系统的身体部位">总结：AI系统的”身体部位”<a aria-hidden="true" class="internal" data-no-popover="true" href="#总结ai系统的身体部位" role="anchor" tabindex="-1"></a></h2>
+<p>如果把AI比作一个人：</p>
+<div class="table-container"><table><thead><tr><th>领域</th><th>相当于</th><th>功能</th></tr></thead><tbody><tr><td><strong>机器学习</strong></td><td>大脑</td><td>通用学习能力</td></tr><tr><td><strong>计算机视觉</strong></td><td>眼睛</td><td>图像/视频理解</td></tr><tr><td><strong>NLP</strong></td><td>嘴巴</td><td>语言生成与理解</td></tr><tr><td><strong>语音识别</strong></td><td>耳朵</td><td>声音→文字</td></tr><tr><td><strong>机器人学</strong></td><td>手脚</td><td>物理世界交互</td></tr></tbody></table></div>
+<h2 id="-浩然学长推荐">💻 浩然学长推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#-浩然学长推荐" role="anchor" tabindex="-1"></a></h2>
+<p>想入门这些领域？给你指个路：</p>
+<ul>
+<li><strong>CV</strong>：学OpenCV、PyTorchvision，配合吴恩达课程</li>
+<li><strong>NLP</strong>：直接用Hugging Face套件入门</li>
+<li><strong>ML</strong>：Andrew Ng的机器学习课+ Kaggle实战</li>
+<li><strong>语音</strong>：WebRTC、Whisper API</li>
+</ul>
+<p>别光学理论，代码跑起来才是真会。</p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/10.冷门专业学AI/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/0000_目录索引" href="../0000_目录索引/index.html">10.冷门专业学AI 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/10.冷门专业学AI/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/0000_目录索引" href="../0000_目录索引/index.html">10.冷门专业学AI 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差/index.html">创业：0000创业高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目/index.html">创业：怎样从0到1开始跑通一个项目</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目/index.html">创业：1000「高价值」适合学生做的低风险创业项目</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差/index.html">0000创业高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目/index.html">怎样从0到1开始跑通一个项目</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目/index.html">1000「高价值」适合学生做的低风险创业项目</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/10.冷门专业学AI/ai的底层逻辑" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/ai的底层逻辑" href="../ai的底层逻辑/index.html">ai的底层逻辑</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/10.冷门专业学AI/怎样将AI融入日常生活" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/怎样将AI融入日常生活" href="../怎样将AI融入日常生活/index.html">怎样将AI融入日常生活</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/10.冷门专业学AI/AI的潜在伦理风险" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/AI的潜在伦理风险" href="../AI的潜在伦理风险/index.html">AI的潜在伦理风险</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/10.冷门专业学AI/写在前面的话" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/写在前面的话" href="../写在前面的话/index.html">写在前面的话</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/10.冷门专业学AI/AI工具箱：2026年必备的20个AI工具" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/AI工具箱：2026年必备的20个AI工具" href="../AI工具箱：2026年必备的20个AI工具/index.html">AI工具箱：2026年必备的20个AI工具</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/10.冷门专业学AI/如何在AI时代避免就业即失业" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/如何在AI时代避免就业即失业" href="../如何在AI时代避免就业即失业/index.html">如何在AI时代避免就业即失业</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/10.冷门专业学AI/1000「高价值」ai时代大学专业与市场岗位解析" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/1000「高价值」ai时代大学专业与市场岗位解析" href="../1000「高价值」ai时代大学专业与市场岗位解析/index.html">1000「高价值」ai时代大学专业与市场岗位解析</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>冷门专业学AI</code></li>
+<li><code>创业</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/10.冷门专业学AI/ai的底层逻辑" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/10.冷门专业学AI/ai的底层逻辑" href="../ai的底层逻辑/index.html">下一篇：ai的底层逻辑</a></li>
+</ul>
+
+</div>
+</body></html>

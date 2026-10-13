@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>高等数学高效学习指南（极限与导数篇） · 浪尖知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body>
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 浪尖知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/12.大学基础公共课/高等数学高效学习指南（极限与导数篇）</div>
+<h1>高等数学高效学习指南（极限与导数篇）</h1>
+
+<h1 id="高等数学高效学习指南极限与导数篇微积分的入门核心">高等数学高效学习指南（极限与导数篇）：微积分的入门核心<a aria-hidden="true" class="internal" data-no-popover="true" href="#高等数学高效学习指南极限与导数篇微积分的入门核心" role="anchor" tabindex="-1"></a></h1>
+<p>说实话，极限和导数是高数上册的核心内容。</p>
+<p>学好了，后面的积分、微分方程都是顺理成章；
+学不好，整个高数都要垮。</p>
+<p>今天学长分享极限和导数的学习方法，帮你打好基础。</p>
+<h2 id="极限微积分的基石">极限：微积分的基石<a aria-hidden="true" class="internal" data-no-popover="true" href="#极限微积分的基石" role="anchor" tabindex="-1"></a></h2>
+<h3 id="极限的概念">极限的概念<a aria-hidden="true" class="internal" data-no-popover="true" href="#极限的概念" role="anchor" tabindex="-1"></a></h3>
+<h4 id="数列极限">数列极限<a aria-hidden="true" class="internal" data-no-popover="true" href="#数列极限" role="anchor" tabindex="-1"></a></h4>
+<p><strong>定义（ε-N语言）：</strong></p>
+<blockquote>
+<p>若对任意ε&gt;0，存在N∈N+，当n&gt;N时，|a_n - A|&lt;ε，则称数列{a_n}收敛于A，记作lim(n→∞)a_n = A。</p>
+</blockquote>
+<p><strong>直观理解：</strong></p>
+<blockquote>
+<p>数列的项越来越接近A，想多近就能多近。</p>
+</blockquote>
+<p><strong>常见数列极限：</strong></p>
+<div class="table-container"><table><thead><tr><th>数列</th><th>极限</th><th>备注</th></tr></thead><tbody><tr><td>1/n</td><td>0</td><td>n→∞</td></tr><tr><td>q^n (</td><td>q</td><td>&lt;1)</td></tr><tr><td>(1+1/n)^n</td><td>e</td><td>n→∞</td></tr><tr><td>a_n → a, b_n → b</td><td>a+b, a-b, ab, a/b</td><td>极限四则运算</td></tr></tbody></table></div>
+<h4 id="函数极限">函数极限<a aria-hidden="true" class="internal" data-no-popover="true" href="#函数极限" role="anchor" tabindex="-1"></a></h4>
+<p><strong>六种函数极限：</strong></p>
+<div class="table-container"><table><thead><tr><th>极限类型</th><th>记号</th><th>含义</th></tr></thead><tbody><tr><td>x→∞</td><td>lim f(x)</td><td>x→+∞和x→-∞</td></tr><tr><td>x→+∞</td><td>lim f(x)</td><td>x正向无限增大</td></tr><tr><td>x→-∞</td><td>lim f(x)</td><td>x负向无限增大</td></tr><tr><td>x→x₀</td><td>lim f(x)</td><td>x无限接近x₀</td></tr><tr><td>x→x₀⁺</td><td>lim f(x)</td><td>x从右侧接近x₀</td></tr><tr><td>x→x₀⁻</td><td>lim f(x)</td><td>x从左侧接近x₀</td></tr></tbody></table></div>
+<p><strong>重要极限：</strong></p>
+<div class="table-container"><table><thead><tr><th>极限</th><th>值</th><th>备注</th></tr></thead><tbody><tr><td>lim sinx/x</td><td>1</td><td>x→0</td></tr><tr><td>lim (1+1/x)^x</td><td>e</td><td>x→∞</td></tr><tr><td>lim (1+x)^(1/x)</td><td>e</td><td>x→0</td></tr><tr><td>lim (1+ax)^(b/x)</td><td>e^(ab)</td><td>x→∞</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>这几个重要极限是高数的”核武器”。
+很多复杂极限都能化归到这几个基本形式。
+<strong>必须背熟！</strong></p>
+</blockquote>
+<h3 id="极限计算方法">极限计算方法<a aria-hidden="true" class="internal" data-no-popover="true" href="#极限计算方法" role="anchor" tabindex="-1"></a></h3>
+<h4 id="直接代入法">直接代入法<a aria-hidden="true" class="internal" data-no-popover="true" href="#直接代入法" role="anchor" tabindex="-1"></a></h4>
+<p><strong>适用条件：</strong> 函数连续</p>
+<p><strong>方法：</strong> 直接把趋近值代入表达式</p>
+<p><strong>例：</strong></p>
+<pre><code>lim(x→2) (x² + 3x - 1) = 2² + 3×2 - 1 = 9
+</code></pre>
+<h4 id="因式分解法">因式分解法<a aria-hidden="true" class="internal" data-no-popover="true" href="#因式分解法" role="anchor" tabindex="-1"></a></h4>
+<p><strong>适用条件：</strong> 代入后出现0/0型</p>
+<p><strong>方法：</strong> 分子分母因式分解，约去零因子</p>
+<p><strong>例：</strong></p>
+<pre><code>lim(x→1) (x²-1)/(x-1) 
+= lim(x→1) (x+1)(x-1)/(x-1)
+= lim(x→1) (x+1) = 2
+</code></pre>
+<h4 id="有理化法">有理化法<a aria-hidden="true" class="internal" data-no-popover="true" href="#有理化法" role="anchor" tabindex="-1"></a></h4>
+<p><strong>适用条件：</strong> 根号相减或相加</p>
+<p><strong>方法：</strong> 分子或分母有理化</p>
+<p><strong>例：</strong></p>
+<pre><code>lim(x→0) (√(1+x) - 1)/x
+= lim(x→0) [(1+x) - 1]/[x(√(1+x)+1)]
+= lim(x→0) 1/[√(1+x)+1] = 1/2
+</code></pre>
+<h4 id="抓大放小法">抓大放小法<a aria-hidden="true" class="internal" data-no-popover="true" href="#抓大放小法" role="anchor" tabindex="-1"></a></h4>
+<p><strong>原理：</strong> 无穷大时，高次项决定主导</p>
+<p><strong>口诀：</strong></p>
+<blockquote>
+<p>当x→∞时，分子分母同除以最高次幂</p>
+</blockquote>
+<p><strong>例：</strong></p>
+<pre><code>lim(x→∞) (3x² + 2x)/(x² - 1)
+= lim(x→∞) (3 + 2/x)/(1 - 1/x²)
+= 3/1 = 3
+</code></pre>
+<h4 id="两个重要极限">两个重要极限<a aria-hidden="true" class="internal" data-no-popover="true" href="#两个重要极限" role="anchor" tabindex="-1"></a></h4>
+<p><strong>第一个重要极限：</strong></p>
+<pre><code>lim(x→0) sinx/x = 1
+
+变形：
+- lim(x→0) tanx/x = 1
+- lim(x→0) sinax/(ax) = 1
+- lim(x→0) x/sinx = 1
+</code></pre>
+<p><strong>第二个重要极限：</strong></p>
+<pre><code>lim(x→∞) (1 + 1/x)^x = e
+
+变形：
+- lim(x→0) (1+x)^(1/x) = e
+- lim(x→∞) (1 + a/x)^(bx) = e^(ab)
+</code></pre>
+<blockquote>
+<p><strong>学长记忆口诀</strong></p>
+<p>sin比x，趋向零，等于一。
+括号加一再求幂，指数趋向无穷大，等于e。</p>
+</blockquote>
+<h3 id="无穷小与无穷大">无穷小与无穷大<a aria-hidden="true" class="internal" data-no-popover="true" href="#无穷小与无穷大" role="anchor" tabindex="-1"></a></h3>
+<h4 id="无穷小的比较">无穷小的比较<a aria-hidden="true" class="internal" data-no-popover="true" href="#无穷小的比较" role="anchor" tabindex="-1"></a></h4>
+<div class="table-container"><table><thead><tr><th>关系</th><th>记号</th><th>含义</th></tr></thead><tbody><tr><td>等价</td><td>α ~ β</td><td>lim α/β = 1</td></tr><tr><td>高阶</td><td>α = o(β)</td><td>lim α/β = 0</td></tr><tr><td>低阶</td><td>β = o(α)</td><td>lim β/α = 0</td></tr><tr><td>同阶</td><td>α = O(β)</td><td>lim α/β = C ≠ 0</td></tr><tr><td>同阶无穷小</td><td>-</td><td>lim α/β = 1</td></tr></tbody></table></div>
+<p><strong>常用等价关系（x→0）：</strong></p>
+<div class="table-container"><table><thead><tr><th>等价关系</th><th>例子</th></tr></thead><tbody><tr><td>sinx ~ x</td><td>sin(2x) ~ 2x</td></tr><tr><td>tanx ~ x</td><td>tan(3x) ~ 3x</td></tr><tr><td>1-cosx ~ x²/2</td><td>-</td></tr><tr><td>e^x - 1 ~ x</td><td>e^(2x) - 1 ~ 2x</td></tr><tr><td>ln(1+x) ~ x</td><td>ln(1+2x) ~ 2x</td></tr><tr><td>(1+x)^a - 1 ~ ax</td><td>√(1+x) - 1 ~ x/2</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>等价无穷小代换是求极限的利器。
+<strong>乘除可代换，加减要小心。</strong></p>
+</blockquote>
+<h4 id="无穷小的阶">无穷小的阶<a aria-hidden="true" class="internal" data-no-popover="true" href="#无穷小的阶" role="anchor" tabindex="-1"></a></h4>
+<p><strong>判断方法：</strong></p>
+<pre><code>lim(x→0) x^m / x^n：
+- m&gt;n：高阶
+- m=n：同阶
+- m&lt;n：低阶
+</code></pre>
+<h3 id="函数的连续性">函数的连续性<a aria-hidden="true" class="internal" data-no-popover="true" href="#函数的连续性" role="anchor" tabindex="-1"></a></h3>
+<p><strong>连续的定义：</strong></p>
+<pre><code>lim(x→x₀) f(x) = f(x₀)
+</code></pre>
+<p><strong>间断点类型：</strong></p>
+<div class="table-container"><table><thead><tr><th>类型</th><th>特点</th><th>例子</th></tr></thead><tbody><tr><td>可去间断点</td><td>极限存在，但≠函数值</td><td>f(x) = (x²-1)/(x-1)，x₀=1</td></tr><tr><td>跳跃间断点</td><td>左右极限存在，但不相等</td><td>符号函数sgn(x)</td></tr><tr><td>无穷间断点</td><td>极限为∞</td><td>1/x，x₀=0</td></tr><tr><td>振荡间断点</td><td>极限振荡不存在</td><td>sin(1/x)，x₀=0</td></tr></tbody></table></div>
+<p><strong>连续函数运算：</strong></p>
+<ul>
+<li>连续函数的和、差、积、商（分母不为零）仍连续</li>
+<li>连续函数的复合函数仍连续</li>
+<li>初等函数在其定义域内连续</li>
+</ul>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>闭区间连续函数的性质：</p>
+<ol>
+<li>有界性：有最大最小值</li>
+<li>零点定理：异号必有零点</li>
+<li>介值定理：能取到最大最小之间的一切值</li>
+</ol>
+</blockquote>
+<h2 id="导数变化的刻画">导数：变化的刻画<a aria-hidden="true" class="internal" data-no-popover="true" href="#导数变化的刻画" role="anchor" tabindex="-1"></a></h2>
+<h3 id="导数的定义">导数的定义<a aria-hidden="true" class="internal" data-no-popover="true" href="#导数的定义" role="anchor" tabindex="-1"></a></h3>
+<p><strong>几何意义：</strong></p>
+<blockquote>
+<p>导数 = 切线斜率 = 瞬时变化率</p>
+</blockquote>
+<p><strong>定义式：</strong></p>
+<pre><code>f'(x₀) = lim(Δx→0) [f(x₀+Δx) - f(x₀)]/Δx
+= lim(x→x₀) [f(x) - f(x₀)]/(x-x₀)
+</code></pre>
+<p><strong>常见记号：</strong></p>
+<pre><code>f'(x), y', dy/dx, d/dx·f(x)
+</code></pre>
+<h3 id="基本求导公式">基本求导公式<a aria-hidden="true" class="internal" data-no-popover="true" href="#基本求导公式" role="anchor" tabindex="-1"></a></h3>
+<p><strong>常数和幂函数：</strong></p>
+<div class="table-container"><table><thead><tr><th>函数</th><th>导数</th></tr></thead><tbody><tr><td>C</td><td>0</td></tr><tr><td>x^n</td><td>nx^(n-1)</td></tr><tr><td>x</td><td>1</td></tr><tr><td>1/x</td><td>-1/x²</td></tr><tr><td>√x</td><td>1/(2√x)</td></tr></tbody></table></div>
+<p><strong>三角函数：</strong></p>
+<div class="table-container"><table><thead><tr><th>函数</th><th>导数</th></tr></thead><tbody><tr><td>sinx</td><td>cosx</td></tr><tr><td>cosx</td><td>-sinx</td></tr><tr><td>tanx</td><td>sec²x</td></tr><tr><td>cotx</td><td>-csc²x</td></tr></tbody></table></div>
+<p><strong>指数函数：</strong></p>
+<div class="table-container"><table><thead><tr><th>函数</th><th>导数</th></tr></thead><tbody><tr><td>e^x</td><td>e^x</td></tr><tr><td>a^x</td><td>a^x·lna</td></tr></tbody></table></div>
+<p><strong>对数函数：</strong></p>
+<div class="table-container"><table><thead><tr><th>函数</th><th>导数</th></tr></thead><tbody><tr><td>lnx</td><td>1/x</td></tr><tr><td>log_a x</td><td>1/(x·lna)</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>基本求导公式必须背熟。
+这是后面复合函数求导的基础。
+<strong>就像乘法口诀一样，必须脱口而出。</strong></p>
+</blockquote>
+<h3 id="求导法则">求导法则<a aria-hidden="true" class="internal" data-no-popover="true" href="#求导法则" role="anchor" tabindex="-1"></a></h3>
+<h4 id="四则运算">四则运算<a aria-hidden="true" class="internal" data-no-popover="true" href="#四则运算" role="anchor" tabindex="-1"></a></h4>
+<pre><code>(u ± v)' = u' ± v'
+(u·v)' = u'v + uv'
+(Cu)' = Cu'
+(u/v)' = (u'v - uv')/v²
+</code></pre>
+<h4 id="复合函数求导链式法则">复合函数求导（链式法则）<a aria-hidden="true" class="internal" data-no-popover="true" href="#复合函数求导链式法则" role="anchor" tabindex="-1"></a></h4>
+<p><strong>核心：</strong> 从外到内，一层层求导</p>
+<pre><code>d/dx f(g(x)) = f'(g(x)) · g'(x)
+</code></pre>
+<p><strong>例：</strong></p>
+<pre><code>y = sin(3x² + 1)
+y' = cos(3x² + 1) · 6x
+= 6x·cos(3x² + 1)
+</code></pre>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>复合函数求导是高数上册最难的部分。
+<strong>关键是把复合函数”拆”成若干层。</strong>
+拆对了，一层一层求导就行。</p>
+</blockquote>
+<p><strong>复合函数拆分技巧：</strong></p>
+<pre><code>y = e^(sin(x²))
+
+拆分为：
+y = e^u        → y' = e^u
+u = sinv       → u' = cosv
+v = x²         → v' = 2x
+
+所以：y' = e^u · cosv · 2x = e^(sin(x²)) · cos(x²) · 2x
+</code></pre>
+<h4 id="隐函数求导">隐函数求导<a aria-hidden="true" class="internal" data-no-popover="true" href="#隐函数求导" role="anchor" tabindex="-1"></a></h4>
+<p><strong>方法：</strong> 两边同时对x求导，把y看作x的函数</p>
+<p><strong>例：</strong> 求x² + y² = 1的导数</p>
+<pre><code>两边求导：
+2x + 2y·y' = 0
+y' = -x/y
+</code></pre>
+<h4 id="参数方程求导">参数方程求导<a aria-hidden="true" class="internal" data-no-popover="true" href="#参数方程求导" role="anchor" tabindex="-1"></a></h4>
+<p><strong>公式：</strong></p>
+<pre><code>dy/dx = (dy/dt)/(dx/dt)
+d²y/dx² = d/dx(dy/dx) = d/dt(dy/dx) / (dx/dt)
+</code></pre>
+<p><strong>例：</strong></p>
+<pre><code>x = cost, y = sint
+dy/dx = (dy/dt)/(dx/dt) = cost/(-sint) = -cott
+</code></pre>
+<h3 id="高阶导数">高阶导数<a aria-hidden="true" class="internal" data-no-popover="true" href="#高阶导数" role="anchor" tabindex="-1"></a></h3>
+<p><strong>定义：</strong></p>
+<pre><code>f''(x) = [f'(x)]'
+f'''(x) = [f''(x)]'
+f⁽ⁿ⁾(x) = [f⁽ⁿ⁻¹⁾(x)]'
+</code></pre>
+<p><strong>莱布尼茨公式：</strong></p>
+<pre><code>(uv)⁽ⁿ⁾ = Σ C(n,k) u⁽ᵏ⁾v⁽ⁿ⁻ᵏ⁾
+</code></pre>
+<p><strong>常见高阶导数：</strong></p>
+<div class="table-container"><table><thead><tr><th>函数</th><th>n阶导数</th></tr></thead><tbody><tr><td>e^x</td><td>e^x</td></tr><tr><td>x^n</td><td>n! (当k=n时)</td></tr><tr><td>sinx</td><td>sin(x+nπ/2)</td></tr><tr><td>cosx</td><td>cos(x+nπ/2)</td></tr><tr><td>1/x</td><td>(-1)^n n! / x^(n+1)</td></tr></tbody></table></div>
+<h3 id="微分">微分<a aria-hidden="true" class="internal" data-no-popover="true" href="#微分" role="anchor" tabindex="-1"></a></h3>
+<p><strong>定义：</strong></p>
+<pre><code>dy = f'(x)dx
+</code></pre>
+<p><strong>微分与导数的关系：</strong></p>
+<blockquote>
+<p>dy/dx = f’(x)</p>
+</blockquote>
+<p><strong>微分公式（与导数类似）：</strong></p>
+<pre><code>d(C) = 0
+d(x^n) = nx^(n-1)dx
+d(sinx) = cosx dx
+...
+</code></pre>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>微分和导数本质上是同一回事。
+导数是比值，微分是增量。
+<strong>dy = f’(x)dx</strong>，记住这个关系。</p>
+</blockquote>
+<h2 id="导数的应用">导数的应用<a aria-hidden="true" class="internal" data-no-popover="true" href="#导数的应用" role="anchor" tabindex="-1"></a></h2>
+<h3 id="函数的单调性">函数的单调性<a aria-hidden="true" class="internal" data-no-popover="true" href="#函数的单调性" role="anchor" tabindex="-1"></a></h3>
+<p><strong>判断方法：</strong></p>
+<pre><code>f'(x) &gt; 0 → f(x)单调递增
+f'(x) &lt; 0 → f(x)单调递减
+</code></pre>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>求定义域</li>
+<li>求导</li>
+<li>求导数=0的点（驻点）</li>
+<li>划分区间，判断符号</li>
+</ol>
+<h3 id="函数的极值">函数的极值<a aria-hidden="true" class="internal" data-no-popover="true" href="#函数的极值" role="anchor" tabindex="-1"></a></h3>
+<p><strong>极值必要条件：</strong></p>
+<blockquote>
+<p>若f(x₀)是极值点，则f’(x₀)=0或f’(x₀)不存在</p>
+</blockquote>
+<p><strong>极值第一充分条件：</strong></p>
+<pre><code>x₀左侧f'&gt;0，右侧f'&lt;0 → 极大值
+x₀左侧f'&lt;0，右侧f'&gt;0 → 极小值
+</code></pre>
+<p><strong>极值第二充分条件：</strong></p>
+<pre><code>f'(x₀)=0，f''(x₀)&lt;0 → 极大值
+f'(x₀)=0，f''(x₀)&gt;0 → 极小值
+f'(x₀)=0，f''(x₀)=0 → 用第一充分条件
+</code></pre>
+<h3 id="函数的最大值与最小值">函数的最大值与最小值<a aria-hidden="true" class="internal" data-no-popover="true" href="#函数的最大值与最小值" role="anchor" tabindex="-1"></a></h3>
+<p><strong>求法：</strong></p>
+<ol>
+<li>求导，找驻点和不可导点</li>
+<li>求端点值</li>
+<li>比较，取最大最小</li>
+</ol>
+<p><strong>应用题步骤：</strong></p>
+<ol>
+<li>建立函数关系</li>
+<li>求导，找极值点</li>
+<li>判断是最大值还是最小值</li>
+<li>回答问题</li>
+</ol>
+<h3 id="曲线的凹凸性与拐点">曲线的凹凸性与拐点<a aria-hidden="true" class="internal" data-no-popover="true" href="#曲线的凹凸性与拐点" role="anchor" tabindex="-1"></a></h3>
+<p><strong>凹凸性：</strong></p>
+<pre><code>f''(x) &gt; 0 → 曲线下凸（凹）
+f''(x) &lt; 0 → 曲线上凸（凸）
+</code></pre>
+<p><strong>拐点：</strong> 凹凸性发生变化的点</p>
+<p><strong>判断：</strong> f”(x₀)=0或不存在，且左右符号改变</p>
+<h3 id="渐近线">渐近线<a aria-hidden="true" class="internal" data-no-popover="true" href="#渐近线" role="anchor" tabindex="-1"></a></h3>
+<p><strong>水平渐近线：</strong></p>
+<pre><code>lim(x→±∞) f(x) = A → y=A是水平渐近线
+</code></pre>
+<p><strong>垂直渐近线：</strong></p>
+<pre><code>lim(x→x₀) f(x) = ∞ → x=x₀是垂直渐近线
+</code></pre>
+<p><strong>斜渐近线：</strong></p>
+<pre><code>lim(x→∞) f(x)/x = k, lim(x→∞) [f(x)-kx] = b
+→ y = kx + b是斜渐近线
+</code></pre>
+<h3 id="洛必达法则">洛必达法则<a aria-hidden="true" class="internal" data-no-popover="true" href="#洛必达法则" role="anchor" tabindex="-1"></a></h3>
+<p><strong>适用条件：</strong> 0/0型或∞/∞型</p>
+<p><strong>法则：</strong></p>
+<pre><code>lim f(x)/g(x) = lim f'(x)/g'(x)
+</code></pre>
+<p><strong>注意：</strong></p>
+<ul>
+<li>可多次使用（满足条件时）</li>
+<li>不是所有极限都能用</li>
+<li>要先判断类型</li>
+</ul>
+<blockquote>
+<p><strong>学长说</strong></p>
+<p>洛必达是求极限的常用方法，但不是万能的。
+<strong>能用洛必达优先用，用不了再想别的办法。</strong></p>
+</blockquote>
+<h2 id="学长私房话">学长私房话<a aria-hidden="true" class="internal" data-no-popover="true" href="#学长私房话" role="anchor" tabindex="-1"></a></h2>
+<p>说实话，极限和导数是高数的基础中的基础。</p>
+<p><strong>极限理解概念，导数熟练计算。</strong></p>
+<blockquote>
+<p><strong>学长的学习方法：</strong></p>
+<ol>
+<li><strong>理解概念</strong>
+<ul>
+<li>极限的ε-N语言很难，但会用就行</li>
+<li>导数的几何意义要理解</li>
+</ul>
+</li>
+<li><strong>熟练计算</strong>
+<ul>
+<li>基本公式背熟</li>
+<li>复合函数求导多练</li>
+</ul>
+</li>
+<li><strong>多做习题</strong>
+<ul>
+<li>计算题要熟练</li>
+<li>证明题要理解思路</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>学长踩过的坑</strong></p>
+<p>我大一时，极限计算总是出错。
+后来我发现，问题出在<strong>等价无穷小代换</strong>上。
+什么时候能代换，什么时候不能，我一直搞不清楚。
+<strong>搞清楚这个问题后，极限题正确率提高了很多。</strong></p>
+</blockquote>
+<p><strong>高数学习没有捷径，只有多练！</strong></p>
+<p><strong>加油！</strong></p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/0000_目录索引" href="../0000_目录索引/index.html">12.大学基础公共课 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/0000_目录索引" href="../0000_目录索引/index.html">12.大学基础公共课 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li>暂无明确跨库关联</li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/计算机基础高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/计算机基础高效学习指南" href="../计算机基础高效学习指南/index.html">计算机基础高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/高等数学高效学习指南（积分与微分方程篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/高等数学高效学习指南（积分与微分方程篇）" href="../高等数学高效学习指南（积分与微分方程篇）/index.html">高等数学高效学习指南（积分与微分方程篇）</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/商业类课程高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/商业类课程高效学习指南" href="../商业类课程高效学习指南/index.html">商业类课程高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/高等数学高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/高等数学高效学习指南" href="../高等数学高效学习指南/index.html">高等数学高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/商业类课程考试技巧" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/商业类课程考试技巧" href="../商业类课程考试技巧/index.html">商业类课程考试技巧</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大英竞赛与能力提升指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大英竞赛与能力提升指南" href="../大英竞赛与能力提升指南/index.html">大英竞赛与能力提升指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/编程语言高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/编程语言高效学习指南" href="../编程语言高效学习指南/index.html">编程语言高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南" href="../大学化学高效学习指南/index.html">大学化学高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（理论篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（理论篇）" href="../大学化学高效学习指南（理论篇）/index.html">大学化学高效学习指南（理论篇）</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（实验篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（实验篇）" href="../大学化学高效学习指南（实验篇）/index.html">大学化学高效学习指南（实验篇）</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>大学基础公共课</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/计算机基础高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/计算机基础高效学习指南" href="../计算机基础高效学习指南/index.html">下一篇：计算机基础高效学习指南</a></li>
+</ul>
+
+</div>
+</body></html>

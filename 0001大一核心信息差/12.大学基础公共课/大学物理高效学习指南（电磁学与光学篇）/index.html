@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大学物理高效学习指南（电磁学与光学篇） · 浪尖知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body>
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 浪尖知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/12.大学基础公共课/大学物理高效学习指南（电磁学与光学篇）</div>
+<h1>大学物理高效学习指南（电磁学与光学篇）</h1>
+
+<h1 id="大学物理高效学习指南电磁学与光学篇从库仑定律到波动光学">大学物理高效学习指南（电磁学与光学篇）：从库仑定律到波动光学<a aria-hidden="true" class="internal" data-no-popover="true" href="#大学物理高效学习指南电磁学与光学篇从库仑定律到波动光学" role="anchor" tabindex="-1"></a></h1>
+<p>说实话，电磁学是大物里最难的部分，没有之一。</p>
+<p>很多同学力学热学还行，一到电磁学就懵了。</p>
+<p>学姐当年也被电磁学虐得不轻，今天分享我的学习经验。</p>
+<h2 id="电磁学场与势的思维">电磁学：场与势的思维<a aria-hidden="true" class="internal" data-no-popover="true" href="#电磁学场与势的思维" role="anchor" tabindex="-1"></a></h2>
+<h3 id="电磁学模块概览">电磁学模块概览<a aria-hidden="true" class="internal" data-no-popover="true" href="#电磁学模块概览" role="anchor" tabindex="-1"></a></h3>
+<div class="table-container"><table><thead><tr><th>模块</th><th>核心内容</th><th>重要程度</th></tr></thead><tbody><tr><td>静电场</td><td>电场强度、电势、电容</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>稳恒磁场</td><td>磁感应强度、安培力、洛伦兹力</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>电磁感应</td><td>法拉第定律、楞次定律</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>电磁振荡</td><td>LC电路、电磁波</td><td>⭐⭐⭐⭐</td></tr><tr><td>麦克斯韦方程</td><td>四个方程、电磁场理论</td><td>⭐⭐⭐⭐</td></tr></tbody></table></div>
+<h3 id="静电场">静电场<a aria-hidden="true" class="internal" data-no-popover="true" href="#静电场" role="anchor" tabindex="-1"></a></h3>
+<h4 id="基本概念">基本概念<a aria-hidden="true" class="internal" data-no-popover="true" href="#基本概念" role="anchor" tabindex="-1"></a></h4>
+<div class="table-container"><table><thead><tr><th>物理量</th><th>定义</th><th>公式</th><th>单位</th></tr></thead><tbody><tr><td>电场强度E</td><td>单位正电荷受的电场力</td><td>E = F/q</td><td>N/C 或 V/m</td></tr><tr><td>电势V</td><td>单位正电荷具有的电势能</td><td>V = W/q</td><td>V</td></tr><tr><td>电势差U</td><td>两点电势之差</td><td>U = V₁ - V₂</td><td>V</td></tr><tr><td>电容C</td><td>容纳电荷的能力</td><td>C = Q/U</td><td>F</td></tr><tr><td>电场力做功</td><td>W = qEd</td><td>-</td><td>J</td></tr></tbody></table></div>
+<p><strong>重要关系：</strong></p>
+<pre><code>E = F/q = U/d （匀强电场）
+C = Q/U = ε₀S/d （平行板电容）
+</code></pre>
+<h4 id="重要定理">重要定理<a aria-hidden="true" class="internal" data-no-popover="true" href="#重要定理" role="anchor" tabindex="-1"></a></h4>
+<p><strong>库仑定律：</strong></p>
+<pre><code>F = kq₁q₂/r²
+
+其中 k = 1/(4πε₀) ≈ 9×10⁹ N·m²/C²
+</code></pre>
+<blockquote>
+<p><strong>学姐说</strong></p>
+<p>库仑定律和万有引力定律形式很像。
+一个是电荷间的作用，一个是质量间的作用。
+<strong>类比学习，效率翻倍！</strong></p>
+</blockquote>
+<p><strong>电场叠加原理：</strong></p>
+<blockquote>
+<p>合电场 = 各电荷单独产生的电场的矢量和</p>
+</blockquote>
+<p><strong>电势叠加原理：</strong></p>
+<blockquote>
+<p>合电势 = 各电荷单独产生的电势的代数和（标量叠加）</p>
+</blockquote>
+<h4 id="常见电场分布">常见电场分布<a aria-hidden="true" class="internal" data-no-popover="true" href="#常见电场分布" role="anchor" tabindex="-1"></a></h4>
+<div class="table-container"><table><thead><tr><th>电荷分布</th><th>电场特点</th><th>电势特点</th></tr></thead><tbody><tr><td>点电荷</td><td>E ∝ 1/r²，方向沿半径</td><td>V ∝ 1/r</td></tr><tr><td>均匀带电球壳</td><td>内部E=0，外部E ∝ 1/r²</td><td>V = 常数（内部）</td></tr><tr><td>均匀带电球体</td><td>E ∝ r（内部），E ∝ 1/r²（外部）</td><td>-</td></tr><tr><td>平行板电容器</td><td>E = σ/ε₀（均匀）</td><td>-</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>学姐记忆法</strong></p>
+<p>电场线从正电荷出发，终止于负电荷；
+电势沿着电场线方向降低。
+<strong>电场线管进管出，电势沿线有高有低。</strong></p>
+</blockquote>
+<h3 id="稳恒磁场">稳恒磁场<a aria-hidden="true" class="internal" data-no-popover="true" href="#稳恒磁场" role="anchor" tabindex="-1"></a></h3>
+<h4 id="基本概念-1">基本概念<a aria-hidden="true" class="internal" data-no-popover="true" href="#基本概念-1" role="anchor" tabindex="-1"></a></h4>
+<div class="table-container"><table><thead><tr><th>物理量</th><th>定义</th><th>公式</th><th>单位</th></tr></thead><tbody><tr><td>磁感应强度B</td><td>描述磁场强弱和方向</td><td>B = F/(IL)（最大受力）</td><td>T</td></tr><tr><td>磁通量Φ</td><td>穿过面积磁感线的条数</td><td>Φ = B·S·cosθ</td><td>Wb</td></tr></tbody></table></div>
+<h4 id="重要定律">重要定律<a aria-hidden="true" class="internal" data-no-popover="true" href="#重要定律" role="anchor" tabindex="-1"></a></h4>
+<p><strong>安培定律：</strong></p>
+<pre><code>F = BIL sinθ（安培力）
+方向：左手定则
+</code></pre>
+<p><strong>洛伦兹力：</strong></p>
+<pre><code>F = qvB sinθ
+方向：左手定则（正电荷）
+</code></pre>
+<blockquote>
+<p><strong>学姐说</strong></p>
+<p>洛伦兹力不做功（因为力和速度垂直），但会改变运动方向。
+<strong>这是带电粒子在磁场中做匀速圆周运动的原因。</strong></p>
+</blockquote>
+<p><strong>左手定则：</strong></p>
+<blockquote>
+<p>磁感线穿过手心，四指指向电流方向（或运动电荷速度方向），大拇指指向受力方向。</p>
+</blockquote>
+<h4 id="重要结论">重要结论<a aria-hidden="true" class="internal" data-no-popover="true" href="#重要结论" role="anchor" tabindex="-1"></a></h4>
+<p><strong>带电粒子在磁场中的运动：</strong></p>
+<div class="table-container"><table><thead><tr><th>情况</th><th>轨迹</th><th>半径</th><th>周期</th></tr></thead><tbody><tr><td>v垂直B</td><td>圆周运动</td><td>r = mv/(qB)</td><td>T = 2πm/(qB)</td></tr><tr><td>v有平行分量</td><td>螺旋运动</td><td>r = mv_⊥/(qB)</td><td>T同上</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>重要应用</strong></p>
+<ul>
+<li>质谱仪：分离不同质量的离子</li>
+<li>回旋加速器：加速带电粒子</li>
+<li>霍尔效应：测量磁场</li>
+</ul>
+</blockquote>
+<h3 id="电磁感应">电磁感应<a aria-hidden="true" class="internal" data-no-popover="true" href="#电磁感应" role="anchor" tabindex="-1"></a></h3>
+<h4 id="法拉第电磁感应定律">法拉第电磁感应定律<a aria-hidden="true" class="internal" data-no-popover="true" href="#法拉第电磁感应定律" role="anchor" tabindex="-1"></a></h4>
+<p><strong>核心公式：</strong></p>
+<pre><code>ε = -dΦ/dt
+
+或
+
+ε = BLv （导体棒切割磁感线）
+</code></pre>
+<p><strong>楞次定律：</strong></p>
+<blockquote>
+<p>感应电流的磁场总是阻碍引起感应电流的磁通量的变化。</p>
+</blockquote>
+<p><strong>口诀：</strong> “来拒去留，增反减同”</p>
+<blockquote>
+<p><strong>学姐说</strong></p>
+<p>楞次定律判断方向，其实就是<strong>能量守恒</strong>的体现。
+感应电流的磁场阻碍磁通量变化，意味着<strong>机械能转化为电能</strong>。
+<strong>物理定律都是相通的！</strong></p>
+</blockquote>
+<h4 id="自感与互感">自感与互感<a aria-hidden="true" class="internal" data-no-popover="true" href="#自感与互感" role="anchor" tabindex="-1"></a></h4>
+<div class="table-container"><table><thead><tr><th>类型</th><th>公式</th><th>说明</th></tr></thead><tbody><tr><td>自感</td><td>ε = -L(dI/dt)</td><td>自身电流变化产生感应</td></tr><tr><td>互感</td><td>ε₁ = -M(dI₂/dt)</td><td>一个线圈电流变化影响另一个</td></tr><tr><td>磁能</td><td>W = ½LI²</td><td>电感存储的磁场能</td></tr></tbody></table></div>
+<h3 id="麦克斯韦方程组">麦克斯韦方程组<a aria-hidden="true" class="internal" data-no-popover="true" href="#麦克斯韦方程组" role="anchor" tabindex="-1"></a></h3>
+<h4 id="四个方程">四个方程<a aria-hidden="true" class="internal" data-no-popover="true" href="#四个方程" role="anchor" tabindex="-1"></a></h4>
+<div class="table-container"><table><thead><tr><th>方程</th><th>名称</th><th>物理意义</th></tr></thead><tbody><tr><td>∮E·dS = Q/ε₀</td><td>高斯定律</td><td>电场起源于电荷</td></tr><tr><td>∮B·dS = 0</td><td>磁高斯定律</td><td>不存在磁单极子</td></tr><tr><td>∮B·dl = μ₀I + μ₀ε₀(dΦ_E/dt)</td><td>安培环路定理（修正）</td><td>变化的电场产生磁场</td></tr><tr><td>∮E·dl = -dΦ_B/dt</td><td>法拉第定律</td><td>变化的磁场产生电场</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>学姐说</strong></p>
+<p>麦克斯韦方程组是电磁学的最高成就。
+它预言了电磁波的存在，并证明光是一种电磁波。
+<strong>这是大二学习”电磁场与电磁波”的基础，必须认真学！</strong></p>
+</blockquote>
+<h4 id="电磁波">电磁波<a aria-hidden="true" class="internal" data-no-popover="true" href="#电磁波" role="anchor" tabindex="-1"></a></h4>
+<p><strong>性质：</strong></p>
+<ul>
+<li>电磁波是横波</li>
+<li>真空中的速度：c = 3×10⁸ m/s</li>
+<li>电磁波不需要介质，可以在真空中传播</li>
+</ul>
+<p><strong>波谱（按频率从低到高）：</strong></p>
+<pre><code>无线电波 → 微波 → 红外线 → 可见光 → 紫外线 → X射线 → γ射线
+</code></pre>
+<h2 id="光学波动与粒子">光学：波动与粒子<a aria-hidden="true" class="internal" data-no-popover="true" href="#光学波动与粒子" role="anchor" tabindex="-1"></a></h2>
+<h3 id="光学模块概览">光学模块概览<a aria-hidden="true" class="internal" data-no-popover="true" href="#光学模块概览" role="anchor" tabindex="-1"></a></h3>
+<div class="table-container"><table><thead><tr><th>模块</th><th>核心内容</th><th>重要程度</th></tr></thead><tbody><tr><td>波动光学</td><td>干涉、衍射、偏振</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>几何光学</td><td>反射、折射、成像</td><td>⭐⭐⭐⭐</td></tr></tbody></table></div>
+<h3 id="波动光学">波动光学<a aria-hidden="true" class="internal" data-no-popover="true" href="#波动光学" role="anchor" tabindex="-1"></a></h3>
+<h4 id="光的干涉">光的干涉<a aria-hidden="true" class="internal" data-no-popover="true" href="#光的干涉" role="anchor" tabindex="-1"></a></h4>
+<p><strong>条件：</strong></p>
+<ol>
+<li>两束光频率相同</li>
+<li>振动方向相同或有平行分量</li>
+<li>相位差恒定</li>
+</ol>
+<p><strong>双缝干涉：</strong></p>
+<div class="table-container"><table><thead><tr><th>公式</th><th>说明</th></tr></thead><tbody><tr><td>Δx = λL/d</td><td>明条纹间距</td></tr><tr><td>λ = Δx·d/L</td><td>测定光波波长</td></tr></tbody></table></div>
+<p><strong>明纹条件：</strong></p>
+<blockquote>
+<p>Δx = kλ（k=0,±1,±2,…）</p>
+</blockquote>
+<p><strong>暗纹条件：</strong></p>
+<blockquote>
+<p>Δx = (2k+1)λ/2（k=0,±1,±2,…）</p>
+</blockquote>
+<blockquote>
+<p><strong>学姐记忆口诀</strong></p>
+<p>双缝干涉明纹处，光程差整波长。
+暗纹半波长的奇数倍。
+间距正比波长，反比缝距。</p>
+</blockquote>
+<h4 id="薄膜干涉">薄膜干涉<a aria-hidden="true" class="internal" data-no-popover="true" href="#薄膜干涉" role="anchor" tabindex="-1"></a></h4>
+<p><strong>应用：</strong></p>
+<ul>
+<li>增透膜：膜厚 = λ/(4n)</li>
+<li>增反膜：膜厚 = λ/(2n)</li>
+</ul>
+<blockquote>
+<p><strong>学姐说</strong></p>
+<p>薄膜干涉在生活中很常见。
+肥皂泡上的彩色条纹、手机屏幕的镀膜，都是薄膜干涉。
+<strong>物理就在身边！</strong></p>
+</blockquote>
+<h4 id="光的衍射">光的衍射<a aria-hidden="true" class="internal" data-no-popover="true" href="#光的衍射" role="anchor" tabindex="-1"></a></h4>
+<p><strong>单缝衍射：</strong></p>
+<div class="table-container"><table><thead><tr><th>条件</th><th>位置</th></tr></thead><tbody><tr><td>a sinθ = ±kλ（k=1,2,3,…）</td><td>暗纹</td></tr><tr><td>a sinθ = ±(2k+1)λ/2（k=1,2,3,…）</td><td>明纹</td></tr><tr><td>sinθ ≈ θ ≈ x/L</td><td>小角度近似</td></tr></tbody></table></div>
+<p><strong>特点：</strong></p>
+<ul>
+<li>中央明纹最亮、最宽</li>
+<li>明纹亮度随级数增大而减小</li>
+</ul>
+<blockquote>
+<p><strong>学姐说</strong></p>
+<p>衍射和干涉都是波动特有的现象。
+干涉是<strong>两束光</strong>的叠加，衍射是<strong>一束光</strong>通过狭缝的弯曲。
+<strong>都是波动的证据！</strong></p>
+</blockquote>
+<h4 id="光的偏振">光的偏振<a aria-hidden="true" class="internal" data-no-popover="true" href="#光的偏振" role="anchor" tabindex="-1"></a></h4>
+<p><strong>偏振条件：</strong></p>
+<blockquote>
+<p>只有横波才能偏振</p>
+</blockquote>
+<p><strong>偏振片应用：</strong></p>
+<ul>
+<li>消除反射光（偏振太阳镜）</li>
+<li>液晶显示屏</li>
+<li>3D电影</li>
+</ul>
+<h3 id="几何光学">几何光学<a aria-hidden="true" class="internal" data-no-popover="true" href="#几何光学" role="anchor" tabindex="-1"></a></h3>
+<h4 id="反射与折射">反射与折射<a aria-hidden="true" class="internal" data-no-popover="true" href="#反射与折射" role="anchor" tabindex="-1"></a></h4>
+<p><strong>反射定律：</strong></p>
+<blockquote>
+<p>反射角 = 入射角</p>
+</blockquote>
+<p><strong>折射定律（斯涅尔定律）：</strong></p>
+<pre><code>n₁ sinθ₁ = n₂ sinθ₂
+
+其中 n = c/v（折射率）
+</code></pre>
+<p><strong>全反射：</strong></p>
+<blockquote>
+<p>条件：光从光密介质射向光疏介质，且入射角 &gt; 临界角
+临界角：sinθ_c = n₂/n₁</p>
+</blockquote>
+<h4 id="透镜成像">透镜成像<a aria-hidden="true" class="internal" data-no-popover="true" href="#透镜成像" role="anchor" tabindex="-1"></a></h4>
+<p><strong>成像公式：</strong></p>
+<pre><code>1/u + 1/v = 1/f
+
+其中：
+u = 物距（正）
+v = 像距（实正虚负）
+f = 焦距（凸正凹负）
+</code></pre>
+<p><strong>成像规律（凸透镜）：</strong></p>
+<div class="table-container"><table><thead><tr><th>物距u</th><th>像距v</th><th>像的特点</th></tr></thead><tbody><tr><td>u &gt; 2f</td><td>f &lt; v &lt; 2f</td><td>倒立、缩小、实像</td></tr><tr><td>u = 2f</td><td>v = 2f</td><td>倒立、等大、实像</td></tr><tr><td>f &lt; u &lt; 2f</td><td>v &gt; 2f</td><td>倒立、放大、实像</td></tr><tr><td>u = f</td><td>v = ∞</td><td>不成像</td></tr><tr><td>u &lt; f</td><td>v为正值</td><td>正立、放大、虚像</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>记忆口诀</strong></p>
+<p>一倍焦距分虚实，二倍焦距分大小。
+实像异侧倒，虚像同侧正。
+物远像近像变小，物近像远像变大。</p>
+</blockquote>
+<h2 id="电磁学与光学解题技巧">电磁学与光学解题技巧<a aria-hidden="true" class="internal" data-no-popover="true" href="#电磁学与光学解题技巧" role="anchor" tabindex="-1"></a></h2>
+<h3 id="电磁学解题套路">电磁学解题套路<a aria-hidden="true" class="internal" data-no-popover="true" href="#电磁学解题套路" role="anchor" tabindex="-1"></a></h3>
+<p><strong>Step 1：分析是什么场</strong></p>
+<blockquote>
+<p>电场？磁场？还是都有？</p>
+</blockquote>
+<p><strong>Step 2：分析运动情况</strong></p>
+<blockquote>
+<p>静止？匀速？加速？圆周？</p>
+</blockquote>
+<p><strong>Step 3：列方程</strong></p>
+<ul>
+<li>力学方程：F=ma</li>
+<li>能量方程：能量守恒</li>
+<li>动量方程：动量守恒</li>
+</ul>
+<p><strong>Step 4：解方程</strong></p>
+<blockquote>
+<p>注意单位、方向</p>
+</blockquote>
+<blockquote>
+<p><strong>学姐踩过的坑</strong></p>
+<p>我做电磁学题，最怕的是<strong>判断方向</strong>。
+安培力方向、洛伦兹力方向、感应电流方向，每次都搞混。
+后来我把”左手定则”和”右手定则”贴在桌上，做题前先看一眼。</p>
+</blockquote>
+<h3 id="光学解题套路">光学解题套路<a aria-hidden="true" class="internal" data-no-popover="true" href="#光学解题套路" role="anchor" tabindex="-1"></a></h3>
+<p><strong>干涉题：</strong></p>
+<ol>
+<li>判断是干涉还是衍射</li>
+<li>用对公式</li>
+<li>注意单位换算</li>
+</ol>
+<p><strong>折射题：</strong></p>
+<ol>
+<li>画光路图</li>
+<li>标已知量</li>
+<li>用折射定律</li>
+</ol>
+<h2 id="学姐私房话">学姐私房话<a aria-hidden="true" class="internal" data-no-popover="true" href="#学姐私房话" role="anchor" tabindex="-1"></a></h2>
+<p>说实话，电磁学和光学是大物里最难的部分。</p>
+<p>但也是<strong>最有趣</strong>的部分。</p>
+<blockquote>
+<p><strong>学姐的学习经验：</strong></p>
+<ol>
+<li><strong>电磁学：场论思维</strong>
+<ul>
+<li>不要只盯着受力，要理解”场”的概念</li>
+<li>电场和磁场是”看不见摸不着”的力场</li>
+</ul>
+</li>
+<li><strong>光学：波动思维</strong>
+<ul>
+<li>干涉、衍射、偏振都是波动特有的性质</li>
+<li>学会用波动理论解释现象</li>
+</ul>
+</li>
+<li><strong>理解&gt;记忆</strong>
+<ul>
+<li>死背公式没用，要理解公式的物理意义</li>
+<li>问自己：为什么是这样？</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>学姐踩过的坑</strong></p>
+<p>我大二学电磁学，一上来就记公式，结果期末差点挂科。
+后来我发现，电磁学的核心是<strong>麦克斯韦方程组</strong>，其他公式都是推导出来的。
+从那以后，我开始从基本定律出发理解电磁学。</p>
+</blockquote>
+<p><strong>还有：</strong></p>
+<p>电磁学和光学是后面学习电子电路、光电子学的基础。</p>
+<p><strong>现在学好，以后学信号与系统、通信原理都会轻松很多！</strong></p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/0000_目录索引" href="../0000_目录索引/index.html">12.大学基础公共课 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/0000_目录索引" href="../0000_目录索引/index.html">12.大学基础公共课 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li>暂无明确跨库关联</li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学物理高效学习指南（力学与热学篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学物理高效学习指南（力学与热学篇）" href="../大学物理高效学习指南（力学与热学篇）/index.html">大学物理高效学习指南（力学与热学篇）</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学物理高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学物理高效学习指南" href="../大学物理高效学习指南/index.html">大学物理高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学选课完全指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学选课完全指南" href="../大学选课完全指南/index.html">大学选课完全指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学体育与体测备考指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学体育与体测备考指南" href="../大学体育与体测备考指南/index.html">大学体育与体测备考指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学英语常见误区与解决方案" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学英语常见误区与解决方案" href="../大学英语常见误区与解决方案/index.html">大学英语常见误区与解决方案</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学思政课高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学思政课高效学习指南" href="../大学思政课高效学习指南/index.html">大学思政课高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/编程语言高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/编程语言高效学习指南" href="../编程语言高效学习指南/index.html">编程语言高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南" href="../大学化学高效学习指南/index.html">大学化学高效学习指南</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（理论篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（理论篇）" href="../大学化学高效学习指南（理论篇）/index.html">大学化学高效学习指南（理论篇）</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（实验篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学化学高效学习指南（实验篇）" href="../大学化学高效学习指南（实验篇）/index.html">大学化学高效学习指南（实验篇）</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>大学基础公共课</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/12.大学基础公共课/大学物理高效学习指南（力学与热学篇）" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/12.大学基础公共课/大学物理高效学习指南（力学与热学篇）" href="../大学物理高效学习指南（力学与热学篇）/index.html">下一篇：大学物理高效学习指南（力学与热学篇）</a></li>
+</ul>
+
+</div>
+</body></html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>卷绩点坑与应对策略 · 浪尖知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body>
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 浪尖知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/6.卷绩点技巧/卷绩点坑与应对策略</div>
+<h1>卷绩点坑与应对策略</h1>
+
+<h1 id="卷绩点的那些坑">卷绩点的那些坑<a aria-hidden="true" class="internal" data-no-popover="true" href="#卷绩点的那些坑" role="anchor" tabindex="-1"></a></h1>
+<p>大家好，我是翰文，线性代数期末考满分的那位。说实话，卷绩点这件事，我一开始也是一头雾水，大一上学期绩点才3.1，被室友吊打。后来我开始用学数学的思维来分析这个问题：<strong>先把问题拆解清楚，再找最优解</strong>。</p>
+<p>今天就跟你们聊聊卷绩点过程中最常见的几个坑，以及怎么绕过去。</p>
+<hr/>
+<h2 id="坑一选课策略失衡">坑一：选课策略失衡<a aria-hidden="true" class="internal" data-no-popover="true" href="#坑一选课策略失衡" role="anchor" tabindex="-1"></a></h2>
+<h3 id="问题表现">问题表现<a aria-hidden="true" class="internal" data-no-popover="true" href="#问题表现" role="anchor" tabindex="-1"></a></h3>
+<p>很多人选课的时候专门挑那种”给分高、不点名、作业少”的课，避开有难度的核心课。</p>
+<p>我见过太多了，大二有门《矩阵分析》，出了名的难，一半人选了然后挂科，另外一半人直接不选。结果大三的时候发现，考研要考这课，毕设要用这些知识，还得回来补。</p>
+<p><strong>因小失大。</strong></p>
+<h3 id="应对策略">应对策略<a aria-hidden="true" class="internal" data-no-popover="true" href="#应对策略" role="anchor" tabindex="-1"></a></h3>
+<p><strong>用矩阵思维来选课。</strong></p>
+<p>我把课程分成四个象限：</p>
+<div class="table-container"><table><thead><tr><th></th><th>难度高</th><th>难度低</th></tr></thead><tbody><tr><td><strong>价值高</strong></td><td>核心挑战课（必选）</td><td>高价值水课（可选）</td></tr><tr><td><strong>价值低</strong></td><td>低价值硬课（避开）</td><td>纯水课（尽量避）</td></tr></tbody></table></div>
+<hr/>
+<h2 id="坑二低效学习">坑二：低效学习<a aria-hidden="true" class="internal" data-no-popover="true" href="#坑二低效学习" role="anchor" tabindex="-1"></a></h2>
+<h3 id="问题表现-1">问题表现<a aria-hidden="true" class="internal" data-no-popover="true" href="#问题表现-1" role="anchor" tabindex="-1"></a></h3>
+<p>你是不是也这样：每天早出晚归泡图书馆，看着挺努力的，但成绩出来还是一般？</p>
+<p>这就是典型的**“伪勤奋”**——感动了自己，欺骗了分数。</p>
+<h3 id="应对策略-1">应对策略<a aria-hidden="true" class="internal" data-no-popover="true" href="#应对策略-1" role="anchor" tabindex="-1"></a></h3>
+<p><strong>掌握三个高效学习法：</strong></p>
+<p><strong>1. 主动回忆 &gt; 被动阅读</strong></p>
+<p>你是不是喜欢看书、看笔记、看PPT，看完之后觉得自己懂了？</p>
+<p>错了，真正懂了的标准是：<strong>你能不看任何资料，把这个知识点讲出来</strong>。</p>
+<p><strong>2. 间隔重复 &gt; 集中突击</strong></p>
+<p>突击复习只能让你短期记忆，考完就忘。真正扎实的学习是<strong>分散复习</strong>：今天学完新课，当天复习一遍。明天开始学新内容前，再快速过一遍昨天的。</p>
+<p><strong>3. 专题梳理 &gt; 碎片学习</strong></p>
+<p>学完一整块内容，花1-2小时做专题梳理：这章的核心概念是什么？概念和概念之间有什么关系？有哪些典型题型？</p>
+<hr/>
+<h2 id="坑三批判思维退化">坑三：批判思维退化<a aria-hidden="true" class="internal" data-no-popover="true" href="#坑三批判思维退化" role="anchor" tabindex="-1"></a></h2>
+<h3 id="问题表现-2">问题表现<a aria-hidden="true" class="internal" data-no-popover="true" href="#问题表现-2" role="anchor" tabindex="-1"></a></h3>
+<p>考试的时候碰到开放性题目，脑子一片空白，只能写课本上的原话。</p>
+<h3 id="应对策略-2">应对策略<a aria-hidden="true" class="internal" data-no-popover="true" href="#应对策略-2" role="anchor" tabindex="-1"></a></h3>
+<p><strong>刻意练习批判性思维：</strong></p>
+<ol>
+<li>
+<p><strong>每学完一个知识点，问自己：“这个结论一定对吗？有没有反例？”</strong></p>
+</li>
+<li>
+<p><strong>读论文或者看资料的时候，思考：“作者为什么要这样论证？他的前提假设是什么？“</strong></p>
+</li>
+</ol>
+<hr/>
+<h2 id="坑四能力单一化">坑四：能力单一化<a aria-hidden="true" class="internal" data-no-popover="true" href="#坑四能力单一化" role="anchor" tabindex="-1"></a></h2>
+<h3 id="问题表现-3">问题表现<a aria-hidden="true" class="internal" data-no-popover="true" href="#问题表现-3" role="anchor" tabindex="-1"></a></h3>
+<p>绩点确实很高，4.0满绩，但简历上除了成绩什么都没有。</p>
+<h3 id="应对策略-3">应对策略<a aria-hidden="true" class="internal" data-no-popover="true" href="#应对策略-3" role="anchor" tabindex="-1"></a></h3>
+<p><strong>建立”能力发展框架”，绩点只是其中一环：</strong></p>
+<div class="table-container"><table><thead><tr><th>能力维度</th><th>具体内容</th></tr></thead><tbody><tr><td>学业能力</td><td>GPA，专业课掌握</td></tr><tr><td>科研能力</td><td>实验室经历、论文</td></tr><tr><td>实践能力</td><td>实习、项目</td></tr><tr><td>竞赛能力</td><td>学科竞赛、创新比赛</td></tr></tbody></table></div>
+<hr/>
+<h2 id="坑五心理可持续性差">坑五：心理可持续性差<a aria-hidden="true" class="internal" data-no-popover="true" href="#坑五心理可持续性差" role="anchor" tabindex="-1"></a></h2>
+<h3 id="问题表现-4">问题表现<a aria-hidden="true" class="internal" data-no-popover="true" href="#问题表现-4" role="anchor" tabindex="-1"></a></h3>
+<p>长期处于高压状态，失眠、焦虑、情绪崩溃。</p>
+<h3 id="应对策略-4">应对策略<a aria-hidden="true" class="internal" data-no-popover="true" href="#应对策略-4" role="anchor" tabindex="-1"></a></h3>
+<p><strong>用”系统思维”来看待身心健康：</strong></p>
+<ol>
+<li><strong>设定合理目标</strong>：不是每门课都要拿90+</li>
+<li><strong>保证基础健康</strong>：睡眠7小时、运动3次/周</li>
+<li><strong>建立情绪出口</strong>：找朋友倾诉，写日记，运动出汗</li>
+</ol>
+<hr/>
+<h2 id="总结避坑的核心心法">总结：避坑的核心心法<a aria-hidden="true" class="internal" data-no-popover="true" href="#总结避坑的核心心法" role="anchor" tabindex="-1"></a></h2>
+<pre><code>避坑指南 = 战略上清醒 + 方法上高效 + 心态上健康 + 格局上开放
+</code></pre>
+<p>这四个维度，缺一不可。</p>
+<p>最后说一句掏心窝的话：<strong>绩点重要，但不是最重要的</strong>。你大学四年真正要培养的，是解决问题的能力、是独立思考的能力、是让自己幸福的能力。</p>
+<p>这些能力，比任何一个数字都值钱。</p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/6.卷绩点技巧/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/6.卷绩点技巧/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/6.卷绩点技巧/0000_目录索引" href="../0000_目录索引/index.html">6.卷绩点技巧 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/6.卷绩点技巧/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/6.卷绩点技巧/0000_目录索引" href="../0000_目录索引/index.html">6.卷绩点技巧 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差/index.html">竞赛：0000竞赛高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南/index.html">竞赛：1000「高价值」竞赛信息获取全面指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧/index.html">竞赛：1000「高价值」竞赛成果转化与简历文书撰写技巧</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南/index.html">竞赛：1000「高价值」竞赛团队组建与分工协作指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习/index.html">竞赛：竞赛经验分享与人物访谈：向成功者学习</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划/index.html">科研：1000「高价值」科研基本认知与规划</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室/index.html">科研：本科生科研入门：如何联系导师与进入实验室</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南/index.html">科研：1000「高价值」文献阅读与综述撰写：科研基础能力构建指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程/index.html">科研：1000「高价值」科研论文撰写与投稿流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验/index.html">科研：科研经验分享与人物访谈：本科生科研成功案例与经验</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈" href="../../../0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈/index.html">实习：实习经验分享与人物访谈</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验" href="../../../0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验/index.html">实习：0000大学老油条找实习的25条野路子经验</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差/index.html">0000竞赛高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南/index.html">1000「高价值」竞赛信息获取全面指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧/index.html">1000「高价值」竞赛成果转化与简历文书撰写技巧</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南/index.html">1000「高价值」竞赛团队组建与分工协作指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习/index.html">竞赛经验分享与人物访谈：向成功者学习</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划/index.html">1000「高价值」科研基本认知与规划</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室/index.html">本科生科研入门：如何联系导师与进入实验室</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南/index.html">1000「高价值」文献阅读与综述撰写：科研基础能力构建指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程/index.html">1000「高价值」科研论文撰写与投稿流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验/index.html">科研经验分享与人物访谈：本科生科研成功案例与经验</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>卷绩点技巧</code></li>
+<li><code>竞赛</code></li>
+<li><code>科研</code></li>
+<li><code>实习</code></li>
+<li><code>就业</code></li>
+<li><code>考研</code></li>
+<li><code>保研</code></li>
+<li><code>创业</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/6.卷绩点技巧/如何长期卷绩点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/6.卷绩点技巧/如何长期卷绩点" href="../如何长期卷绩点/index.html">下一篇：如何长期卷绩点</a></li>
+</ul>
+
+</div>
+</body></html>

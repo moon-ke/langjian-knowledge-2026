@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>浪尖知识库 2026</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f7f8fa;color:#1f2937;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7}
+.hero{background:linear-gradient(135deg,#1e3a8a 0%,#2563eb 55%,#3b82f6 100%);color:#fff;padding:56px 20px 48px;text-align:center}
+.hero h1{font-size:34px;margin:0 0 8px;letter-spacing:.5px}
+.hero .tag{font-size:16px;opacity:.9;margin-bottom:8px}
+.hero .sub{font-size:14px;opacity:.75}
+.searchbox{margin:26px auto 0;max-width:560px;position:relative}
+.searchbox input{width:100%;padding:14px 18px;font-size:16px;border:none;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.searchbox input:focus{outline:none}
+#results{display:none;position:absolute;left:0;right:0;top:56px;background:#fff;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.15);max-height:420px;overflow:auto;text-align:left;z-index:99}
+#results a{display:block;padding:10px 16px;border-bottom:1px solid #f0f0f0;color:#1f2937;text-decoration:none;font-size:15px}
+#results a:hover{background:#eef2ff}
+.stats{max-width:960px;margin:-22px auto 0;display:flex;gap:14px;justify-content:center;padding:0 20px}
+.stat{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);padding:14px 22px;text-align:center;flex:1;max-width:200px}
+.stat b{font-size:26px;color:#2563eb;display:block}
+.stat span{font-size:13px;color:#6b7280}
+.wrap{max-width:960px;margin:34px auto 70px;padding:0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{background:#fff;border-radius:14px;padding:20px;text-decoration:none;color:inherit;box-shadow:0 2px 10px rgba(0,0,0,.05);transition:transform .15s,box-shadow .15s;display:block}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
+.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.card-top .num{font-size:20px;font-weight:700;color:#2563eb}
+.card-top .cnt{font-size:13px;color:#6b7280;background:#eef2ff;padding:2px 10px;border-radius:99px}
+.card-name{font-size:18px;font-weight:600;margin-bottom:6px}
+.card-desc{font-size:14px;color:#4b5563;margin-bottom:12px;min-height:40px}
+.card-go{font-size:14px;color:#2563eb}
+.toclink{display:inline-block;margin:26px 0 10px;color:#2563eb;text-decoration:none;font-size:15px}
+@media(max-width:600px){.hero h1{font-size:26px}.stats{flex-wrap:wrap}}
+</style></head>
+<body>
+<div class="hero">
+  <h1>浪尖知识库 2026</h1>
+  <div class="tag">大学四年规划 · 信息差 · 专业选择</div>
+  <div class="sub">把 3110+ 篇大学成长资料，整理成可快速进入的决策地图（离线版）</div>
+  <div class="searchbox">
+    <input id="q" type="text" placeholder="搜索文章标题，如：保研、绩点、转专业…" autocomplete="off">
+    <div id="results"></div>
+  </div>
+</div>
+<div class="stats">
+  <div class="stat"><b>3110</b><span>篇笔记</span></div>
+  <div class="stat"><b>7</b><span>个核心入口</span></div>
+  <div class="stat"><b>1</b><span>张全库图谱</span></div>
+</div>
+<div class="wrap">
+  <a class="toclink" href="./目录索引.html">📑 查看全库完整目录索引 →</a>
+  <div class="grid">
+    <a class="card" href="./0001大一核心信息差/index.html">
+      <div class="card-top"><span class="num">01</span><span class="cnt">730 篇</span></div>
+      <div class="card-name">大一核心信息差</div>
+      <div class="card-desc">从认知差、规划差、资源差开始，补齐大学第一年的关键判断。</div>
+      <div class="card-go">进入板块 →</div>
+    </a>
+    <a class="card" href="./0002大二大三核心信息差/index.html">
+      <div class="card-top"><span class="num">02</span><span class="cnt">158 篇</span></div>
+      <div class="card-name">大二大三核心信息差</div>
+      <div class="card-desc">围绕实习、科研、竞赛、保研，搞定中间两年的成长主线。</div>
+      <div class="card-go">进入板块 →</div>
+    </a>
+    <a class="card" href="./0003大四核心信息差/index.html">
+      <div class="card-top"><span class="num">03</span><span class="cnt">118 篇</span></div>
+      <div class="card-name">大四核心信息差</div>
+      <div class="card-desc">覆盖简历、秋招、春招、考研复试与毕业去向的最后冲刺。</div>
+      <div class="card-go">进入板块 →</div>
+    </a>
+    <a class="card" href="./1001上百大学四年的规划案例/index.html">
+      <div class="card-top"><span class="num">04</span><span class="cnt">195 篇</span></div>
+      <div class="card-name">大学四年规划案例</div>
+      <div class="card-desc">用真实学长学姐的四年案例，拆解不同路径的选择与复盘。</div>
+      <div class="card-go">进入板块 →</div>
+    </a>
+    <a class="card" href="./1002中国大学的专业规划/index.html">
+      <div class="card-top"><span class="num">05</span><span class="cnt">1861 篇</span></div>
+      <div class="card-name">中国大学专业规划</div>
+      <div class="card-desc">按专业理解：医学、工学、理学、经管、法学……每个专业的进与退。</div>
+      <div class="card-go">进入板块 →</div>
+    </a>
+    <a class="card" href="./1003精修版视频总结/index.html">
+      <div class="card-top"><span class="num">06</span><span class="cnt">43 篇</span></div>
+      <div class="card-name">精修版视频总结</div>
+      <div class="card-desc">把直播/视频里的干货提炼成可检索的文字版总结。</div>
+      <div class="card-go">进入板块 →</div>
+    </a>
+    <a class="card" href="./关系图谱总览/index.html">
+      <div class="card-top"><span class="num">07</span><span class="cnt">1 篇</span></div>
+      <div class="card-name">全库关系图谱</div>
+      <div class="card-desc">用图谱直观串联整个知识库的关键概念与关联。</div>
+      <div class="card-go">进入板块 →</div>
+    </a>
+  </div>
+</div>
+<script>
+const idxUrl = "./search-index.json";
+let INDEX = [];
+fetch(idxUrl).then(r=>r.json()).then(d=>{INDEX=d;});
+const qEl=document.getElementById("q"), resEl=document.getElementById("results");
+qEl.addEventListener("input",()=>{
+  const kw=qEl.value.trim().toLowerCase();
+  if(!kw){resEl.style.display="none";resEl.innerHTML="";return;}
+  const hit=INDEX.filter(x=>x.t.toLowerCase().includes(kw)).slice(0,40);
+  if(!hit.length){resEl.innerHTML='<a>未找到相关文章</a>';}
+  else{resEl.innerHTML=hit.map(x=>'<a href="'+x.p+'">'+x.t+'</a>').join("");}
+  resEl.style.display="block";
+});
+document.addEventListener("click",e=>{if(!e.target.closest("#results") && !e.target.closest("#q")){resEl.style.display="none";}});
+</script>
+</body></html>
