@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>刻意练习_核心思想与关键论点 · 进阶知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body><style>
+#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
+#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
+#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
+#lj-sel .lj-opt:hover{background:#e2e8f0}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
+<script>
+(function(){
+  var PASS='1yzx', PAGE='article';
+  var PROMPT={
+    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
+    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
+    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
+    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
+    'zsxq':'请加入知识星球「大学生情报局」'
+  };
+  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
+  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
+  var comm=read('lj_community');
+  function showGate(){
+    if(read('lj_unlocked')==='1yzx')return;
+    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
+    gate.style.display='flex';
+    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
+    function unlock(){
+      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }
+    document.getElementById('lj-btn').addEventListener('click',unlock);
+    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+    i.focus();
+  }
+  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
+  else{
+    sel.style.display='flex';
+    sel.querySelectorAll('.lj-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
+        sel.style.display='none';
+        if(PAGE==='article')showGate();
+      });
+    });
+  }
+})();
+</script>
+
+
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 进阶知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/11.进阶大学图书馆/刻意练习_核心思想与关键论点</div>
+<h1>刻意练习_核心思想与关键论点</h1>
+
+<h1 id="刻意练习成为高手的科学方法">《刻意练习》：成为高手的科学方法<a aria-hidden="true" class="internal" data-no-popover="true" href="#刻意练习成为高手的科学方法" role="anchor" tabindex="-1"></a></h1>
+<p>《刻意练习》的核心是反驳一个流行观点：</p>
+<blockquote>
+<p><strong>“一万小时定律”是错的。不是时间决定水平，而是方法决定水平。</strong></p>
+</blockquote>
+<p>艾里克森用40年的研究证明：<strong>任何人都可以通过刻意练习成为专家。</strong></p>
+<h2 id="核心概念刻意练习的特征">核心概念：刻意练习的特征<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心概念刻意练习的特征" role="anchor" tabindex="-1"></a></h2>
+<p>刻意练习有以下六个特征：</p>
+<h3 id="特征1有明确的提升目标">特征1：有明确的提升目标<a aria-hidden="true" class="internal" data-no-popover="true" href="#特征1有明确的提升目标" role="anchor" tabindex="-1"></a></h3>
+<blockquote>
+<p><strong>不是”随便练练”，而是”我要把某个具体技能提升到某个水平”。</strong></p>
+</blockquote>
+<p>比如：</p>
+<ul>
+<li>❌ “我要提高英语水平”</li>
+<li>✅ “我要把听力正确率从60%提升到85%“</li>
+</ul>
+<h3 id="特征2专注于提升">特征2：专注于提升<a aria-hidden="true" class="internal" data-no-popover="true" href="#特征2专注于提升" role="anchor" tabindex="-1"></a></h3>
+<blockquote>
+<p><strong>全神贯注，不是”一边听歌一边练”。</strong></p>
+</blockquote>
+<p>研究表明：</p>
+<ul>
+<li>专注练习1小时 = 分心练习3-4小时</li>
+<li>质量比数量重要得多</li>
+</ul>
+<h3 id="特征3包含反馈">特征3：包含反馈<a aria-hidden="true" class="internal" data-no-popover="true" href="#特征3包含反馈" role="anchor" tabindex="-1"></a></h3>
+<blockquote>
+<p><strong>必须知道”哪里做对了，哪里做错了”。</strong></p>
+</blockquote>
+<p>没有反馈的练习 = 盲目练习</p>
+<p>反馈来源：</p>
+<ul>
+<li>老师/教练指出问题</li>
+<li>自己对比标准答案</li>
+<li>录像回放</li>
+<li>AI工具纠正</li>
+</ul>
+<h3 id="特征4走出舒适区">特征4：走出舒适区<a aria-hidden="true" class="internal" data-no-popover="true" href="#特征4走出舒适区" role="anchor" tabindex="-1"></a></h3>
+<blockquote>
+<p><strong>不挑战极限，就不会有进步。</strong></p>
+</blockquote>
+<pre><code>难度曲线：
+         难度
+            │     刻意练习区间
+            │    ╱╲
+            │   ╱  ╲
+            │  ╱    ╲
+            │ ╱      ╲
+            │╱        ╲
+            └──────────── 时间
+           进步慢  进步快
+</code></pre>
+<p>太简单 → 没进步
+太难 → 会放弃
+适度挑战 → 最快进步</p>
+<h3 id="特征5有方法论">特征5：有方法论<a aria-hidden="true" class="internal" data-no-popover="true" href="#特征5有方法论" role="anchor" tabindex="-1"></a></h3>
+<blockquote>
+<p><strong>刻意练习不是”重复同样的事”，而是”用正确的方法做事”。</strong></p>
+</blockquote>
+<p>包括：</p>
+<ul>
+<li>分解技能</li>
+<li>建立心理表征</li>
+<li>针对性练习弱点</li>
+</ul>
+<h3 id="特征6需要导师教练">特征6：需要导师/教练<a aria-hidden="true" class="internal" data-no-popover="true" href="#特征6需要导师教练" role="anchor" tabindex="-1"></a></h3>
+<blockquote>
+<p><strong>有经验丰富的导师能大大加速进步。</strong></p>
+</blockquote>
+<p>导师的作用：</p>
+<ul>
+<li>设计练习计划</li>
+<li>提供即时反馈</li>
+<li>指出你没有意识到的问题</li>
+<li>避免”练习错误”变成”习惯”</li>
+</ul>
+<h2 id="核心概念心理表征">核心概念：心理表征<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心概念心理表征" role="anchor" tabindex="-1"></a></h2>
+<h3 id="什么是心理表征">什么是心理表征？<a aria-hidden="true" class="internal" data-no-popover="true" href="#什么是心理表征" role="anchor" tabindex="-1"></a></h3>
+<blockquote>
+<p><strong>心理表征是大脑在思考某件事时形成的心理结构。</strong></p>
+</blockquote>
+<p>举个例子：</p>
+<p>普通人看到一棵树 → “这是树”</p>
+<p>植物学家看到一棵树 → 品种、年龄、健康状况、生长环境…</p>
+<p><strong>同样是”看到”，但大脑处理的信息量完全不同。</strong></p>
+<h3 id="心理表征的作用">心理表征的作用<a aria-hidden="true" class="internal" data-no-popover="true" href="#心理表征的作用" role="anchor" tabindex="-1"></a></h3>
+<div class="table-container"><table><thead><tr><th>方面</th><th>新手</th><th>专家</th></tr></thead><tbody><tr><td>信息处理</td><td>需要意识参与</td><td>自动处理</td></tr><tr><td>识别模式</td><td>看到单个元素</td><td>看到整体结构</td></tr><tr><td>预测能力</td><td>难以预测</td><td>能预见结果</td></tr><tr><td>反应速度</td><td>慢</td><td>快</td></tr><tr><td>记忆容量</td><td>有限</td><td>大量</td></tr></tbody></table></div>
+<h3 id="如何建立心理表征">如何建立心理表征？<a aria-hidden="true" class="internal" data-no-popover="true" href="#如何建立心理表征" role="anchor" tabindex="-1"></a></h3>
+<ol>
+<li><strong>大量练习</strong>：把技能内化成自动反应</li>
+<li><strong>观察高手</strong>：分析高手怎么做</li>
+<li><strong>建立联系</strong>：把新知识和已有知识连接</li>
+<li><strong>复盘反思</strong>：每次练习后总结</li>
+</ol>
+<h2 id="核心概念三个区域">核心概念：三个区域<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心概念三个区域" role="anchor" tabindex="-1"></a></h2>
+<p>艾里克森借用心理学理论，提出练习的三个区域：</p>
+<pre><code>         舒适区
+    ┌────────────────┐
+    │   我会的技能   │
+    │   重复练习     │
+    │   没进步       │
+    ├────────────────┤
+    │ 学习区         │ ← 刻意练习在这里
+    │ 挑战自己       │
+    │ 快速进步       │
+    ├────────────────┤
+    │ 恐慌区         │
+    │ 太难了         │
+    │ 会放弃/崩溃   │
+    └────────────────┘
+</code></pre>
+<h3 id="如何保持在学习区">如何保持在学习区？<a aria-hidden="true" class="internal" data-no-popover="true" href="#如何保持在学习区" role="anchor" tabindex="-1"></a></h3>
+<ol>
+<li><strong>拆分任务</strong>：大任务 → 小任务</li>
+<li><strong>逐步提高</strong>：每次只提高一点点难度</li>
+<li><strong>关注弱点</strong>：不是”都会”，而是”强化不会的”</li>
+<li><strong>接受不适</strong>：进步来自于不适感</li>
+</ol>
+<h2 id="关键论点解析">关键论点解析<a aria-hidden="true" class="internal" data-no-popover="true" href="#关键论点解析" role="anchor" tabindex="-1"></a></h2>
+<h3 id="论点1天才是训练的产物">论点1：天才是训练的产物<a aria-hidden="true" class="internal" data-no-popover="true" href="#论点1天才是训练的产物" role="anchor" tabindex="-1"></a></h3>
+<p>艾里克森研究了大量”天才”案例，发现：</p>
+<p><strong>莫扎特</strong>：</p>
+<ul>
+<li>父亲是著名音乐教育家</li>
+<li>4岁开始系统训练</li>
+<li>“完美音高”经训练70%孩子能做到</li>
+</ul>
+<p><strong>帕格尼尼</strong>（小提琴之神）：</p>
+<ul>
+<li>连续练习了7年，每天8小时</li>
+<li>不是”天生神技”，是”长期训练”</li>
+</ul>
+<p><strong>“天才”背后的真相</strong>：</p>
+<ul>
+<li>父亲/老师是专业教练</li>
+<li>从小接受系统训练</li>
+<li>训练时间远超同龄人</li>
+<li>刻意练习的结果</li>
+</ul>
+<h3 id="论点2大脑的适应能力">论点2：大脑的适应能力<a aria-hidden="true" class="internal" data-no-popover="true" href="#论点2大脑的适应能力" role="anchor" tabindex="-1"></a></h3>
+<p>大脑比我们想象的更”可塑”：</p>
+<div class="table-container"><table><thead><tr><th>现象</th><th>研究</th></tr></thead><tbody><tr><td>伦敦出租车司机</td><td>海马体比普通人更大</td></tr><tr><td>音乐家</td><td>听觉皮层更大</td></tr><tr><td>数学家</td><td>顶叶皮层更活跃</td></tr><tr><td>运动员</td><td>相关脑区更发达</td></tr></tbody></table></div>
+<p><strong>结论：大脑可以被训练改变。</strong></p>
+<h3 id="论点3停滞期的突破">论点3：停滞期的突破<a aria-hidden="true" class="internal" data-no-popover="true" href="#论点3停滞期的突破" role="anchor" tabindex="-1"></a></h3>
+<p>每个人练习都会遇到”停滞期”：</p>
+<pre><code>进步曲线：
+         技能
+            │   ╱
+            │  ╱
+            │ ╱  ← 停滞期
+            │╱ ╱
+            │╱╱
+            └─────── 时间
+</code></pre>
+<p>突破停滞期的方法：</p>
+<ol>
+<li><strong>换方法</strong>：同样的方法不会带来突破</li>
+<li><strong>强化弱点</strong>：弱点才是瓶颈</li>
+<li><strong>寻求反馈</strong>：高手能看出你看不到的问题</li>
+<li><strong>保持动机</strong>：不要因为暂时没进步就放弃</li>
+</ol>
+<h2 id="刻意练习的实操步骤">刻意练习的实操步骤<a aria-hidden="true" class="internal" data-no-popover="true" href="#刻意练习的实操步骤" role="anchor" tabindex="-1"></a></h2>
+<h3 id="步骤1找高手">步骤1：找高手<a aria-hidden="true" class="internal" data-no-popover="true" href="#步骤1找高手" role="anchor" tabindex="-1"></a></h3>
+<p>找一个”你想成为那样”的目标人物。</p>
+<p>分析：</p>
+<ul>
+<li>他们是怎么做到的？</li>
+<li>他们做对了什么？</li>
+<li>你和他们的差距在哪里？</li>
+</ul>
+<h3 id="步骤2拆解技能">步骤2：拆解技能<a aria-hidden="true" class="internal" data-no-popover="true" href="#步骤2拆解技能" role="anchor" tabindex="-1"></a></h3>
+<p>把大技能拆成小技能：</p>
+<p>比如学习英语口语：</p>
+<ul>
+<li>发音</li>
+<li>语调</li>
+<li>流利度</li>
+<li>词汇量</li>
+<li>语法</li>
+<li>表达逻辑</li>
+</ul>
+<h3 id="步骤3建立基准">步骤3：建立基准<a aria-hidden="true" class="internal" data-no-popover="true" href="#步骤3建立基准" role="anchor" tabindex="-1"></a></h3>
+<p>找到一个”标准”：</p>
+<ul>
+<li>好的演讲视频</li>
+<li>考试评分标准</li>
+<li>老师的示范</li>
+<li>专家的点评</li>
+</ul>
+<h3 id="步骤4制定练习计划">步骤4：制定练习计划<a aria-hidden="true" class="internal" data-no-popover="true" href="#步骤4制定练习计划" role="anchor" tabindex="-1"></a></h3>
+<p>每次练习：</p>
+<ol>
+<li>明确目标：这次要练什么</li>
+<li>专注投入：关掉手机，全神贯注</li>
+<li>及时反馈：做完后对比标准</li>
+<li>修正错误：找出问题，下次改正</li>
+</ol>
+<h2 id="学姐总结">学姐总结<a aria-hidden="true" class="internal" data-no-popover="true" href="#学姐总结" role="anchor" tabindex="-1"></a></h2>
+<p>刻意练习的核心三句话：</p>
+<ol>
+<li><strong>不是”练多少”，而是”怎么练”</strong></li>
+<li><strong>刻意练习 = 目标+专注+反馈+挑战舒适区</strong></li>
+<li><strong>任何人都可以通过正确的方法成为专家</strong></li>
+</ol>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划/index.html">科研：1000「高价值」科研基本认知与规划</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室/index.html">科研：本科生科研入门：如何联系导师与进入实验室</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南/index.html">科研：1000「高价值」文献阅读与综述撰写：科研基础能力构建指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程/index.html">科研：1000「高价值」科研论文撰写与投稿流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验/index.html">科研：科研经验分享与人物访谈：本科生科研成功案例与经验</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划/index.html">1000「高价值」科研基本认知与规划</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室/index.html">本科生科研入门：如何联系导师与进入实验室</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南/index.html">1000「高价值」文献阅读与综述撰写：科研基础能力构建指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程/index.html">1000「高价值」科研论文撰写与投稿流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验/index.html">科研经验分享与人物访谈：本科生科研成功案例与经验</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/刻意练习_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/刻意练习_适合阅读的大学生群体" href="../刻意练习_适合阅读的大学生群体/index.html">刻意练习_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/刻意成长_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/刻意成长_阅读价值与能解决的痛点" href="../刻意成长_阅读价值与能解决的痛点/index.html">刻意成长_阅读价值与能解决的痛点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/刻意练习_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/刻意练习_阅读价值与能解决的痛点" href="../刻意练习_阅读价值与能解决的痛点/index.html">刻意练习_阅读价值与能解决的痛点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/刻意成长_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/刻意成长_适合阅读的大学生群体" href="../刻意成长_适合阅读的大学生群体/index.html">刻意成长_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/浪潮之巅_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/浪潮之巅_核心思想与关键论点" href="../浪潮之巅_核心思想与关键论点/index.html">浪潮之巅_核心思想与关键论点</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>进阶大学图书馆</code></li>
+<li><code>科研</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/刻意练习_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/刻意练习_适合阅读的大学生群体" href="../刻意练习_适合阅读的大学生群体/index.html">下一篇：刻意练习_适合阅读的大学生群体</a></li>
+</ul>
+
+</div>
+</body></html>

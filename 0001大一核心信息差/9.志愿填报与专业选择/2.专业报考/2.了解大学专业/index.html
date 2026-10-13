@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>2.了解大学专业 · 浪尖知识库</title>
+<title>2.了解大学专业 · 进阶知识库</title>
 <style>
 :root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
 *{box-sizing:border-box}
@@ -42,65 +42,10 @@ hr{border:none;border-top:1px solid var(--line);margin:2em 0}
 .back{display:inline-block;margin-bottom:14px;font-size:14px}
 @media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
 </style></head>
-<body><style>
-#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
-#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
-#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
-#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
-#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
-#lj-sel .lj-opt:hover{background:#e2e8f0}
-#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
-#lj-gate .lj-key:focus{border-color:#2563eb}
-#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
-#lj-gate .lj-btn:hover{background:#1d4ed8}
-#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
-#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
-</style>
-<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
-<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
-<script>
-(function(){
-  var PASS='1yzx', PAGE='article';
-  var PROMPT={
-    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
-    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
-    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
-    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
-    'zsxq':'请加入知识星球「大学生情报局」'
-  };
-  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
-  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
-  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
-  var comm=read('lj_community');
-  function showGate(){
-    if(read('lj_unlocked')==='1yzx')return;
-    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
-    gate.style.display='flex';
-    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
-    function unlock(){
-      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
-      else{e.textContent='密码错误，请重新输入';i.select();}
-    }
-    document.getElementById('lj-btn').addEventListener('click',unlock);
-    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
-    i.focus();
-  }
-  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
-  else{
-    sel.style.display='flex';
-    sel.querySelectorAll('.lj-opt').forEach(function(b){
-      b.addEventListener('click',function(){
-        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
-        sel.style.display='none';
-        if(PAGE==='article')showGate();
-      });
-    });
-  }
-})();
-</script>
+<body>
 
 
-<div class="topbar"><div class="inner"><a href="../../../../index.html">🏠 浪尖知识库 2026</a></div></div>
+<div class="topbar"><div class="inner"><a href="../../../../index.html">🏠 进阶知识库 2026</a></div></div>
 <div class="wrap">
 <div class="back">← <a href="../../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/9.志愿填报与专业选择/2.专业报考/2.了解大学专业</div>
 <h1>2.了解大学专业</h1>

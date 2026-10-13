@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>当下的力量_核心思想与关键论点 · 进阶知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body><style>
+#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
+#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
+#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
+#lj-sel .lj-opt:hover{background:#e2e8f0}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
+<script>
+(function(){
+  var PASS='1yzx', PAGE='article';
+  var PROMPT={
+    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
+    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
+    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
+    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
+    'zsxq':'请加入知识星球「大学生情报局」'
+  };
+  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
+  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
+  var comm=read('lj_community');
+  function showGate(){
+    if(read('lj_unlocked')==='1yzx')return;
+    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
+    gate.style.display='flex';
+    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
+    function unlock(){
+      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }
+    document.getElementById('lj-btn').addEventListener('click',unlock);
+    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+    i.focus();
+  }
+  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
+  else{
+    sel.style.display='flex';
+    sel.querySelectorAll('.lj-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
+        sel.style.display='none';
+        if(PAGE==='article')showGate();
+      });
+    });
+  }
+})();
+</script>
+
+
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 进阶知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/11.进阶大学图书馆/当下的力量_核心思想与关键论点</div>
+<h1>当下的力量_核心思想与关键论点</h1>
+
+<h1 id="当下的力量核心思想埃克哈特托利的心灵觉醒指南">《当下的力量》核心思想：埃克哈特·托利的心灵觉醒指南<a aria-hidden="true" class="internal" data-no-popover="true" href="#当下的力量核心思想埃克哈特托利的心灵觉醒指南" role="anchor" tabindex="-1"></a></h1>
+<p>说实话，这本书我啃了整整三个月。</p>
+<p>不是不好读，是太颠覆了——每一个字都认识，但组合在一起，意思完全超出了我的认知范围。</p>
+<p>直到有一天，我突然”懂了”。</p>
+<p>然后整个人生都不一样了。</p>
+<h2 id="先说说我以前的日常">先说说我以前的日常<a aria-hidden="true" class="internal" data-no-popover="true" href="#先说说我以前的日常" role="anchor" tabindex="-1"></a></h2>
+<p>你是不是也这样——</p>
+<ul>
+<li>躺在床上，脑子里放电影：明天汇报怎么办？上周那件事说错话了吧？今天作业又没写完…</li>
+<li>工作学习的时候，总在想”万一失败怎么办”</li>
+<li>晚上睡不着，脑子里停不下来，越想越焦虑</li>
+<li>后悔过去做的蠢事，担忧未来可能发生的事，唯独没有”现在”</li>
+</ul>
+<p>这就是**“心理时间”**。</p>
+<p>我们的大脑不是在”生活”，而是在”时间旅行”——要么在过去，要么在未来，唯独不在当下。</p>
+<h2 id="核心思想一痛苦的根源是心理时间">核心思想一：痛苦的根源是”心理时间”<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心思想一痛苦的根源是心理时间" role="anchor" tabindex="-1"></a></h2>
+<p>托利认为，我们大部分的痛苦来自两件事：</p>
+<p><strong>要么沉溺于过去</strong>：反复咀嚼已经发生的事——“如果当时我不那么说就好了""她是不是在生我的气”…</p>
+<p><strong>要么焦虑未来</strong>：不断预演可能发生的坏事——“万一挂科了怎么办""考研考不上怎么办""室友是不是讨厌我了”…</p>
+<p>但真相是：<strong>过去已经过去，未来还没到来。你唯一能拥有的，就是此刻。</strong></p>
+<blockquote>
+<p><strong>学姐踩过的坑</strong></p>
+<p>我大三的时候，有整整两个月陷在对一段人际关系的反复回想里。白天上课的时候在想，晚上睡前在想，吃饭的时候也在想。整整两个月，什么正事都没干成。</p>
+<p>后来我才发现——我想了那么久，那件事一点都没有因为我反复回想而变好，反而我自己越来越焦虑、越来越内耗。</p>
+<p>托利说：<strong>你无法改变过去，能改变的只有当下这一刻的行动。</strong></p>
+</blockquote>
+<h2 id="核心思想二痛苦之身你内心的黑洞">核心思想二：“痛苦之身”——你内心的黑洞<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心思想二痛苦之身你内心的黑洞" role="anchor" tabindex="-1"></a></h2>
+<p>托利提出了一个概念叫”痛苦之身”（pain body）。</p>
+<p>这是积累在你内心深处的一个”负面能量场”——它由过去的创伤、痛苦、压抑的情绪组成。</p>
+<p>平时它很安静。但当遇到某些触发点——比如别人的一句话、一个尴尬的场景、一段不好的回忆——它就会被激活。</p>
+<p>被激活的时候，你会：</p>
+<ul>
+<li>突然情绪失控，说出伤人的话</li>
+<li>莫名其妙地感到沮丧、愤怒、悲伤</li>
+<li>陷入深深的自责或悔恨</li>
+</ul>
+<p><strong>关键在于：你不是痛苦之身，你是那个”观察者”</strong>。</p>
+<p>你可以意识到”我此刻正在被痛苦之身控制”——当你意识到的那一刻，痛苦之身的力量就减弱了。</p>
+<h2 id="核心思想三临在活在当下的艺术">核心思想三：临在——活在当下的艺术<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心思想三临在活在当下的艺术" role="anchor" tabindex="-1"></a></h2>
+<p>这是全书最核心的概念。</p>
+<p>“临在”（presence）意思是：带着觉知，活在此刻。</p>
+<p>不是自动驾驶地度过每一天，而是真正”感受到”你在做什么：</p>
+<ul>
+<li>吃饭的时候，感受食物的味道、温度、咀嚼的声音</li>
+<li>走路的时候，感受脚下的地面、周围的声音、空气的温度</li>
+<li>和人说话的时候，看着对方的眼睛，感受对话的流动</li>
+</ul>
+<p>听起来很简单对吧？但我们大多数人，已经很久没有”临在”了。</p>
+<p>我们吃饭的时候刷手机，走路的时候听耳机，聊天的时候人在心不在。</p>
+<p><strong>托利说：真正的自由，来自每一个当下的觉知。</strong></p>
+<h2 id="核心思想四臣服不是认输是接纳">核心思想四：臣服——不是认输，是接纳<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心思想四臣服不是认输是接纳" role="anchor" tabindex="-1"></a></h2>
+<p>很多人听到”臣服”这个词就反感——“凭什么我要臣服？我不认输！”</p>
+<p>但托利说的臣服，不是向命运认输，而是<strong>接纳当下的现实</strong>。</p>
+<p>比如：</p>
+<ul>
+<li>考试已经结束了，分数无法改变——臣服于这个现实</li>
+<li>某个人已经伤害了你——臣服于这件事已经发生</li>
+<li>你现在处于低谷——臣服于这个状态</li>
+</ul>
+<p>臣服不是放弃努力，而是<strong>停止在内心抗拒现实</strong>。</p>
+<p>当你停止抗拒，停止在心里反复纠结”为什么这样""如果当初不那样就好了”，你才能把能量用在真正重要的事情上。</p>
+<h2 id="关键方法如何在生活中练习临在">关键方法：如何在生活中练习”临在”<a aria-hidden="true" class="internal" data-no-popover="true" href="#关键方法如何在生活中练习临在" role="anchor" tabindex="-1"></a></h2>
+<p>托利给了几个实用的练习方法：</p>
+<h3 id="方法一呼吸锚点">方法一：呼吸锚点<a aria-hidden="true" class="internal" data-no-popover="true" href="#方法一呼吸锚点" role="anchor" tabindex="-1"></a></h3>
+<p>每天找一个固定时刻——起床后、睡前、或者每次焦虑来袭时——把注意力放在呼吸上。</p>
+<p>不需要深呼吸，不需要冥想。</p>
+<p>就是感受：吸气…呼气…吸气…呼气…</p>
+<p>持续5分钟，你会发现脑子清醒很多。</p>
+<h3 id="方法二stop练习">方法二：STOP练习<a aria-hidden="true" class="internal" data-no-popover="true" href="#方法二stop练习" role="anchor" tabindex="-1"></a></h3>
+<p>当你发现自己在焦虑/担忧/胡思乱想的时候：</p>
+<ul>
+<li><strong>S (Stop)</strong>：停下</li>
+<li><strong>T (Take breath)</strong>：深呼吸</li>
+<li><strong>O (Observe)</strong>：观察——我现在在想什么？我身体有什么感觉？</li>
+<li><strong>P (Proceed)</strong>：继续——带着觉知做手头的事</li>
+</ul>
+<p>这个方法在考试前、汇报前、约会前，都超级好用。</p>
+<h3 id="方法三接纳情绪">方法三：接纳情绪<a aria-hidden="true" class="internal" data-no-popover="true" href="#方法三接纳情绪" role="anchor" tabindex="-1"></a></h3>
+<p>不是”消灭”负面情绪，而是”允许”它存在。</p>
+<p>当你允许焦虑存在，焦虑反而会减弱。
+当你抗拒痛苦，痛苦反而加剧。</p>
+<p>书里有一句话我记到现在：</p>
+<blockquote>
+<p><strong>“情绪只是情绪，它会来，也会走。我不需要抓住它，也不需要推开它。只要静静看着它，它自己就会消散。“</strong></p>
+</blockquote>
+<h2 id="精华语录">精华语录<a aria-hidden="true" class="internal" data-no-popover="true" href="#精华语录" role="anchor" tabindex="-1"></a></h2>
+<blockquote>
+<p>“痛苦来自于对当下的批判：不能心平气和地接受当下，便是产生痛苦的根本原因。”</p>
+</blockquote>
+<blockquote>
+<p>“你越关注时间——过去和未来——你就越错过当下。”</p>
+</blockquote>
+<blockquote>
+<p>“人们总是用一生的时间去思考如何”得到某样东西”，却不知道从”失去”的角度来看待世界。”</p>
+</blockquote>
+<blockquote>
+<p>“所有沉溺上瘾都源自于你不去面对痛苦，每种沉溺行为都是为了帮我们逃避痛苦。“</p>
+</blockquote>
+<h2 id="学长总结">学长总结<a aria-hidden="true" class="internal" data-no-popover="true" href="#学长总结" role="anchor" tabindex="-1"></a></h2>
+<p>这本书的核心理念其实就三句话：</p>
+<ol>
+<li><strong>你的痛苦不是来自现实，而是来自你对现实的抗拒</strong></li>
+<li><strong>活在当下，是对抗焦虑和内耗最根本的方法</strong></li>
+<li><strong>你不是你脑海里的那个声音，你是观察那个声音的那个人</strong></li>
+</ol>
+<p>读完之后，我最大的改变是什么？</p>
+<p><strong>不再那么害怕负面情绪了。</strong></p>
+<p>因为我知道，情绪只是情绪，它会来，也会走。我不需要抓住它，也不需要推开它。只要静静看着它，它自己就会消散。</p>
+<p>这大概就是”当下的力量”吧。</p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南/index.html">考研：考研择校选专业指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差/index.html">考研：考研专业信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差/index.html">考研：考研复试与调剂信息差</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南/index.html">考研择校选专业指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差/index.html">考研专业信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差/index.html">考研复试与调剂信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/当下的力量_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/当下的力量_适合阅读的大学生群体" href="../当下的力量_适合阅读的大学生群体/index.html">当下的力量_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/存在主义是一种人道主义_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/存在主义是一种人道主义_阅读价值与能解决的痛点" href="../存在主义是一种人道主义_阅读价值与能解决的痛点/index.html">存在主义是一种人道主义_阅读价值与能解决的痛点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/当下的力量_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/当下的力量_阅读价值与能解决的痛点" href="../当下的力量_阅读价值与能解决的痛点/index.html">当下的力量_阅读价值与能解决的痛点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/存在主义是一种人道主义_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/存在主义是一种人道主义_适合阅读的大学生群体" href="../存在主义是一种人道主义_适合阅读的大学生群体/index.html">存在主义是一种人道主义_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/刀锋_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/刀锋_核心思想与关键论点" href="../刀锋_核心思想与关键论点/index.html">刀锋_核心思想与关键论点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/存在主义是一种人道主义_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/存在主义是一种人道主义_核心思想与关键论点" href="../存在主义是一种人道主义_核心思想与关键论点/index.html">存在主义是一种人道主义_核心思想与关键论点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000B_年级推荐路线" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000B_年级推荐路线" href="../0000B_年级推荐路线/index.html">0000B_年级推荐路线</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>进阶大学图书馆</code></li>
+<li><code>考研</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/当下的力量_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/当下的力量_适合阅读的大学生群体" href="../当下的力量_适合阅读的大学生群体/index.html">下一篇：当下的力量_适合阅读的大学生群体</a></li>
+</ul>
+
+</div>
+</body></html>

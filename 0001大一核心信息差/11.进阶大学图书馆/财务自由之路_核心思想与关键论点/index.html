@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>财务自由之路_核心思想与关键论点 · 进阶知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body><style>
+#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
+#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
+#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
+#lj-sel .lj-opt:hover{background:#e2e8f0}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
+<script>
+(function(){
+  var PASS='1yzx', PAGE='article';
+  var PROMPT={
+    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
+    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
+    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
+    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
+    'zsxq':'请加入知识星球「大学生情报局」'
+  };
+  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
+  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
+  var comm=read('lj_community');
+  function showGate(){
+    if(read('lj_unlocked')==='1yzx')return;
+    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
+    gate.style.display='flex';
+    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
+    function unlock(){
+      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }
+    document.getElementById('lj-btn').addEventListener('click',unlock);
+    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+    i.focus();
+  }
+  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
+  else{
+    sel.style.display='flex';
+    sel.querySelectorAll('.lj-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
+        sel.style.display='none';
+        if(PAGE==='article')showGate();
+      });
+    });
+  }
+})();
+</script>
+
+
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 进阶知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/11.进阶大学图书馆/财务自由之路_核心思想与关键论点</div>
+<h1>财务自由之路_核心思想与关键论点</h1>
+
+<h1 id="财务自由之路博多舍费尔教你从月光族到财务自由的七年路径">《财务自由之路》：博多·舍费尔教你从月光族到财务自由的七年路径<a aria-hidden="true" class="internal" data-no-popover="true" href="#财务自由之路博多舍费尔教你从月光族到财务自由的七年路径" role="anchor" tabindex="-1"></a></h1>
+<p>说实话，这本书刷新了我对”理财”的认知。</p>
+<p>以前我以为”理财”就是”省钱+存钱”，每个月生活费省下来存银行定期。</p>
+<p>读完《财务自由之路》我才发现——<strong>存钱只是财务自由的起点，学会让钱为你工作才是关键。</strong></p>
+<p>博多·舍费尔（Bodo Schäfer）是德国顶级理财教练，被誉为”欧洲第一理财教练”。他本人曾经破产过，后来通过这套方法在30岁之前实现了财务自由。这本书是他的成名作，在全球销量超过100万册。</p>
+<h2 id="核心一财务自由的定义不是有很多钱而是有不用为了钱而工作的选择">核心一：财务自由的定义——不是有很多钱，而是有”不用为了钱而工作”的选择<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心一财务自由的定义不是有很多钱而是有不用为了钱而工作的选择" role="anchor" tabindex="-1"></a></h2>
+<p>大多数人理解的财务自由是”有很多钱”，但舍费尔的定义更精准：</p>
+<blockquote>
+<p><strong>财务自由 = 你靠资产产生的利息收入，能覆盖你的基本生活开支。</strong></p>
+</blockquote>
+<p>也就是说，哪怕你不工作，钱也在为你工作，产生的收益能让你正常生活。</p>
+<p>用公式表示：</p>
+<pre><code>财务自由所需资金 = 每月生活开支 × 150
+（例如：每月5000元 → 需要75万资金，4%年化收益产生）
+</code></pre>
+<p>注意：这个公式里的关键是<strong>不是有多少钱，而是你的钱能产生多少被动收入</strong>。</p>
+<h2 id="核心二财富的三大阶梯从负债到安全到自由">核心二：财富的三大阶梯——从负债到安全到自由<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心二财富的三大阶梯从负债到安全到自由" role="anchor" tabindex="-1"></a></h2>
+<p>舍费尔把财务自由分成三个阶段：</p>
+<p><strong>第一阶段：财务保障（6-12个月存款）</strong></p>
+<ul>
+<li>存够6-12个月的生活费</li>
+<li>这笔钱不动，用于应对突发情况（失业、疾病）</li>
+<li>有了这笔钱，你才有了”底气”</li>
+</ul>
+<p><strong>第二阶段：财务安全（靠利息覆盖基本生活）</strong></p>
+<ul>
+<li>积累到一定量的资金，靠利息能支付每月基本开支</li>
+<li>这个阶段你仍然需要工作，但有了安全感</li>
+</ul>
+<p><strong>第三阶段：财务自由（靠利息覆盖梦想生活）</strong></p>
+<ul>
+<li>资金量更大，利息能覆盖理想生活的所有开支</li>
+<li>你可以选择不工作，做任何想做的事</li>
+</ul>
+<p>大多数人的问题是——还没完成第一阶段，就想着第三阶段。</p>
+<h2 id="核心三改变金钱观你的金钱蓝图决定了你的财务命运">核心三：改变金钱观——你的金钱蓝图决定了你的财务命运<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心三改变金钱观你的金钱蓝图决定了你的财务命运" role="anchor" tabindex="-1"></a></h2>
+<p>舍费尔提出了一个重要概念：<strong>金钱蓝图</strong>（Geldmaschine）。</p>
+<p>简单说，就是你对金钱的信念系统。它在童年时期就形成了，通常来自父母：</p>
+<ul>
+<li>“钱是万恶之源”</li>
+<li>“有钱人都不是好人”</li>
+<li>“我们家就是没钱”</li>
+<li>“赚钱很难”</li>
+</ul>
+<p>这些信念会像一个”程序”一样，自动运行，让你下意识地避开能赚钱的机会。</p>
+<p><strong>要实现财务自由，首先得升级你的金钱蓝图。</strong></p>
+<p>舍费尔给出的练习是：<strong>写下你对金钱的10个信念，然后逐一检视——哪些是真的，哪些是父母传给你的”假信念”。</strong></p>
+<h2 id="核心四增加收入的七个策略">核心四：增加收入的七个策略<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心四增加收入的七个策略" role="anchor" tabindex="-1"></a></h2>
+<p>舍费尔给出了增加收入的实用策略：</p>
+<p><strong>策略1：变得有价值</strong></p>
+<blockquote>
+<p>“永远不要为了赚钱而工作，要为了变得有价值而工作。”</p>
+</blockquote>
+<p>你的收入，取决于你能解决多大的问题。</p>
+<p>一个只做重复劳动的客服，月薪5000。
+一个能独立处理复杂投诉的客服，月薪15000。
+一个能设计客服体系、培训团队的客服主管，年薪50万。</p>
+<p><strong>区别不在于工作时间，在于你能解决多大的问题。</strong></p>
+<p><strong>策略2：发展副业</strong>
+把你的技能变成产品：咨询、课程、内容、服务。</p>
+<p><strong>策略3：学习投资</strong>
+当你的储蓄达到一定规模，让钱为你工作。</p>
+<p><strong>策略4：储蓄优先</strong>
+“收入-储蓄=支出”，而不是”收入-支出=储蓄”。</p>
+<p><strong>策略5：控制负债</strong>
+区分”好负债”（能产生收益的）和”坏负债”（纯消费的）。</p>
+<p><strong>策略6：持续学习</strong>
+每年投入收入的5-10%用于自我学习。</p>
+<p><strong>策略7：建立系统</strong>
+把你的收入模式系统化、自动化，减少对时间的依赖。</p>
+<h2 id="核心五投资三大原则不懂不投分散配置长期持有">核心五：投资三大原则——不懂不投、分散配置、长期持有<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心五投资三大原则不懂不投分散配置长期持有" role="anchor" tabindex="-1"></a></h2>
+<p>舍费尔的投资哲学非常保守和稳健：</p>
+<p><strong>原则1：永远不要投资你不了解的产品</strong></p>
+<blockquote>
+<p>“靠运气赚到的钱，迟早会靠实力亏回去。”</p>
+</blockquote>
+<p><strong>原则2：把投资分成三部分</strong></p>
+<ul>
+<li>保守型（50-60%）：债券、存款、保险——保本</li>
+<li>平衡型（30-40%）：指数基金、蓝筹股——稳健增值</li>
+<li>激进型（10-20%）：成长股、主动管理基金——追求高收益</li>
+</ul>
+<p><strong>原则3：和时间做朋友</strong></p>
+<blockquote>
+<p>“复利是世界第八大奇迹。理解它的人赚取它，不理解的人支付它。“（爱因斯坦）</p>
+</blockquote>
+<p>如果每年收益率8%，10年后本金翻倍；20年后是4倍；30年后是10倍。</p>
+<h2 id="大学生在财务方面最该做的事">大学生在财务方面最该做的事<a aria-hidden="true" class="internal" data-no-popover="true" href="#大学生在财务方面最该做的事" role="anchor" tabindex="-1"></a></h2>
+<p>说实话，大学生时期是培养财务习惯最好的时机——因为你的开支最少，试错成本最低。</p>
+<h3 id="从现在开始做这三件事">从现在开始做这三件事<a aria-hidden="true" class="internal" data-no-popover="true" href="#从现在开始做这三件事" role="anchor" tabindex="-1"></a></h3>
+<p><strong>第一件事：记账</strong>
+知道钱花在哪里，是理财的第一步。</p>
+<p>推荐”三个账户法”：</p>
+<ul>
+<li>日常账户（60%）：基本生活开支</li>
+<li>成长账户（20%）：学习和自我投资</li>
+<li>梦想账户（20%）：未来的大目标（旅行、创业、买房）</li>
+</ul>
+<p><strong>第二件事：建立”财务保障”</strong>
+目标：存够3-6个月的生活费。这是你面对未来的底气。</p>
+<p><strong>第三件事：学习投资知识</strong>
+不是现在就开始投资，而是先学习。推荐先了解：</p>
+<ul>
+<li>货币基金（余额宝类）：几乎没有风险</li>
+<li>指数基金：适合长期定投</li>
+<li>债券：稳健型</li>
+</ul>
+<h2 id="精华语录">精华语录<a aria-hidden="true" class="internal" data-no-popover="true" href="#精华语录" role="anchor" tabindex="-1"></a></h2>
+<blockquote>
+<p>“你今天的行为，决定了五年后的财务状况。”</p>
+</blockquote>
+<blockquote>
+<p>“储蓄是付钱给自己。在你拿到工资之后，首先付钱给自己——而不是花光所有再去储蓄。”</p>
+</blockquote>
+<blockquote>
+<p>“没有人能两次踏入同一条河流。但对于金钱来说，道理相同：你今天如何对待你的钱，决定了明天它如何对待你。”</p>
+</blockquote>
+<blockquote>
+<p>“财务自由不是终点，而是起点。它给你选择的自由——选择做什么，或者不做什么。“</p>
+</blockquote>
+<h2 id="学长总结">学长总结<a aria-hidden="true" class="internal" data-no-popover="true" href="#学长总结" role="anchor" tabindex="-1"></a></h2>
+<p>这本书的核心理念其实就三句话：</p>
+<ol>
+<li><strong>先储蓄，再消费</strong>——而不是等花剩下了再存</li>
+<li><strong>让钱为你工作</strong>——而不只是你为钱工作</li>
+<li><strong>改变金钱观是第一步</strong>——旧的信念不换，新行为坚持不下去</li>
+</ol>
+<p>对于大学生来说，这本书最重要的意义不是让你现在就开始投资，而是<strong>让你意识到财务规划的重要性，建立正确的金钱观</strong>。</p>
+<p>等你毕业开始工作，你会发现——周围的人都在埋头赚钱，但很少有人在思考”如何让钱为我工作”。</p>
+<p>早一点建立这个意识，你就早一点走在通往财务自由的路上。</p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例041-金融服务-村镇银行" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例041-金融服务-村镇银行" href="../../../1001上百大学四年的规划案例/案例041-金融服务-村镇银行/index.html">经管财会路径：案例041-金融服务-村镇银行</a></li>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例044-211金融学-基金销售" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例044-211金融学-基金销售" href="../../../1001上百大学四年的规划案例/案例044-211金融学-基金销售/index.html">经管财会路径：案例044-211金融学-基金销售</a></li>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例015-会计电算化-代理记账公司" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例015-会计电算化-代理记账公司" href="../../../1001上百大学四年的规划案例/案例015-会计电算化-代理记账公司/index.html">经管财会路径：案例015-会计电算化-代理记账公司</a></li>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例049-财务会计-转本从业资格" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例049-财务会计-转本从业资格" href="../../../1001上百大学四年的规划案例/案例049-财务会计-转本从业资格/index.html">经管财会路径：案例049-财务会计-转本从业资格</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/4.【考公】高价值信息差/考公专业与岗位匹配度分析" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/4.【考公】高价值信息差/考公专业与岗位匹配度分析" href="../../../0002大二大三核心信息差/4.【考公】高价值信息差/考公专业与岗位匹配度分析/index.html">经管财会路径：考公专业与岗位匹配度分析</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差/index.html">创业：0000创业高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目/index.html">创业：怎样从0到1开始跑通一个项目</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目/index.html">创业：1000「高价值」适合学生做的低风险创业项目</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例041-金融服务-村镇银行" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例041-金融服务-村镇银行" href="../../../1001上百大学四年的规划案例/案例041-金融服务-村镇银行/index.html">案例041-金融服务-村镇银行</a></li>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例044-211金融学-基金销售" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例044-211金融学-基金销售" href="../../../1001上百大学四年的规划案例/案例044-211金融学-基金销售/index.html">案例044-211金融学-基金销售</a></li>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例015-会计电算化-代理记账公司" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例015-会计电算化-代理记账公司" href="../../../1001上百大学四年的规划案例/案例015-会计电算化-代理记账公司/index.html">案例015-会计电算化-代理记账公司</a></li>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例049-财务会计-转本从业资格" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例049-财务会计-转本从业资格" href="../../../1001上百大学四年的规划案例/案例049-财务会计-转本从业资格/index.html">案例049-财务会计-转本从业资格</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/4.【考公】高价值信息差/考公专业与岗位匹配度分析" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/4.【考公】高价值信息差/考公专业与岗位匹配度分析" href="../../../0002大二大三核心信息差/4.【考公】高价值信息差/考公专业与岗位匹配度分析/index.html">考公专业与岗位匹配度分析</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差/index.html">0000创业高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目/index.html">怎样从0到1开始跑通一个项目</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目/index.html">1000「高价值」适合学生做的低风险创业项目</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/财务自由之路_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/财务自由之路_适合阅读的大学生群体" href="../财务自由之路_适合阅读的大学生群体/index.html">财务自由之路_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/被讨厌的勇气_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/被讨厌的勇气_阅读价值与能解决的痛点" href="../被讨厌的勇气_阅读价值与能解决的痛点/index.html">被讨厌的勇气_阅读价值与能解决的痛点</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>进阶大学图书馆</code></li>
+<li><code>创业</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/财务自由之路_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/财务自由之路_适合阅读的大学生群体" href="../财务自由之路_适合阅读的大学生群体/index.html">下一篇：财务自由之路_适合阅读的大学生群体</a></li>
+</ul>
+
+</div>
+</body></html>

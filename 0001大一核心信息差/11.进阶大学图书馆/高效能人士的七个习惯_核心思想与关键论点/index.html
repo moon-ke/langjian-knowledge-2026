@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>高效能人士的七个习惯_核心思想与关键论点 · 进阶知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body><style>
+#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
+#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
+#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
+#lj-sel .lj-opt:hover{background:#e2e8f0}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
+<script>
+(function(){
+  var PASS='1yzx', PAGE='article';
+  var PROMPT={
+    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
+    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
+    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
+    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
+    'zsxq':'请加入知识星球「大学生情报局」'
+  };
+  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
+  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
+  var comm=read('lj_community');
+  function showGate(){
+    if(read('lj_unlocked')==='1yzx')return;
+    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
+    gate.style.display='flex';
+    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
+    function unlock(){
+      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }
+    document.getElementById('lj-btn').addEventListener('click',unlock);
+    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+    i.focus();
+  }
+  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
+  else{
+    sel.style.display='flex';
+    sel.querySelectorAll('.lj-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
+        sel.style.display='none';
+        if(PAGE==='article')showGate();
+      });
+    });
+  }
+})();
+</script>
+
+
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 进阶知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/11.进阶大学图书馆/高效能人士的七个习惯_核心思想与关键论点</div>
+<h1>高效能人士的七个习惯_核心思想与关键论点</h1>
+
+<h1 id="高效能人士的七个习惯从依赖到互赖的人生进化指南">《高效能人士的七个习惯》：从依赖到互赖的人生进化指南<a aria-hidden="true" class="internal" data-no-popover="true" href="#高效能人士的七个习惯从依赖到互赖的人生进化指南" role="anchor" tabindex="-1"></a></h1>
+<p>柯维的核心思想可以用一句话概括：</p>
+<blockquote>
+<p><strong>“由内而外”地改变自己，而不是”由外而内”地抱怨环境。</strong></p>
+</blockquote>
+<h2 id="核心框架三个阶段的七个习惯">核心框架：三个阶段的七个习惯<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心框架三个阶段的七个习惯" role="anchor" tabindex="-1"></a></h2>
+<p>柯维把人的成长分为三个阶段：</p>
+<p><strong>依赖期</strong>（靠别人）：我需要你，我才能成功
+<strong>独立期</strong>（靠自己）：我可以，我能做到
+<strong>互赖期</strong>（靠团队）：我们一起，我们可以</p>
+<p>七个习惯就是帮你从依赖→独立→互赖的路径。</p>
+<h3 id="从依赖到独立个人领域的成功">从依赖到独立：个人领域的成功<a aria-hidden="true" class="internal" data-no-popover="true" href="#从依赖到独立个人领域的成功" role="anchor" tabindex="-1"></a></h3>
+<h4 id="习惯1积极主动">习惯1：积极主动<a aria-hidden="true" class="internal" data-no-popover="true" href="#习惯1积极主动" role="anchor" tabindex="-1"></a></h4>
+<p><strong>定义</strong>：主动为自己的选择和行为负责，而不是被动地回应环境。</p>
+<p>柯维的核心观点：</p>
+<blockquote>
+<p><strong>“在刺激和反应之间，有一个空间。在那个空间里，你有自由选择的能力。”</strong></p>
+</blockquote>
+<p>“积极主动”不是”盲目乐观”，而是：</p>
+<ol>
+<li>
+<p><strong>关注圈 vs 影响圈</strong></p>
+<ul>
+<li>关注圈：你关心但无法改变的事（国际局势、天气、其他人的看法）</li>
+<li>影响圈：你可以通过行动改变的事（你的学习、你的习惯、你的选择）</li>
+</ul>
+<p><strong>高效能人士专注于影响圈，而不是在关注圈里焦虑。</strong></p>
+</li>
+<li>
+<p><strong>语言模式</strong></p>
+<ul>
+<li>❌ 消极语言：“我就是这样”、“他逼我的”、“我没办法”</li>
+<li>✅ 积极语言：“我可以试试”、“我选择这样做”、“我换个角度看”</li>
+</ul>
+</li>
+<li>
+<p><strong>把精力放在能控制的事上</strong></p>
+<ul>
+<li>你改变不了室友的习惯，但你可以选择如何应对</li>
+<li>你决定不了老师的评分标准，但你可以决定自己的努力程度</li>
+<li>你控制不了家庭背景，但你可以控制自己的选择</li>
+</ul>
+</li>
+</ol>
+<h4 id="习惯2以终为始">习惯2：以终为始<a aria-hidden="true" class="internal" data-no-popover="true" href="#习惯2以终为始" role="anchor" tabindex="-1"></a></h4>
+<p><strong>定义</strong>：先明确你想要的”终点”，然后倒推到现在应该做什么。</p>
+<p>柯维的核心观点：</p>
+<blockquote>
+<p><strong>“你希望在盖棺定论时，人们对你有什么评价？”</strong></p>
+</blockquote>
+<p>这个问题的答案，就是你的”个人宪法”——你人生的基本原则。</p>
+<p><strong>如何实践：</strong></p>
+<ol>
+<li>
+<p><strong>写一份个人使命宣言</strong></p>
+<ul>
+<li>我想成为什么样的人？</li>
+<li>我最重要的关系是什么？</li>
+<li>我最看重什么？</li>
+<li>我的原则是什么？</li>
+</ul>
+</li>
+<li>
+<p><strong>角色定位</strong></p>
+<ul>
+<li>我是学生</li>
+<li>我是朋友</li>
+<li>我是子女</li>
+<li>我是团队成员
+每个角色都需要不同的投入。</li>
+</ul>
+</li>
+<li>
+<p><strong>想象成功的样子</strong></p>
+<ul>
+<li>5年后你在哪里？</li>
+<li>10年后你在做什么？</li>
+<li>你理想的一天是什么样的？</li>
+</ul>
+</li>
+</ol>
+<h4 id="习惯3要事第一">习惯3：要事第一<a aria-hidden="true" class="internal" data-no-popover="true" href="#习惯3要事第一" role="anchor" tabindex="-1"></a></h4>
+<p><strong>定义</strong>：把时间优先花在”重要但不紧急”的事上，而不是被”紧急的事”牵着走。</p>
+<p>时间管理矩阵：</p>
+<pre><code>              紧急
+         是           否
+    ┌──────────┬──────────┐
+    │   Ⅰ     │    Ⅱ    │
+紧  │ 危机     │  规划    │
+急  │ 急事     │  预防    │
+    │ 期限压力 │  能力提升│
+    ├──────────┼──────────┤
+    │   Ⅲ     │    Ⅳ    │
+    │  干扰    │   琐事   │
+否  │ 鸡毛蒜皮 │  白日梦  │
+    │ 不速之客 │  无目的  │
+    └──────────┴──────────┘
+            不紧急
+</code></pre>
+<ul>
+<li><strong>象限Ⅰ（紧急且重要）</strong>：救火，但不能成为生活常态</li>
+<li><strong>象限Ⅱ（不紧急但重要）</strong>：规划、关系建立、学习、健身——这是高效能的核心</li>
+<li><strong>象限Ⅲ（紧急但不重要）</strong>：表面紧急，实际对目标无益</li>
+<li><strong>象限Ⅳ（不紧急且不重要）</strong>：浪费时间</li>
+</ul>
+<p><strong>帕金森定律</strong>：只要你还有时间，工作就会扩展到填满所有时间。</p>
+<p><strong>解决方法：</strong></p>
+<ol>
+<li>每周做计划</li>
+<li>每天确定3件最重要的事</li>
+<li>对不重要的事说”不”</li>
+</ol>
+<h3 id="从独立到互赖公众领域的成功">从独立到互赖：公众领域的成功<a aria-hidden="true" class="internal" data-no-popover="true" href="#从独立到互赖公众领域的成功" role="anchor" tabindex="-1"></a></h3>
+<h4 id="习惯4双赢思维">习惯4：双赢思维<a aria-hidden="true" class="internal" data-no-popover="true" href="#习惯4双赢思维" role="anchor" tabindex="-1"></a></h4>
+<p><strong>定义</strong>：寻求对双方都有利的解决方案。</p>
+<p>四种结果：</p>
+<ul>
+<li><strong>双赢</strong>：双方都满意</li>
+<li><strong>我赢你输</strong>：短期胜利，长期关系受损</li>
+<li><strong>我输你赢</strong>：委屈自己</li>
+<li><strong>双赢或不成</strong>：如果不能双赢，宁可不做</li>
+</ul>
+<p><strong>如何在生活中实践：</strong></p>
+<ul>
+<li>和室友协商作息时间：不是”你迁就我”或”我迁就你”，而是”我们都接受的方式”</li>
+<li>和朋友合作项目：不是”谁干多谁干少”，而是”我们怎么分工才能最好”</li>
+<li>和家人沟通：不是”你必须听我的”或”我只能听你的”，而是”找到双方都舒服的方式”</li>
+</ul>
+<h4 id="习惯5知彼解己">习惯5：知彼解己<a aria-hidden="true" class="internal" data-no-popover="true" href="#习惯5知彼解己" role="anchor" tabindex="-1"></a></h4>
+<p><strong>定义</strong>：先理解别人，再让别人理解你。</p>
+<p><strong>倾听的四个层次：</strong></p>
+<ol>
+<li><strong>充耳不闻</strong>：假装在听，实际在想别的</li>
+<li><strong>装模作样</strong>：“嗯嗯”应付</li>
+<li><strong>选择性倾听</strong>：只听自己想听的部分</li>
+<li><strong>真正倾听</strong>：用心理解对方的情绪和意思</li>
+</ol>
+<p><strong>有效倾听的方法：</strong></p>
+<ol>
+<li>先倾听，不评判</li>
+<li>复述对方的话，确认理解</li>
+<li>关注情绪，而不只是内容</li>
+<li>先回应感受，再回应事实</li>
+</ol>
+<h4 id="习惯6统合综效">习惯6：统合综效<a aria-hidden="true" class="internal" data-no-popover="true" href="#习惯6统合综效" role="anchor" tabindex="-1"></a></h4>
+<p><strong>定义</strong>：1+1&gt;2，整体大于部分之和。</p>
+<p><strong>核心理念：</strong></p>
+<blockquote>
+<p><strong>“不同不是障碍，而是创造第三选择的资源。”</strong></p>
+</blockquote>
+<p>操作方法：</p>
+<ol>
+<li><strong>尊重差异</strong>：每个人的视角都是独特的</li>
+<li><strong>寻找第三选择</strong>：不是”你的方案”或”我的方案”，而是”我们的方案”</li>
+<li><strong>合作创造</strong>：通过团队协作，得出比任何人都好的结果</li>
+</ol>
+<h3 id="持续更新">持续更新<a aria-hidden="true" class="internal" data-no-popover="true" href="#持续更新" role="anchor" tabindex="-1"></a></h3>
+<h4 id="习惯7不断更新">习惯7：不断更新<a aria-hidden="true" class="internal" data-no-popover="true" href="#习惯7不断更新" role="anchor" tabindex="-1"></a></h4>
+<p><strong>定义</strong>：在身体、精神、智力、社会/情感四个层面不断更新自己。</p>
+<pre><code>更新金字塔
+   ┌─────────┐
+   │  社会/  │ ← 人际关系
+   │  情感   │
+   ├─────────┤
+   │  精神   │ ← 价值观
+   ├─────────┤
+   │  智力   │ ← 学习、思考
+   ├─────────┤
+   │  身体   │ ← 健康、运动
+   └─────────┘
+</code></pre>
+<p><strong>每日更新：</strong></p>
+<ul>
+<li>身体：运动、健康饮食、充足睡眠</li>
+<li>精神：冥想、阅读、思考</li>
+<li>智力：学习新知识、写作、解决问题</li>
+<li>社会/情感：和重要的人联系、帮助他人</li>
+</ul>
+<h2 id="关键论点解析">关键论点解析<a aria-hidden="true" class="internal" data-no-popover="true" href="#关键论点解析" role="anchor" tabindex="-1"></a></h2>
+<h3 id="论点1由内而外还是由外而内">论点1：由内而外还是由外而内<a aria-hidden="true" class="internal" data-no-popover="true" href="#论点1由内而外还是由外而内" role="anchor" tabindex="-1"></a></h3>
+<p>柯维区分了两种改变方式：</p>
+<p><strong>由外而内</strong>（错误的路径）：</p>
+<ul>
+<li>别人改变了我才开心</li>
+<li>环境变了我才能成功</li>
+<li>等我有钱了我就幸福</li>
+</ul>
+<p><strong>由内而外</strong>（正确的路径）：</p>
+<ul>
+<li>我先改变，别人才会改变</li>
+<li>我先成功，环境才会改变</li>
+<li>我现在就可以幸福</li>
+</ul>
+<blockquote>
+<p><strong>不是你变好了，环境才会变好；而是你变了，好的环境才可能出现。</strong></p>
+</blockquote>
+<h3 id="论点2习惯的力量">论点2：习惯的力量<a aria-hidden="true" class="internal" data-no-popover="true" href="#论点2习惯的力量" role="anchor" tabindex="-1"></a></h3>
+<p>柯维有个著名比喻：</p>
+<blockquote>
+<p><strong>“想法决定行动，行动决定习惯，习惯决定性格，性格决定命运。”</strong></p>
+</blockquote>
+<p>改变习惯需要三步：</p>
+<ol>
+<li><strong>认知</strong>：意识到这个习惯的存在</li>
+<li><strong>意愿</strong>：有改变的动力</li>
+<li><strong>能力</strong>：有改变的方法</li>
+</ol>
+<p>缺少任何一步，习惯都很难改变。</p>
+<h3 id="论点3情感账户">论点3：情感账户<a aria-hidden="true" class="internal" data-no-popover="true" href="#论点3情感账户" role="anchor" tabindex="-1"></a></h3>
+<p>柯维用”情感账户”比喻人际关系：</p>
+<blockquote>
+<p><strong>你每一次尊重、理解、帮助别人，都是在”存款”；每一次伤害、忽视、背叛，都是在”取款”。</strong></p>
+</blockquote>
+<p>当你的”情感账户”余额充足时：</p>
+<ul>
+<li>犯个小错对方会原谅</li>
+<li>需要帮助时有人伸出援手</li>
+<li>关系更稳固、更信任</li>
+</ul>
+<p>当你的”情感账户”余额不足时：</p>
+<ul>
+<li>一点小事就爆发冲突</li>
+<li>对方不愿意帮你</li>
+<li>关系脆弱、充满猜疑</li>
+</ul>
+<p><strong>存款行为：</strong></p>
+<ul>
+<li>理解别人</li>
+<li>信守承诺</li>
+<li>明确期望</li>
+<li>真诚道歉</li>
+<li>小礼物、惊喜</li>
+</ul>
+<p><strong>取款行为：</strong></p>
+<ul>
+<li>批评、指责</li>
+<li>不守承诺</li>
+<li>忽略对方需求</li>
+<li>忽视、轻蔑</li>
+</ul>
+<h2 id="学姐总结">学姐总结<a aria-hidden="true" class="internal" data-no-popover="true" href="#学姐总结" role="anchor" tabindex="-1"></a></h2>
+<p>七个习惯的核心三句话：</p>
+<ol>
+<li><strong>积极主动</strong>：你选择你的态度和行为</li>
+<li><strong>以终为始</strong>：你想成为什么样的人决定你现在该做什么</li>
+<li><strong>要事第一</strong>：重要的事不能被紧迫的事牵制</li>
+</ol>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差/index.html">创业：0000创业高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目/index.html">创业：怎样从0到1开始跑通一个项目</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目/index.html">创业：1000「高价值」适合学生做的低风险创业项目</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差/index.html">0000创业高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目/index.html">怎样从0到1开始跑通一个项目</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目/index.html">1000「高价值」适合学生做的低风险创业项目</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/高效能人士的七个习惯_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/高效能人士的七个习惯_适合阅读的大学生群体" href="../高效能人士的七个习惯_适合阅读的大学生群体/index.html">高效能人士的七个习惯_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/富兰克林自传_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/富兰克林自传_阅读价值与能解决的痛点" href="../富兰克林自传_阅读价值与能解决的痛点/index.html">富兰克林自传_阅读价值与能解决的痛点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/高效能人士的七个习惯_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/高效能人士的七个习惯_阅读价值与能解决的痛点" href="../高效能人士的七个习惯_阅读价值与能解决的痛点/index.html">高效能人士的七个习惯_阅读价值与能解决的痛点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/富兰克林自传_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/富兰克林自传_适合阅读的大学生群体" href="../富兰克林自传_适合阅读的大学生群体/index.html">富兰克林自传_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/格局_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/格局_核心思想与关键论点" href="../格局_核心思想与关键论点/index.html">格局_核心思想与关键论点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/富兰克林自传_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/富兰克林自传_核心思想与关键论点" href="../富兰克林自传_核心思想与关键论点/index.html">富兰克林自传_核心思想与关键论点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000A_主题分类导航" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000A_主题分类导航" href="../0000A_主题分类导航/index.html">0000A_主题分类导航</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>进阶大学图书馆</code></li>
+<li><code>创业</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/高效能人士的七个习惯_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/高效能人士的七个习惯_适合阅读的大学生群体" href="../高效能人士的七个习惯_适合阅读的大学生群体/index.html">下一篇：高效能人士的七个习惯_适合阅读的大学生群体</a></li>
+</ul>
+
+</div>
+</body></html>

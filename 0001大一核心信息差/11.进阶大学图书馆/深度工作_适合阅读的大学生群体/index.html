@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>深度工作_适合阅读的大学生群体 · 进阶知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body><style>
+#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
+#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
+#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
+#lj-sel .lj-opt:hover{background:#e2e8f0}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
+<script>
+(function(){
+  var PASS='1yzx', PAGE='article';
+  var PROMPT={
+    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
+    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
+    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
+    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
+    'zsxq':'请加入知识星球「大学生情报局」'
+  };
+  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
+  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
+  var comm=read('lj_community');
+  function showGate(){
+    if(read('lj_unlocked')==='1yzx')return;
+    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
+    gate.style.display='flex';
+    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
+    function unlock(){
+      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }
+    document.getElementById('lj-btn').addEventListener('click',unlock);
+    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+    i.focus();
+  }
+  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
+  else{
+    sel.style.display='flex';
+    sel.querySelectorAll('.lj-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
+        sel.style.display='none';
+        if(PAGE==='article')showGate();
+      });
+    });
+  }
+})();
+</script>
+
+
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 进阶知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/11.进阶大学图书馆/深度工作_适合阅读的大学生群体</div>
+<h1>深度工作_适合阅读的大学生群体</h1>
+
+<h1 id="深度工作谁应该读这本书">《深度工作》：谁应该读这本书？<a aria-hidden="true" class="internal" data-no-popover="true" href="#深度工作谁应该读这本书" role="anchor" tabindex="-1"></a></h1>
+<p>说实话，在这个”注意力被无限争夺”的时代，这本书几乎适合所有人。</p>
+<p>但有些人读了会”恍然大悟”，有些人可能”知道但做不到”。</p>
+<h2 id="这本书强烈推荐给">这本书强烈推荐给：<a aria-hidden="true" class="internal" data-no-popover="true" href="#这本书强烈推荐给" role="anchor" tabindex="-1"></a></h2>
+<h3 id="1-手机控选手">1. “手机控”选手<a aria-hidden="true" class="internal" data-no-popover="true" href="#1-手机控选手" role="anchor" tabindex="-1"></a></h3>
+<p>你是否有以下症状：</p>
+<ul>
+<li>早上睁眼第一件事是看手机</li>
+<li>上课/自习手机不离手</li>
+<li>一小时不刷手机就难受</li>
+<li>睡前最后一件事是刷手机</li>
+<li>经常刷到凌晨2点才睡</li>
+<li>充电宝是随身必备品</li>
+</ul>
+<blockquote>
+<p>这本书帮你<strong>重新夺回对注意力的控制权</strong>。</p>
+</blockquote>
+<h3 id="2-假努力选手">2. “假努力”选手<a aria-hidden="true" class="internal" data-no-popover="true" href="#2-假努力选手" role="anchor" tabindex="-1"></a></h3>
+<p>你是否有以下症状：</p>
+<ul>
+<li>每天在图书馆待10小时，但什么都没学会</li>
+<li>明明很努力，但成绩就是上不去</li>
+<li>总觉得自己时间不够用</li>
+<li>期末复习总是”来不及”</li>
+<li>一天下来很累，但想不起做了什么事</li>
+</ul>
+<blockquote>
+<p>深度工作帮你<strong>从”看起来很努力”变成”真正有产出”</strong>。</p>
+</blockquote>
+<h3 id="3-拖延症晚期选手">3. “拖延症晚期”选手<a aria-hidden="true" class="internal" data-no-popover="true" href="#3-拖延症晚期选手" role="anchor" tabindex="-1"></a></h3>
+<p>你是否有以下症状：</p>
+<ul>
+<li>作业/论文总是拖到最后一天</li>
+<li>期末考试也是”期末预习”</li>
+<li>列了很多计划，但从来没完成过</li>
+<li>每次开学都发誓要改变，期末还是老样子</li>
+<li>明知道该学习，但就是”打开书就开始刷手机”</li>
+</ul>
+<blockquote>
+<p>深度工作帮你<strong>从”拖延-焦虑-更拖延”的恶性循环中跳出来</strong>。</p>
+</blockquote>
+<h3 id="4--multitasking高手选手">4. ” multitasking高手”选手<a aria-hidden="true" class="internal" data-no-popover="true" href="#4--multitasking高手选手" role="anchor" tabindex="-1"></a></h3>
+<p>你是否有以下症状：</p>
+<ul>
+<li>一边听课一边回消息</li>
+<li>一边写代码一边刷视频</li>
+<li>一边吃饭一边看剧</li>
+<li>一边走路一边听音频</li>
+<li>总觉得”我可以同时做很多事”</li>
+</ul>
+<blockquote>
+<p>深度工作告诉你：<strong>大脑根本不适合多任务，每切换一次都在消耗认知资源。</strong></p>
+</blockquote>
+<h3 id="5-想保研考研出国选手">5. “想保研/考研/出国”选手<a aria-hidden="true" class="internal" data-no-popover="true" href="#5-想保研考研出国选手" role="anchor" tabindex="-1"></a></h3>
+<p>你是否有以下症状：</p>
+<ul>
+<li>想好好学习但总是分心</li>
+<li>需要长时间专注但坐不住</li>
+<li>准备大半年但效率不高</li>
+<li>想冲刺但找不到方法</li>
+</ul>
+<blockquote>
+<p>深度工作是<strong>学霸的底层能力</strong>，想保研/考研成功，必须学会。</p>
+</blockquote>
+<h3 id="6-即将实习工作选手">6. “即将实习/工作”选手<a aria-hidden="true" class="internal" data-no-popover="true" href="#6-即将实习工作选手" role="anchor" tabindex="-1"></a></h3>
+<p>你是否有以下症状：</p>
+<ul>
+<li>担心进入职场后效率不高</li>
+<li>听说职场人很忙但不知道为什么</li>
+<li>想提前适应”高效工作”的状态</li>
+<li>想在实习中做出成绩</li>
+</ul>
+<blockquote>
+<p>深度工作帮你<strong>提前建立职场高效工作的习惯</strong>。</p>
+</blockquote>
+<h2 id="这本书可能无感的人">这本书可能”无感”的人：<a aria-hidden="true" class="internal" data-no-popover="true" href="#这本书可能无感的人" role="anchor" tabindex="-1"></a></h2>
+<h3 id="1-已经很专注的同学">1. “已经很专注”的同学<a aria-hidden="true" class="internal" data-no-popover="true" href="#1-已经很专注的同学" role="anchor" tabindex="-1"></a></h3>
+<p>真的吗？</p>
+<p>测试一下：你能连续专注1小时做一件”需要动脑的事”吗？</p>
+<p>如果可以，那这本书可能只是”锦上添花”。</p>
+<p>如果不行，那这本书是”必修课”。</p>
+<h3 id="2-想找捷径的同学">2. “想找捷径”的同学<a aria-hidden="true" class="internal" data-no-popover="true" href="#2-想找捷径的同学" role="anchor" tabindex="-1"></a></h3>
+<p>深度工作没有捷径，它需要<strong>刻意的训练和坚持</strong>。</p>
+<p>如果你想”一周速成专注力”，这本书帮不了你。</p>
+<h3 id="3-不相信科学的同学">3. “不相信科学”的同学<a aria-hidden="true" class="internal" data-no-popover="true" href="#3-不相信科学的同学" role="anchor" tabindex="-1"></a></h3>
+<p>这本书基于大量认知科学研究。</p>
+<p>如果你觉得”意志力才是最重要的”，可能会对书中的一些观点持怀疑态度。</p>
+<h2 id="不同年级的阅读建议">不同年级的阅读建议<a aria-hidden="true" class="internal" data-no-popover="true" href="#不同年级的阅读建议" role="anchor" tabindex="-1"></a></h2>
+<h3 id="大一萌新">大一萌新：⭐⭐⭐⭐⭐<a aria-hidden="true" class="internal" data-no-popover="true" href="#大一萌新" role="anchor" tabindex="-1"></a></h3>
+<p>大学第一天就开始培养深度工作习惯，你会比同龄人领先4年。</p>
+<h3 id="大二觉醒期">大二觉醒期：⭐⭐⭐⭐⭐<a aria-hidden="true" class="internal" data-no-popover="true" href="#大二觉醒期" role="anchor" tabindex="-1"></a></h3>
+<p>如果大一的你正在”假努力”，这本书是转折点。</p>
+<h3 id="大三抉择期">大三抉择期：⭐⭐⭐⭐⭐<a aria-hidden="true" class="internal" data-no-popover="true" href="#大三抉择期" role="anchor" tabindex="-1"></a></h3>
+<p>考研、保研、实习——大三需要的是”深度学习”和”深度工作”能力。</p>
+<h3 id="大四冲刺期">大四冲刺期：⭐⭐⭐⭐<a aria-hidden="true" class="internal" data-no-popover="true" href="#大四冲刺期" role="anchor" tabindex="-1"></a></h3>
+<p>毕业设计/论文、找工作——深度工作能力直接影响你的产出质量。</p>
+<h2 id="学姐私房话">学姐私房话<a aria-hidden="true" class="internal" data-no-popover="true" href="#学姐私房话" role="anchor" tabindex="-1"></a></h2>
+<p>我读这本书的时候，正在经历”效率危机”。</p>
+<p>每天都很忙，但什么都没完成。绩点2.8，社团没进展，体重还涨了10斤。</p>
+<p>读完之后我做了三件事：</p>
+<ol>
+<li><strong>删掉了手机上所有娱乐类APP</strong>：微博、抖音、小红书</li>
+<li><strong>每天早上8:00-12:00是”深度学习时间”</strong>：手机放到另一个房间</li>
+<li><strong>下午只处理”浮浅事务”</strong>：回消息、整理笔记、处理杂事</li>
+</ol>
+<p>第一个月特别难受，总觉得”错过了什么”。</p>
+<p>但第三个月的时候，我发现自己：</p>
+<ul>
+<li>一天能学完以前一周的内容</li>
+<li>期末成绩平均分提高15分</li>
+<li>整个人精神状态好了很多</li>
+<li>有了更多时间运动和休息</li>
+</ul>
+<p><strong>深度工作不是让你更累，而是让你更高效，从而有更多时间做喜欢的事。</strong></p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划/index.html">科研：1000「高价值」科研基本认知与规划</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室/index.html">科研：本科生科研入门：如何联系导师与进入实验室</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南/index.html">科研：1000「高价值」文献阅读与综述撰写：科研基础能力构建指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程/index.html">科研：1000「高价值」科研论文撰写与投稿流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验/index.html">科研：科研经验分享与人物访谈：本科生科研成功案例与经验</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈" href="../../../0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈/index.html">实习：实习经验分享与人物访谈</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验" href="../../../0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验/index.html">实习：0000大学老油条找实习的25条野路子经验</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历" href="../../../0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历/index.html">实习：如何制作一份有竞争力的实习简历</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南/index.html">考研：考研择校选专业指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差/index.html">考研：考研专业信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差/index.html">考研：考研复试与调剂信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/3.保研_高价值信息差/1000「高价值」保研都要干一些什么" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/3.保研_高价值信息差/1000「高价值」保研都要干一些什么" href="../../3.保研_高价值信息差/1000「高价值」保研都要干一些什么/index.html">保研：1000「高价值」保研都要干一些什么</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划/index.html">1000「高价值」科研基本认知与规划</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室/index.html">本科生科研入门：如何联系导师与进入实验室</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南/index.html">1000「高价值」文献阅读与综述撰写：科研基础能力构建指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程/index.html">1000「高价值」科研论文撰写与投稿流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验/index.html">科研经验分享与人物访谈：本科生科研成功案例与经验</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈" href="../../../0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈/index.html">实习经验分享与人物访谈</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验" href="../../../0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验/index.html">0000大学老油条找实习的25条野路子经验</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历" href="../../../0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历/index.html">如何制作一份有竞争力的实习简历</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南/index.html">考研择校选专业指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差/index.html">考研专业信息差</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>进阶大学图书馆</code></li>
+<li><code>科研</code></li>
+<li><code>实习</code></li>
+<li><code>考研</code></li>
+<li><code>保研</code></li>
+<li><code>留学</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/深度工作_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/深度工作_阅读价值与能解决的痛点" href="../深度工作_阅读价值与能解决的痛点/index.html">下一篇：深度工作_阅读价值与能解决的痛点</a></li>
+</ul>
+
+</div>
+</body></html>

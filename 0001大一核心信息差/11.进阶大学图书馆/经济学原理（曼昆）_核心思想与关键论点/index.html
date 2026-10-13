@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>经济学原理（曼昆）_核心思想与关键论点 · 进阶知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body><style>
+#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
+#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
+#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
+#lj-sel .lj-opt:hover{background:#e2e8f0}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
+<script>
+(function(){
+  var PASS='1yzx', PAGE='article';
+  var PROMPT={
+    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
+    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
+    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
+    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
+    'zsxq':'请加入知识星球「大学生情报局」'
+  };
+  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
+  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
+  var comm=read('lj_community');
+  function showGate(){
+    if(read('lj_unlocked')==='1yzx')return;
+    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
+    gate.style.display='flex';
+    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
+    function unlock(){
+      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }
+    document.getElementById('lj-btn').addEventListener('click',unlock);
+    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+    i.focus();
+  }
+  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
+  else{
+    sel.style.display='flex';
+    sel.querySelectorAll('.lj-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
+        sel.style.display='none';
+        if(PAGE==='article')showGate();
+      });
+    });
+  }
+})();
+</script>
+
+
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 进阶知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/11.进阶大学图书馆/经济学原理（曼昆）_核心思想与关键论点</div>
+<h1>经济学原理（曼昆）_核心思想与关键论点</h1>
+
+<h1 id="经济学原理曼昆核心框架微观宏观两大学科">《经济学原理》（曼昆）核心框架：微观+宏观两大学科<a aria-hidden="true" class="internal" data-no-popover="true" href="#经济学原理曼昆核心框架微观宏观两大学科" role="anchor" tabindex="-1"></a></h1>
+<p>说实话，当年我考经济学原理的时候，差点被这本书的厚度吓到。</p>
+<p>两册加起来近千页，微观经济学一册、宏观经济学一册。</p>
+<p>但真正学进去之后，我发现这套书的框架清晰得像一张地图。</p>
+<h2 id="微观经济学市场如何运转">微观经济学：市场如何运转<a aria-hidden="true" class="internal" data-no-popover="true" href="#微观经济学市场如何运转" role="anchor" tabindex="-1"></a></h2>
+<h3 id="核心逻辑供求关系决定一切">核心逻辑：供求关系决定一切<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心逻辑供求关系决定一切" role="anchor" tabindex="-1"></a></h3>
+<p>曼昆的微观部分，全部围绕一个核心：<strong>价格由供求决定。</strong></p>
+<ul>
+<li>需求曲线：价格越低，买的人越多</li>
+<li>供给曲线：价格越高，卖的人越多</li>
+<li>均衡点：供需相等时的价格和数量</li>
+</ul>
+<p>这个框架能解释几乎所有的市场现象：</p>
+<ul>
+<li>为什么iphone越卖越贵？因为需求太旺盛</li>
+<li>为什么猪肉价格会波动？因为供给不稳定</li>
+<li>为什么明星赚那么多？因为需求大、供给少</li>
+</ul>
+<h3 id="十个核心原理曼昆原话">十个核心原理（曼昆原话）<a aria-hidden="true" class="internal" data-no-popover="true" href="#十个核心原理曼昆原话" role="anchor" tabindex="-1"></a></h3>
+<p>曼昆在这本书的开篇就提出了经济学的<strong>十大原理</strong>，这是整本书的灵魂：</p>
+<p><strong>关于个人决策：</strong></p>
+<ol>
+<li><strong>人们面临权衡取舍</strong> —— 天下没有免费的午餐</li>
+<li><strong>某种东西的成本是为了得到它而放弃的东西</strong> —— 机会成本</li>
+<li><strong>理性人考虑边际量</strong> —— 决策要看”边际收益 vs 边际成本”</li>
+<li><strong>人们会对激励做出反应</strong> —— 政策变了，人的行为也会变</li>
+</ol>
+<p><strong>关于人与人之间的相互作用：</strong></p>
+<ol start="5">
+<li><strong>贸易能使每个人状况更好</strong> —— 不是零和博弈，是互利共赢</li>
+<li><strong>市场通常是组织经济活动的好方法</strong> —— 价格机制比政府干预更有效</li>
+<li><strong>政府有时可以改善市场结果</strong> —— 市场失灵时需要政府介入</li>
+</ol>
+<p><strong>关于整体经济：</strong></p>
+<ol start="8">
+<li><strong>一国的生活水平取决于它生产物品与服务的能力</strong> —— 生产率决定生活水平</li>
+<li><strong>当政府发行过多货币时物价上涨</strong> —— 通胀是货币现象</li>
+<li><strong>社会面临通货膨胀与失业之间的短期权衡取舍</strong> —— 菲利普斯曲线</li>
+</ol>
+<h3 id="几个关键概念考试必考">几个关键概念（考试必考）<a aria-hidden="true" class="internal" data-no-popover="true" href="#几个关键概念考试必考" role="anchor" tabindex="-1"></a></h3>
+<p><strong>机会成本</strong>：做选择的代价，是你放弃的最高价值选择。</p>
+<p><strong>边际分析</strong>：多做一个单位会带来多少额外收益。</p>
+<p><strong>弹性</strong>：需求量对价格变化的敏感程度。弹性大的商品，降价能大幅提升销量；弹性小的商品，降价也没用。</p>
+<p><strong>外部性</strong>：你的行为影响了别人，但这个影响没有反映在价格里。比如污染就是负外部性。</p>
+<p><strong>公共物品</strong>：不排他、不竞争的东西，比如国防。私人市场提供不了公共物品。</p>
+<h2 id="宏观经济学整个经济如何运转">宏观经济学：整个经济如何运转<a aria-hidden="true" class="internal" data-no-popover="true" href="#宏观经济学整个经济如何运转" role="anchor" tabindex="-1"></a></h2>
+<h3 id="核心指标gdpcpi失业率">核心指标：GDP、CPI、失业率<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心指标gdpcpi失业率" role="anchor" tabindex="-1"></a></h3>
+<p><strong>GDP（国内生产总值）</strong>：一个国家一年内生产的所有最终物品和服务的市场价值。</p>
+<p>GDP = 消费 + 投资 + 政府购买 + 净出口</p>
+<p>GDP增速基本代表了一个国家的经济增长状况。</p>
+<p><strong>CPI（消费者物价指数）</strong>：衡量一篮子商品价格变化的指标，反映通胀水平。</p>
+<p><strong>失业率</strong>：劳动力市场中失业人口占劳动力的比例。</p>
+<h3 id="货币政策央妈怎么调控">货币政策：央妈怎么调控<a aria-hidden="true" class="internal" data-no-popover="true" href="#货币政策央妈怎么调控" role="anchor" tabindex="-1"></a></h3>
+<p>中央银行（咱们的央妈是人民银行）有三个主要工具：</p>
+<ol>
+<li><strong>公开市场操作</strong>：买卖国债，调节货币供应</li>
+<li><strong>法定存款准备金率</strong>：银行必须留存的比例</li>
+<li><strong>再贴现率</strong>：银行向央行借钱的利率</li>
+</ol>
+<p>降准降息是宽松政策，刺激经济；
+提准加息是紧缩政策，抑制通胀。</p>
+<h3 id="财政政策政府怎么花钱">财政政策：政府怎么花钱<a aria-hidden="true" class="internal" data-no-popover="true" href="#财政政策政府怎么花钱" role="anchor" tabindex="-1"></a></h3>
+<p>政府的两大工具：</p>
+<ol>
+<li><strong>政府购买</strong>：修路、建桥、军费…</li>
+<li><strong>税收</strong>：从企业和个人收钱</li>
+</ol>
+<p>扩张性财政政策（增加支出/减税）= 刺激经济；
+紧缩性财政政策（减少支出/增税）= 抑制经济过热。</p>
+<h3 id="开放经济国际贸易与汇率">开放经济：国际贸易与汇率<a aria-hidden="true" class="internal" data-no-popover="true" href="#开放经济国际贸易与汇率" role="anchor" tabindex="-1"></a></h3>
+<p>一个开放的经济体，商品、货币在国家间流动：</p>
+<ul>
+<li><strong>净出口</strong>：出口减进口，反映贸易顺差/逆差</li>
+<li><strong>资本净流出</strong>：国内投资者去国外投资 vs 外国投资者来国内投资</li>
+<li><strong>汇率</strong>：人民币对外币的比价，由供求决定</li>
+</ul>
+<p>中美贸易战、加征关税，本质上都是在这个框架下讨论的问题。</p>
+<h2 id="学长私房话">学长私房话<a aria-hidden="true" class="internal" data-no-popover="true" href="#学长私房话" role="anchor" tabindex="-1"></a></h2>
+<p>说实话，这本书的每一个知识点展开都能写一整章。</p>
+<p>我不可能把所有内容都塞进这一篇分享里，只能给你们一个<strong>框架地图</strong>。</p>
+<p>但你们要记住一件事：<strong>经济学不是让你算账的，是让你理解这个世界的运行规则。</strong></p>
+<p>当你看到”降准”新闻不再一脸懵，当你能用供需思维分析一个行业，你就已经比80%的同龄人强了。</p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="1002中国大学的专业规划/02经济学类/经济学类/经济学" data-graph-syntax="wikilink" data-slug="1002中国大学的专业规划/02经济学类/经济学类/经济学" href="../../../1002中国大学的专业规划/02经济学类/经济学类/经济学/index.html">专业规划：经济学：经济学</a></li>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例184-985经济学-外资投行" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例184-985经济学-外资投行" href="../../../1001上百大学四年的规划案例/案例184-985经济学-外资投行/index.html">案例：经济学：案例184-985经济学-外资投行</a></li>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例041-金融服务-村镇银行" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例041-金融服务-村镇银行" href="../../../1001上百大学四年的规划案例/案例041-金融服务-村镇银行/index.html">经管财会路径：案例041-金融服务-村镇银行</a></li>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例044-211金融学-基金销售" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例044-211金融学-基金销售" href="../../../1001上百大学四年的规划案例/案例044-211金融学-基金销售/index.html">经管财会路径：案例044-211金融学-基金销售</a></li>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例015-会计电算化-代理记账公司" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例015-会计电算化-代理记账公司" href="../../../1001上百大学四年的规划案例/案例015-会计电算化-代理记账公司/index.html">经管财会路径：案例015-会计电算化-代理记账公司</a></li>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例049-财务会计-转本从业资格" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例049-财务会计-转本从业资格" href="../../../1001上百大学四年的规划案例/案例049-财务会计-转本从业资格/index.html">经管财会路径：案例049-财务会计-转本从业资格</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/4.【考公】高价值信息差/考公专业与岗位匹配度分析" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/4.【考公】高价值信息差/考公专业与岗位匹配度分析" href="../../../0002大二大三核心信息差/4.【考公】高价值信息差/考公专业与岗位匹配度分析/index.html">经管财会路径：考公专业与岗位匹配度分析</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="1002中国大学的专业规划/02经济学类/经济学类/经济学" data-graph-syntax="wikilink" data-slug="1002中国大学的专业规划/02经济学类/经济学类/经济学" href="../../../1002中国大学的专业规划/02经济学类/经济学类/经济学/index.html">经济学</a></li>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例184-985经济学-外资投行" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例184-985经济学-外资投行" href="../../../1001上百大学四年的规划案例/案例184-985经济学-外资投行/index.html">案例184-985经济学-外资投行</a></li>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例041-金融服务-村镇银行" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例041-金融服务-村镇银行" href="../../../1001上百大学四年的规划案例/案例041-金融服务-村镇银行/index.html">案例041-金融服务-村镇银行</a></li>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例044-211金融学-基金销售" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例044-211金融学-基金销售" href="../../../1001上百大学四年的规划案例/案例044-211金融学-基金销售/index.html">案例044-211金融学-基金销售</a></li>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例015-会计电算化-代理记账公司" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例015-会计电算化-代理记账公司" href="../../../1001上百大学四年的规划案例/案例015-会计电算化-代理记账公司/index.html">案例015-会计电算化-代理记账公司</a></li>
+<li><a class="internal alias" data-graph-raw="1001上百大学四年的规划案例/案例049-财务会计-转本从业资格" data-graph-syntax="wikilink" data-slug="1001上百大学四年的规划案例/案例049-财务会计-转本从业资格" href="../../../1001上百大学四年的规划案例/案例049-财务会计-转本从业资格/index.html">案例049-财务会计-转本从业资格</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/4.【考公】高价值信息差/考公专业与岗位匹配度分析" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/4.【考公】高价值信息差/考公专业与岗位匹配度分析" href="../../../0002大二大三核心信息差/4.【考公】高价值信息差/考公专业与岗位匹配度分析/index.html">考公专业与岗位匹配度分析</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/经济学原理（曼昆）_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/经济学原理（曼昆）_适合阅读的大学生群体" href="../经济学原理（曼昆）_适合阅读的大学生群体/index.html">经济学原理（曼昆）_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/进化心理学_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/进化心理学_阅读价值与能解决的痛点" href="../进化心理学_阅读价值与能解决的痛点/index.html">进化心理学_阅读价值与能解决的痛点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/经济学原理（曼昆）_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/经济学原理（曼昆）_阅读价值与能解决的痛点" href="../经济学原理（曼昆）_阅读价值与能解决的痛点/index.html">经济学原理（曼昆）_阅读价值与能解决的痛点</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>进阶大学图书馆</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/经济学原理（曼昆）_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/经济学原理（曼昆）_适合阅读的大学生群体" href="../经济学原理（曼昆）_适合阅读的大学生群体/index.html">下一篇：经济学原理（曼昆）_适合阅读的大学生群体</a></li>
+</ul>
+
+</div>
+</body></html>

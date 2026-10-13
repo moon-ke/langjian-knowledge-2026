@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>未来简史_适合阅读的大学生群体 · 进阶知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body><style>
+#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
+#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
+#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
+#lj-sel .lj-opt:hover{background:#e2e8f0}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
+<script>
+(function(){
+  var PASS='1yzx', PAGE='article';
+  var PROMPT={
+    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
+    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
+    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
+    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
+    'zsxq':'请加入知识星球「大学生情报局」'
+  };
+  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
+  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
+  var comm=read('lj_community');
+  function showGate(){
+    if(read('lj_unlocked')==='1yzx')return;
+    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
+    gate.style.display='flex';
+    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
+    function unlock(){
+      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }
+    document.getElementById('lj-btn').addEventListener('click',unlock);
+    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+    i.focus();
+  }
+  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
+  else{
+    sel.style.display='flex';
+    sel.querySelectorAll('.lj-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
+        sel.style.display='none';
+        if(PAGE==='article')showGate();
+      });
+    });
+  }
+})();
+</script>
+
+
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 进阶知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/11.进阶大学图书馆/未来简史_适合阅读的大学生群体</div>
+<h1>未来简史_适合阅读的大学生群体</h1>
+
+<h1 id="未来简史适合谁读不同年级的阅读策略">《未来简史》适合谁读？不同年级的阅读策略<a aria-hidden="true" class="internal" data-no-popover="true" href="#未来简史适合谁读不同年级的阅读策略" role="anchor" tabindex="-1"></a></h1>
+<p>说实话，《未来简史》这本书，不是每个人都需要读的。</p>
+<p>但如果你正好是这几类人，这本书可能会改变你的人生轨迹。</p>
+<h2 id="一强烈推荐阅读的人群">一、强烈推荐阅读的人群<a aria-hidden="true" class="internal" data-no-popover="true" href="#一强烈推荐阅读的人群" role="anchor" tabindex="-1"></a></h2>
+<h3 id="1-准备留学出国的同学">1. 准备留学/出国的同学<a aria-hidden="true" class="internal" data-no-popover="true" href="#1-准备留学出国的同学" role="anchor" tabindex="-1"></a></h3>
+<p>这是我这篇文章最重要的受众，所以先说这个群体。</p>
+<p><strong>为什么留学生必读《未来简史》？</strong></p>
+<p>因为这本书是<strong>国际化视野的绝佳素材</strong>。</p>
+<p>我申请的时候，几乎所有顶级学校的文书和面试都会涉及这几个话题：</p>
+<ul>
+<li>AI对未来的影响</li>
+<li>技术与伦理的关系</li>
+<li>人类未来的走向</li>
+<li>个人与社会的连接</li>
+</ul>
+<p>《未来简史》能给你提供一套完整的思考框架，让你在讨论这些话题时有深度、有见地。</p>
+<p><strong>具体来说：</strong></p>
+<ul>
+<li>写”why this major”文书时，你可以引用书里的观点</li>
+<li>面试被问到”你怎么看AI取代人类”，你可以用书里的框架回答</li>
+<li>group discussion讨论科技伦理时，你可以提出独特视角</li>
+</ul>
+<p>我当时读完这本书，整理了十几页的读书笔记，最后文书里用到了三个核心观点。导师看完之后说：“这个角度很独特，能看出你真正在思考人类问题。”</p>
+<blockquote>
+<p>:warning: <strong>学长踩过的坑</strong></p>
+<p>我大一、大二读的书都是专业书——曼昆的经济学原理、巴菲特的传记什么的。</p>
+<p>申请的时候才发现，招生官根本不在乎你知道多少知识，他们在乎的是你有没有<strong>独立思考的能力</strong>。</p>
+<p>所以大三赶紧补了大量”看起来没用”的书，《未来简史》就是其中之一。</p>
+<p><strong>建议你们早点读，别跟我一样临时抱佛脚。</strong></p>
+</blockquote>
+<h3 id="2-计算机ai相关专业的同学">2. 计算机/AI相关专业的同学<a aria-hidden="true" class="internal" data-no-popover="true" href="#2-计算机ai相关专业的同学" role="anchor" tabindex="-1"></a></h3>
+<p>如果你学的是CS、AI、数据科学，这本书必读。</p>
+<p>因为赫拉利在书里对技术的预测，虽然有些地方可能不够精确，但他提出的问题方向是对的——</p>
+<ul>
+<li>AI会不会取代人类？</li>
+<li>算法有没有价值观？</li>
+<li>数据到底属于谁？</li>
+<li>技术奇点会不会到来？</li>
+</ul>
+<p>这些问题会成为未来10年技术圈讨论的核心议题。</p>
+<p>早点接触这些思考，能帮你建立更宏观的技术观。</p>
+<h3 id="3-对内卷和焦虑感到困惑的同学">3. 对”内卷”和”焦虑”感到困惑的同学<a aria-hidden="true" class="internal" data-no-popover="true" href="#3-对内卷和焦虑感到困惑的同学" role="anchor" tabindex="-1"></a></h3>
+<p>说实话，我身边很多同学都处于一种”卷又卷不动、躺又躺不平”的状态。</p>
+<p>读完《未来简史》之后，我自己对这个问题释然了很多。</p>
+<p>因为书里有一个观点让我印象很深：</p>
+<blockquote>
+<p><strong>如果未来真的只有少数人能”进化”成神人，那在旧赛道里卷死自己可能是最蠢的事。</strong></p>
+</blockquote>
+<p>与其在一个即将被颠覆的游戏规则里拼命，不如早点看清楚新的游戏规则是什么。</p>
+<h3 id="4-哲学社会学心理学相关专业的同学">4. 哲学/社会学/心理学相关专业的同学<a aria-hidden="true" class="internal" data-no-popover="true" href="#4-哲学社会学心理学相关专业的同学" role="anchor" tabindex="-1"></a></h3>
+<p>这本书本质上是一个历史哲学著作，探讨的是”人是什么”、“人类往哪里去”这些根本性问题。</p>
+<p>如果你学的是人文社科类专业，这本书能帮你：</p>
+<ul>
+<li>建立宏观的人类史框架</li>
+<li>理解技术与人文的关系</li>
+<li>提出有价值的研究问题</li>
+</ul>
+<p>很多名校的人文社科学术项目，在面试时都会考察你是否有宏观视野和思辨能力。</p>
+<h3 id="5-想提升聊天逼格的同学">5. 想提升”聊天逼格”的同学<a aria-hidden="true" class="internal" data-no-popover="true" href="#5-想提升聊天逼格的同学" role="anchor" tabindex="-1"></a></h3>
+<p>这个理由听起来有点功利，但确实很实用。</p>
+<p>大学里社交很重要，而社交的本质是<strong>交换信息和观点</strong>。</p>
+<p>如果你想在跟前辈、老师、甚至面试官聊天时能聊出深度，《未来简史》是很好的谈资——</p>
+<p>它涉及的话题够宏大、够有争议、够让你显得”有思想”。</p>
+<h2 id="二不太适合的人群">二、不太适合的人群<a aria-hidden="true" class="internal" data-no-popover="true" href="#二不太适合的人群" role="anchor" tabindex="-1"></a></h2>
+<p>说完适合的，说说不适合的：</p>
+<p><strong>1. 想要具体行动指南的人</strong></p>
+<p>这本书不提供”怎么做的步骤”，它提供的是”怎么想”的框架。</p>
+<p>如果你想要的是”SOP”和” checklist”，这本书会让你失望。</p>
+<p><strong>2. 排斥新观点的人</strong></p>
+<p>赫拉利的一些观点比较激进，比如”自由意志是幻觉”、“人类即将被算法统治”。</p>
+<p>如果你对这些观点感到不适，可能需要先调整心态再读。</p>
+<p><strong>3. 追求”正能量”的人</strong></p>
+<p>这本书有点”丧”，它揭示了很多我们不愿意面对的真相。</p>
+<p>如果你需要的是鸡汤和鼓励，这本书可能不是最佳选择。</p>
+<h2 id="三不同年级的阅读建议">三、不同年级的阅读建议<a aria-hidden="true" class="internal" data-no-popover="true" href="#三不同年级的阅读建议" role="anchor" tabindex="-1"></a></h2>
+<h3 id="大一新生">大一新生<a aria-hidden="true" class="internal" data-no-popover="true" href="#大一新生" role="anchor" tabindex="-1"></a></h3>
+<p><strong>建议：通读，但不要太纠结细节</strong></p>
+<p>大一的时候读《未来简史》，主要是<strong>建立宏观认知</strong>。</p>
+<p>这个阶段你的专业知识还很少，读这本书可能会有很多地方看不懂。</p>
+<p>没关系，能记住几个核心观点就够了：</p>
+<ul>
+<li>人类历史经历了几个阶段</li>
+<li>未来可能走向哪里</li>
+<li>技术对人类意味着什么</li>
+</ul>
+<p>等到大三、大四有了更多知识积累，再回头重读，会有更深的理解。</p>
+<h3 id="大二大三">大二、大三<a aria-hidden="true" class="internal" data-no-popover="true" href="#大二大三" role="anchor" tabindex="-1"></a></h3>
+<p><strong>建议：精读，做笔记，结合专业思考</strong></p>
+<p>这个阶段是读这本书的最佳时期。</p>
+<p>你已经有了一定的专业知识，可以把书里的观点跟自己的专业结合起来思考：</p>
+<ul>
+<li>学经济的同学可以思考：传统经济学的假设在AI时代还成立吗？</li>
+<li>学计算机的同学可以思考：算法到底有没有价值观？</li>
+<li>学心理学的同学可以思考：人类的”自由意志”到底是真是假？</li>
+</ul>
+<p>我建议你们边读边做笔记，把触动你的观点记下来，然后试着用自己的话复述一遍。</p>
+<h3 id="大四申请季">大四/申请季<a aria-hidden="true" class="internal" data-no-popover="true" href="#大四申请季" role="anchor" tabindex="-1"></a></h3>
+<p><strong>建议：重点读，做”能用”的内容提取</strong></p>
+<p>如果你正在准备留学申请，这本书的价值在于<strong>素材积累</strong>。</p>
+<p>重点关注这几个部分：</p>
+<ol>
+<li><strong>序言和结论</strong>——快速了解全书框架</li>
+<li><strong>技术与人文的张力</strong>——这是留学面试的高频话题</li>
+<li><strong>对未来的预测</strong>——可以用来写”future vision”文书</li>
+</ol>
+<p>把书里能用的观点整理成”弹药库”，面试的时候随时调用。</p>
+<h3 id="研究生及以上">研究生及以上<a aria-hidden="true" class="internal" data-no-popover="true" href="#研究生及以上" role="anchor" tabindex="-1"></a></h3>
+<p><strong>建议：批判性阅读，与其他学者观点对比</strong></p>
+<p>如果你已经有了较强的学术背景，建议用批判性思维来读这本书。</p>
+<p>赫拉利的观点不是没有争议——很多历史学家、生物学家、技术哲学家都提出过批评。</p>
+<p>你可以：</p>
+<ul>
+<li>读读其他学者的反驳观点</li>
+<li>思考书里论证的逻辑是否严密</li>
+<li>寻找你自己独特的立场</li>
+</ul>
+<h2 id="四阅读前的准备">四、阅读前的准备<a aria-hidden="true" class="internal" data-no-popover="true" href="#四阅读前的准备" role="anchor" tabindex="-1"></a></h2>
+<p>如果你决定读这本书，我有几个小建议：</p>
+<p><strong>1. 先读《人类简史》</strong></p>
+<p>《未来简史》是《人类简史》的续作。建议先读《人类简史》打好基础，不然《未来简史》里很多观点会显得突兀。</p>
+<p><strong>2. 别指望一次读懂</strong></p>
+<p>这本书的信息量很大，我读了三遍才敢说真正理解。建议先通读一遍，有个整体印象，然后再细读。</p>
+<p><strong>3. 别被”丧”的观点影响太久</strong></p>
+<p>读完可能会有点emo，觉得”人类要完”。但记住赫拉利说的另一句话：<strong>人类的厉害之处在于我们能虚构故事、创造意义</strong>。</p>
+<p>就算未来真的很可怕，我们也可以选择把这个”可怕的故事”讲成”人类再次突破的故事”。</p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划/index.html">科研：1000「高价值」科研基本认知与规划</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室/index.html">科研：本科生科研入门：如何联系导师与进入实验室</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南/index.html">科研：1000「高价值」文献阅读与综述撰写：科研基础能力构建指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程/index.html">科研：1000「高价值」科研论文撰写与投稿流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验/index.html">科研：科研经验分享与人物访谈：本科生科研成功案例与经验</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择/index.html">就业：大厂vs小公司vs创业公司：第一份工作的平台选择</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板/index.html">就业：1000「高价值」20份简历模板</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程/index.html">就业：1000「高价值」常见的部门面试流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南/index.html">考研：考研择校选专业指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差/index.html">考研：考研专业信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差/index.html">考研：考研复试与调剂信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划/index.html">留学：1000「高价值」留学基本认知与四年规划</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划/index.html">1000「高价值」科研基本认知与规划</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室/index.html">本科生科研入门：如何联系导师与进入实验室</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南/index.html">1000「高价值」文献阅读与综述撰写：科研基础能力构建指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程/index.html">1000「高价值」科研论文撰写与投稿流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验/index.html">科研经验分享与人物访谈：本科生科研成功案例与经验</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择/index.html">大厂vs小公司vs创业公司：第一份工作的平台选择</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板/index.html">1000「高价值」20份简历模板</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程/index.html">1000「高价值」常见的部门面试流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南/index.html">考研择校选专业指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差/index.html">考研专业信息差</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>进阶大学图书馆</code></li>
+<li><code>科研</code></li>
+<li><code>就业</code></li>
+<li><code>考研</code></li>
+<li><code>留学</code></li>
+<li><code>创业</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/未来简史_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/未来简史_阅读价值与能解决的痛点" href="../未来简史_阅读价值与能解决的痛点/index.html">下一篇：未来简史_阅读价值与能解决的痛点</a></li>
+</ul>
+
+</div>
+</body></html>

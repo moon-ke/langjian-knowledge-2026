@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>即兴演讲_核心思想与关键论点 · 进阶知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body><style>
+#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
+#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
+#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
+#lj-sel .lj-opt:hover{background:#e2e8f0}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
+<script>
+(function(){
+  var PASS='1yzx', PAGE='article';
+  var PROMPT={
+    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
+    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
+    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
+    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
+    'zsxq':'请加入知识星球「大学生情报局」'
+  };
+  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
+  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
+  var comm=read('lj_community');
+  function showGate(){
+    if(read('lj_unlocked')==='1yzx')return;
+    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
+    gate.style.display='flex';
+    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
+    function unlock(){
+      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }
+    document.getElementById('lj-btn').addEventListener('click',unlock);
+    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+    i.focus();
+  }
+  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
+  else{
+    sel.style.display='flex';
+    sel.querySelectorAll('.lj-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
+        sel.style.display='none';
+        if(PAGE==='article')showGate();
+      });
+    });
+  }
+})();
+</script>
+
+
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 进阶知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/11.进阶大学图书馆/即兴演讲_核心思想与关键论点</div>
+<h1>即兴演讲_核心思想与关键论点</h1>
+
+<h1 id="即兴演讲核心框架当没有准备时间的时候怎么说才是对的">《即兴演讲》核心框架：当”没有准备时间”的时候，怎么说才是对的？<a aria-hidden="true" class="internal" data-no-popover="true" href="#即兴演讲核心框架当没有准备时间的时候怎么说才是对的" role="anchor" tabindex="-1"></a></h1>
+<p>说实话，汉弗莱这本书的核心论点是：<strong>即兴演讲不是”随机发挥”，而是有”结构”的——掌握了这个结构，你就能在任何场合都能清晰表达。</strong></p>
+<p>很多人以为”即兴演讲”是”临场发挥”，不可能提前准备。但汉弗莱告诉你：<strong>即兴演讲是可以”准备”的——不是准备”说什么”，而是准备”怎么说”。</strong></p>
+<p>今天给你们梳理一下这本书的核心论点。</p>
+<h2 id="核心论点一即兴演讲的本质">核心论点一：即兴演讲的本质<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心论点一即兴演讲的本质" role="anchor" tabindex="-1"></a></h2>
+<p>汉弗莱认为：<strong>即兴演讲的本质是”有准备的即兴”。</strong></p>
+<p>“有准备”不是准备”具体的台词”，而是准备：</p>
+<ul>
+<li>“结构”：当你被问到任何问题，你都有一个”组织语言的框架”</li>
+<li>“心态”：你有自信、有条理、有感染力地表达自己</li>
+<li>“技巧”：你知道一些”快速思考”和”表达”的技巧</li>
+</ul>
+<p><strong>即兴演讲不是”随机发挥”，而是”有套路的即兴”。</strong></p>
+<h2 id="核心论点二即兴演讲的万能结构">核心论点二：即兴演讲的”万能结构”<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心论点二即兴演讲的万能结构" role="anchor" tabindex="-1"></a></h2>
+<p>汉弗莱给出了即兴演讲的<strong>万能结构</strong>（Point-Reason-Example-Point，PREP）：</p>
+<p><strong>1. 亮观点（Point）</strong></p>
+<ul>
+<li>先说你的核心观点</li>
+<li>举例：“我认为大学期间最应该培养的能力是思考能力。”</li>
+</ul>
+<p><strong>2. 说原因（Reason）</strong></p>
+<ul>
+<li>再说为什么</li>
+<li>举例：“原因有三个：第一，思考能力能帮你解决任何问题；第二，思考能力是其他能力的基础；第三，思考能力能让你在竞争中脱颖而出。”</li>
+</ul>
+<p><strong>3. 给例子（Example）</strong></p>
+<ul>
+<li>举例说明</li>
+<li>举例：“比如，我在做项目的时候，就是用’批判性思考’来分析问题，才能找到真正的原因。”</li>
+</ul>
+<p><strong>4. 再总结（Point）</strong></p>
+<ul>
+<li>最后再重复观点</li>
+<li>举例：“所以我的观点是：大学期间最应该培养的是思考能力，它会伴随你一生。”</li>
+</ul>
+<p><strong>这个结构能让你在任何话题上都有话说——因为你总是可以”亮观点→说原因→给例子→再总结”。</strong></p>
+<h2 id="核心论点三快速思考的技巧">核心论点三：快速思考的技巧<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心论点三快速思考的技巧" role="anchor" tabindex="-1"></a></h2>
+<p>即兴演讲的难点是”没有时间准备”，汉弗莱给出了”快速思考”的方法：</p>
+<p><strong>1. 用”连接词”争取时间</strong></p>
+<ul>
+<li>“这个问题很好…”</li>
+<li>“让我想想…”</li>
+<li>“从几个方面来说…”</li>
+<li>“首先我想说…”</li>
+</ul>
+<p><strong>2. 用”框架”组织语言</strong></p>
+<ul>
+<li>“第一、第二、第三”</li>
+<li>“先说、再讲、最后”</li>
+<li>“一方面、另一方面”</li>
+<li>“过去、现在、未来”</li>
+</ul>
+<p><strong>3. 用”简短回答”开始</strong></p>
+<ul>
+<li>先说一个”简短的观点”，再展开</li>
+<li>不要追求”面面俱到”，追求”重点突出”</li>
+</ul>
+<h2 id="核心论点四自信表达的要素">核心论点四：自信表达的要素<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心论点四自信表达的要素" role="anchor" tabindex="-1"></a></h2>
+<p>汉弗莱指出：<strong>即兴演讲的关键不是”说什么”，而是”怎么说”。</strong></p>
+<p>自信表达的要素：</p>
+<p><strong>1. 声音</strong></p>
+<ul>
+<li>声音稳定，不要颤抖</li>
+<li>音量适中，不要太小</li>
+<li>语速适中，不要太快或太慢</li>
+</ul>
+<p><strong>2. 眼神</strong></p>
+<ul>
+<li>跟对方建立眼神交流</li>
+<li>不要盯着天花板或地板</li>
+<li>不要频繁看手机或笔记</li>
+</ul>
+<p><strong>3. 姿势</strong></p>
+<ul>
+<li>姿势从容，不要手足无措</li>
+<li>站直或坐直，不要驼背</li>
+<li>手势自然，不要僵硬</li>
+</ul>
+<p><strong>4. 态度</strong></p>
+<ul>
+<li>相信自己——你的观点有价值</li>
+<li>不要道歉或自我贬低</li>
+<li>表达清晰，不要含糊</li>
+</ul>
+<h2 id="核心论点五不同场景的即兴演讲">核心论点五：不同场景的即兴演讲<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心论点五不同场景的即兴演讲" role="anchor" tabindex="-1"></a></h2>
+<p>汉弗莱给出了几种常见场景的即兴演讲方法：</p>
+<p><strong>1. 面试</strong></p>
+<ul>
+<li>方法：用”万能结构”回答任何问题</li>
+<li>举例：被问到”你有什么缺点”，用”观点-原因-例子-总结”来回答</li>
+</ul>
+<p><strong>2. 会议发言</strong></p>
+<ul>
+<li>方法：先说”我的看法是…”，再用”三个要点”展开</li>
+<li>举例：“我对这个问题有三个看法：第一、第二、第三。”</li>
+</ul>
+<p><strong>3. 社交介绍</strong></p>
+<ul>
+<li>方法：用一个”故事”介绍自己</li>
+<li>举例：“我叫XX，我做过最有趣的事情是…”——用故事让人记住你</li>
+</ul>
+<p><strong>4. 回应提问</strong></p>
+<ul>
+<li>方法：先”肯定问题”，再”给出观点”</li>
+<li>举例：“这个问题很好，我的看法是…”</li>
+</ul>
+<h2 id="核心论点六克服紧张的方法">核心论点六：克服紧张的方法<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心论点六克服紧张的方法" role="anchor" tabindex="-1"></a></h2>
+<p>汉弗莱给出了克服即兴演讲紧张的方法：</p>
+<p><strong>1. 不要追求”完美”</strong></p>
+<ul>
+<li>即兴演讲不是”背诵”，不需要完美</li>
+<li>追求”清晰”和”真诚”比追求”完美”更重要</li>
+</ul>
+<p><strong>2. 不要”想太多”</strong></p>
+<ul>
+<li>很多紧张是因为”想太多”——担心说错、担心被笑话</li>
+<li>实际上，没人在意你说的是否完美</li>
+</ul>
+<p><strong>3. 把注意力放在”内容”上</strong></p>
+<ul>
+<li>不要关注”自己的表现”，而是关注”要传达的信息”</li>
+<li>当你专注于”内容”的时候，紧张感会降低</li>
+</ul>
+<p><strong>4. 提前”热身”</strong></p>
+<ul>
+<li>在即兴演讲之前，先”热身”——比如自言自语、跟人聊天</li>
+<li>热身能让你的思维更活跃、表达更流畅</li>
+</ul>
+<h2 id="学姐私房话">学姐私房话<a aria-hidden="true" class="internal" data-no-popover="true" href="#学姐私房话" role="anchor" tabindex="-1"></a></h2>
+<p>说实话，这本书改变了我”面对即兴发言”的态度。</p>
+<p>以前我觉得”即兴发言”是”临场发挥”，不可能提前准备。</p>
+<p>现在我明白了：<strong>即兴演讲不是”随机发挥”，而是有”套路”的——掌握了这个套路，你就能在任何场合都能清晰表达。</strong></p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择/index.html">就业：大厂vs小公司vs创业公司：第一份工作的平台选择</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板/index.html">就业：1000「高价值」20份简历模板</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程/index.html">就业：1000「高价值」常见的部门面试流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差/index.html">创业：0000创业高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目/index.html">创业：怎样从0到1开始跑通一个项目</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目/index.html">创业：1000「高价值」适合学生做的低风险创业项目</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择/index.html">大厂vs小公司vs创业公司：第一份工作的平台选择</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板/index.html">1000「高价值」20份简历模板</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程/index.html">1000「高价值」常见的部门面试流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差/index.html">0000创业高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目/index.html">怎样从0到1开始跑通一个项目</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目/index.html">1000「高价值」适合学生做的低风险创业项目</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/即兴演讲_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/即兴演讲_适合阅读的大学生群体" href="../即兴演讲_适合阅读的大学生群体/index.html">即兴演讲_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/活着_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/活着_阅读价值与能解决的痛点" href="../活着_阅读价值与能解决的痛点/index.html">活着_阅读价值与能解决的痛点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/即兴演讲_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/即兴演讲_阅读价值与能解决的痛点" href="../即兴演讲_阅读价值与能解决的痛点/index.html">即兴演讲_阅读价值与能解决的痛点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/活着_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/活着_适合阅读的大学生群体" href="../活着_适合阅读的大学生群体/index.html">活着_适合阅读的大学生群体</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>进阶大学图书馆</code></li>
+<li><code>就业</code></li>
+<li><code>创业</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/即兴演讲_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/即兴演讲_适合阅读的大学生群体" href="../即兴演讲_适合阅读的大学生群体/index.html">下一篇：即兴演讲_适合阅读的大学生群体</a></li>
+</ul>
+
+</div>
+</body></html>

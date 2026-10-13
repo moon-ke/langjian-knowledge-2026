@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>创新者的窘境_阅读价值与能解决的痛点 · 进阶知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body><style>
+#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
+#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
+#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
+#lj-sel .lj-opt:hover{background:#e2e8f0}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
+<script>
+(function(){
+  var PASS='1yzx', PAGE='article';
+  var PROMPT={
+    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
+    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
+    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
+    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
+    'zsxq':'请加入知识星球「大学生情报局」'
+  };
+  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
+  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
+  var comm=read('lj_community');
+  function showGate(){
+    if(read('lj_unlocked')==='1yzx')return;
+    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
+    gate.style.display='flex';
+    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
+    function unlock(){
+      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }
+    document.getElementById('lj-btn').addEventListener('click',unlock);
+    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+    i.focus();
+  }
+  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
+  else{
+    sel.style.display='flex';
+    sel.querySelectorAll('.lj-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
+        sel.style.display='none';
+        if(PAGE==='article')showGate();
+      });
+    });
+  }
+})();
+</script>
+
+
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 进阶知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/11.进阶大学图书馆/创新者的窘境_阅读价值与能解决的痛点</div>
+<h1>创新者的窘境_阅读价值与能解决的痛点</h1>
+
+<h1 id="创新者的窘境为什么大公司会被小公司打败">《创新者的窘境》：为什么大公司会被小公司”打败”？<a aria-hidden="true" class="internal" data-no-popover="true" href="#创新者的窘境为什么大公司会被小公司打败" role="anchor" tabindex="-1"></a></h1>
+<p>说实话，这本书是我在读研究生的时候读的。</p>
+<p>当时做论文研究”企业创新管理”，导师推荐了这本书，说”这是管理学领域最重要的著作之一”。</p>
+<p>读完之后的感受是：<strong>这不只是一本商业书，它解释了很多我们习以为常但其实很有趣的现象。</strong></p>
+<h2 id="先说说克莱顿克里斯坦森是谁">先说说克莱顿·克里斯坦森是谁<a aria-hidden="true" class="internal" data-no-popover="true" href="#先说说克莱顿克里斯坦森是谁" role="anchor" tabindex="-1"></a></h2>
+<p>克莱顿·克里斯滕森（Clayton Christensen）是哈佛商学院教授，1952年出生，2010年因病去世。</p>
+<p>他在1997年出版了《创新者的窘境》，这本书奠定了他在”创新管理”领域的学术地位。</p>
+<p>后来他又写了《创新者的解答》《困境与抉择》等书，构成了一个完整的理论体系。</p>
+<p>他提出的**“颠覆式创新”理论**，至今仍是管理学、商业策略领域的核心概念。</p>
+<h2 id="这本书能解决什么问题">这本书能解决什么问题？<a aria-hidden="true" class="internal" data-no-popover="true" href="#这本书能解决什么问题" role="anchor" tabindex="-1"></a></h2>
+<h3 id="1-为什么行业龙头会被小公司打败">1. 为什么行业龙头会被”小公司”打败？<a aria-hidden="true" class="internal" data-no-popover="true" href="#1-为什么行业龙头会被小公司打败" role="anchor" tabindex="-1"></a></h3>
+<p>你有没有观察到一个现象：</p>
+<ul>
+<li>诺基亚是手机霸主，被智能机打败了</li>
+<li>胶片相机巨头（柯达、富士）被数码相机打败了</li>
+<li>出租车公司被网约车打败了</li>
+<li>大型商超被电商打败了</li>
+</ul>
+<p>这些”颠覆”有一个共同特点：<strong>不是被同一个量级的竞争对手打败的，而是被”看起来不如自己”的小公司打败的。</strong></p>
+<p>克里斯坦森告诉你：<strong>这是”颠覆式创新”的规律。</strong></p>
+<p>大公司的失败，不是因为做得不好，而是因为做得”太好”——他们太专注于服务现有客户，忽视了新出现的”低端市场”或”新市场”。</p>
+<h3 id="2-为什么大公司不作为反而是对的">2. 为什么大公司”不作为”反而是对的？<a aria-hidden="true" class="internal" data-no-popover="true" href="#2-为什么大公司不作为反而是对的" role="anchor" tabindex="-1"></a></h3>
+<p>很多人会问：既然大公司知道有新技术，为什么不自己做？</p>
+<p>克里斯坦森的回答是：**因为”理性”。</p>
+<p>大公司的资源分配是由现有客户决定的，而现有客户不需要”颠覆式创新”。</p>
+<p>所以大公司会把资源投向”维持性创新”（让现有产品变得更好），而不是”颠覆式创新”。</p>
+<p>这不意味着大公司”傻”，恰恰相反——这是完全理性的决策。</p>
+<p>所以”创新者的窘境”是一种结构性困境，不是管理者的失误。</p>
+<h3 id="3-怎么判断一项技术是不是颠覆式创新">3. 怎么判断一项技术是不是”颠覆式创新”？<a aria-hidden="true" class="internal" data-no-popover="true" href="#3-怎么判断一项技术是不是颠覆式创新" role="anchor" tabindex="-1"></a></h3>
+<p>克里斯坦森给出了一个判断框架：</p>
+<p><strong>颠覆式创新的特征：</strong></p>
+<ul>
+<li>产品性能一开始不如主流产品</li>
+<li>但有一些”边缘客户”需要它（价格更低、更轻便、更简单…）</li>
+<li>随着技术进步，性能逐渐提升，最终超过主流产品</li>
+</ul>
+<p><strong>维持性创新</strong>的特征：</p>
+<ul>
+<li>让现有产品变得更好</li>
+<li>服务现有客户的需求</li>
+</ul>
+<h2 id="大学生最该学的两个概念">大学生最该学的两个概念<a aria-hidden="true" class="internal" data-no-popover="true" href="#大学生最该学的两个概念" role="anchor" tabindex="-1"></a></h2>
+<h3 id="1-价值网络value-network">1. 价值网络（Value Network）<a aria-hidden="true" class="internal" data-no-popover="true" href="#1-价值网络value-network" role="anchor" tabindex="-1"></a></h3>
+<p>克里斯坦森提出了”价值网络”的概念：</p>
+<p>每个企业都处在一个”价值网络”里——上下游供应商、竞争对手、客户、合作伙伴…</p>
+<p>在这个网络里，有一个”成本结构”：能接受的利润率、能承受的价格区间。</p>
+<p><strong>为什么大公司做不了颠覆式创新？</strong></p>
+<p>因为他们的成本结构决定他们必须追求高利润率，而颠覆式创新一开始利润率很低。</p>
+<p>所以大公司会自动放弃”不赚钱”的颠覆式创新。</p>
+<h3 id="2-资源-流程-价值观rpv">2. 资源-流程-价值观（RPV）<a aria-hidden="true" class="internal" data-no-popover="true" href="#2-资源-流程-价值观rpv" role="anchor" tabindex="-1"></a></h3>
+<p>克里斯坦森认为，企业的能力有三个层面：</p>
+<ul>
+<li><strong>资源（Resources）</strong>：人、设备、技术、资金</li>
+<li><strong>流程（Processes）</strong>：做事的方法、决策的模式</li>
+<li><strong>价值观（Values）</strong>：什么重要、什么不重要</li>
+</ul>
+<p><strong>为什么大公司转型难？</strong></p>
+<p>因为他们的”流程”和”价值观”是围绕现有业务建立的，这些很难改变。</p>
+<p>当你换一个赛道的时候，你原来的”能力”可能变成”障碍”。</p>
+<blockquote>
+<p><strong>学姐踩过的坑</strong></p>
+<p>我研究过一个案例：某某科技公司（某大型通信设备厂商）在智能手机时代全面落伍。</p>
+<p>他们的技术很强、研发投入很大、人也很聪明——但他们失败了。</p>
+<p>因为他们的”价值观”是”运营商是大客户”，所以所有资源都围着运营商转。</p>
+<p>等到手机市场变成”消费者市场”的时候，他们的组织结构、管理流程、激励机制全都不适用了。</p>
+<p>这就是”RPV陷阱”——你的能力在新环境里变成了障碍。</p>
+</blockquote>
+<h2 id="这本书适合谁读">这本书适合谁读？<a aria-hidden="true" class="internal" data-no-popover="true" href="#这本书适合谁读" role="anchor" tabindex="-1"></a></h2>
+<p>✅ <strong>对商业创新感兴趣的的大学生</strong> —— 这是”创新管理”领域的奠基之作</p>
+<p>✅ <strong>想理解”为什么大公司会失败”的同学</strong> —— 克里斯坦森给出了系统性的解释</p>
+<p>✅ <strong>经管类专业学生</strong> —— 这是管理学经典，考研面试经常会被问到</p>
+<p>✅ <strong>创业者和产品经理</strong> —— 理解”颠覆式创新”能帮你找到创业方向</p>
+<p>❌ <strong>想要”具体创新方法”的同学</strong> —— 这本书偏理论分析，不讲具体操作</p>
+<p>❌ <strong>排斥”商业案例”风格的同学</strong> —— 这本书有大量商业案例，部分同学可能不感兴趣</p>
+<h2 id="学姐私房话">学姐私房话<a aria-hidden="true" class="internal" data-no-popover="true" href="#学姐私房话" role="anchor" tabindex="-1"></a></h2>
+<p>说实话，这本书是学术性的，读起来不算轻松。</p>
+<p>但它的价值在于：<strong>给你一套理解”创新”的底层框架。</strong></p>
+<p>读完这本书之后，你会发现看商业世界会有不同的视角——你不再只关注”谁做得好”，而会去问”谁在做正确的事”。</p>
+<p>这个视角，对任何想”做大事”的人都有启发。</p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划/index.html">科研：1000「高价值」科研基本认知与规划</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室/index.html">科研：本科生科研入门：如何联系导师与进入实验室</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南/index.html">科研：1000「高价值」文献阅读与综述撰写：科研基础能力构建指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程/index.html">科研：1000「高价值」科研论文撰写与投稿流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验/index.html">科研：科研经验分享与人物访谈：本科生科研成功案例与经验</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择/index.html">就业：大厂vs小公司vs创业公司：第一份工作的平台选择</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板/index.html">就业：1000「高价值」20份简历模板</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程/index.html">就业：1000「高价值」常见的部门面试流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南/index.html">考研：考研择校选专业指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差/index.html">考研：考研专业信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差/index.html">考研：考研复试与调剂信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差/index.html">创业：0000创业高价值信息差</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研基本认知与规划/index.html">1000「高价值」科研基本认知与规划</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/本科生科研入门：如何联系导师与进入实验室/index.html">本科生科研入门：如何联系导师与进入实验室</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」文献阅读与综述撰写：科研基础能力构建指南/index.html">1000「高价值」文献阅读与综述撰写：科研基础能力构建指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/1000「高价值」科研论文撰写与投稿流程/index.html">1000「高价值」科研论文撰写与投稿流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验" href="../../../0002大二大三核心信息差/6.【进行科研】高价值信息差/科研经验分享与人物访谈：本科生科研成功案例与经验/index.html">科研经验分享与人物访谈：本科生科研成功案例与经验</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择/index.html">大厂vs小公司vs创业公司：第一份工作的平台选择</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板/index.html">1000「高价值」20份简历模板</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程/index.html">1000「高价值」常见的部门面试流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南/index.html">考研择校选专业指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差/index.html">考研专业信息差</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>进阶大学图书馆</code></li>
+<li><code>科研</code></li>
+<li><code>就业</code></li>
+<li><code>考研</code></li>
+<li><code>创业</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/从零到一_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/从零到一_核心思想与关键论点" href="../从零到一_核心思想与关键论点/index.html">下一篇：从零到一_核心思想与关键论点</a></li>
+</ul>
+
+</div>
+</body></html>

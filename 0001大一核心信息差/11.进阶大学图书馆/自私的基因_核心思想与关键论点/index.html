@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自私的基因_核心思想与关键论点 · 进阶知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body><style>
+#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
+#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
+#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
+#lj-sel .lj-opt:hover{background:#e2e8f0}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
+<script>
+(function(){
+  var PASS='1yzx', PAGE='article';
+  var PROMPT={
+    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
+    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
+    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
+    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
+    'zsxq':'请加入知识星球「大学生情报局」'
+  };
+  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
+  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
+  var comm=read('lj_community');
+  function showGate(){
+    if(read('lj_unlocked')==='1yzx')return;
+    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
+    gate.style.display='flex';
+    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
+    function unlock(){
+      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }
+    document.getElementById('lj-btn').addEventListener('click',unlock);
+    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+    i.focus();
+  }
+  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
+  else{
+    sel.style.display='flex';
+    sel.querySelectorAll('.lj-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
+        sel.style.display='none';
+        if(PAGE==='article')showGate();
+      });
+    });
+  }
+})();
+</script>
+
+
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 进阶知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/11.进阶大学图书馆/自私的基因_核心思想与关键论点</div>
+<h1>自私的基因_核心思想与关键论点</h1>
+
+<h1 id="自私的基因核心思想基因是一切的主宰">《自私的基因》核心思想：基因是一切的主宰？<a aria-hidden="true" class="internal" data-no-popover="true" href="#自私的基因核心思想基因是一切的主宰" role="anchor" tabindex="-1"></a></h1>
+<p>说实话，我读《自私的基因》最大的感受是——<strong>这本书彻底颠覆了我对”人性”的理解</strong>。</p>
+<p>理查德·道金斯用一套非常严密的逻辑，论证了一个让人不太舒服但又不得不承认的观点：</p>
+<blockquote>
+<p><strong>进化的基本单位不是物种，不是群体，也不是个体，而是基因。基因才是永恒的复制因子，而我们只是基因的”生存机器”。</strong></p>
+</blockquote>
+<p>今天给你们拆解一下这本书的核心思想。</p>
+<h2 id="核心论点一基因是复制因子">核心论点一：基因是”复制因子”<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心论点一基因是复制因子" role="anchor" tabindex="-1"></a></h2>
+<p>这是全书的基础。</p>
+<p>道金斯说：</p>
+<blockquote>
+<p><strong>进化的发生，不是因为个体”想要”进化，而是因为某些基因比另一些基因更擅长复制自己。</strong></p>
+</blockquote>
+<p>基因是什么？</p>
+<ul>
+<li>它是一段DNA序列，能自我复制</li>
+<li>它在复制过程中会出错（突变）</li>
+<li>某些突变让基因更适应环境，这些基因就会传播更多</li>
+<li>某些突变让基因不适应环境，这些基因就会消失</li>
+</ul>
+<p>这就是”自然选择”的本质——<strong>不是个体在竞争，是基因在竞争。</strong></p>
+<p>举个例子：</p>
+<p>为什么长颈鹿的脖子那么长？</p>
+<p>不是因为”长颈鹿想要更长的脖子”，而是因为：</p>
+<ul>
+<li>某只长颈鹿的基因突变，让它的脖子稍微长一点</li>
+<li>长脖子的长颈鹿能吃到更高的树叶，生存概率更高</li>
+<li>它的后代继承了长脖子基因，生存概率也更高</li>
+<li>几代之后，长脖子基因在种群中占据主导地位</li>
+</ul>
+<p><strong>个体只是基因的”载体”，基因才是主角。</strong></p>
+<h2 id="核心论点二基因是自私的">核心论点二：基因是”自私的”<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心论点二基因是自私的" role="anchor" tabindex="-1"></a></h2>
+<p>这是全书最核心的概念。</p>
+<p>道金斯说：</p>
+<blockquote>
+<p><strong>基因为了复制自己，会采取一切可能的策略——包括牺牲”载体”。</strong></p>
+</blockquote>
+<p>“自私”不是说基因有意识、故意损人利己。</p>
+<p>而是说：</p>
+<ul>
+<li>基因的目标是最大化自己的复制</li>
+<li>当个体利益和基因利益冲突时，基因会”选择”牺牲个体</li>
+<li>自然选择倾向于那些”能最大限度传播自己”的基因</li>
+</ul>
+<p>举个例子：</p>
+<ul>
+<li>为什么人类会衰老和死亡？因为自然选择不”关心”个体能活多久，只”关心”基因能不能传播</li>
+<li>为什么有”性”这种东西？因为有性繁殖能产生更多基因组合，让物种更好地适应环境变化</li>
+<li>为什么母亲会偏爱某个孩子？因为不同孩子的基因相似度不同，母亲会倾向投资”最有希望传播基因”的孩子</li>
+</ul>
+<blockquote>
+<p><strong>“基因为了自己的利益，可以毫不犹豫地牺牲个体。”</strong></p>
+</blockquote>
+<p>这个结论听起来很冷酷，但它解释了大量我们平时不理解的现象。</p>
+<h2 id="核心论点三基因决定了行为模式">核心论点三：基因决定了行为模式<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心论点三基因决定了行为模式" role="anchor" tabindex="-1"></a></h2>
+<p>这是道金斯论证的一个重要部分。</p>
+<p>他说：</p>
+<blockquote>
+<p><strong>人类的行为模式，包括大脑的运行机制，都是基因在漫长的进化过程中塑造的。</strong></p>
+</blockquote>
+<p>具体来说：</p>
+<p><strong>大脑是基因的”求生工具”</strong></p>
+<ul>
+<li>大脑帮助我们识别危险、寻找食物、建立社会关系</li>
+<li>这些功能都是为了让基因更好地复制</li>
+</ul>
+<p><strong>情绪是基因的”策略工具”</strong></p>
+<ul>
+<li>恐惧：帮助我们逃避危险</li>
+<li>愤怒：帮助我们保护资源</li>
+<li>爱：帮助我们建立亲密关系，提高后代存活概率</li>
+<li>同情：帮助我们与他人合作</li>
+</ul>
+<p><strong>理性是基因的”计算工具”</strong></p>
+<ul>
+<li>我们以为自己做决定是”自由的”</li>
+<li>但实际上，大脑在计算”哪种选择能让我的基因更好地传播”</li>
+<li>所谓的”理性”，不过是基因用来达成目标的工具</li>
+</ul>
+<p><strong>核心公式：</strong></p>
+<pre><code>基因的目标 = 最大化自我复制
+↓ 
+基因创造了大脑和情绪系统
+↓
+大脑和情绪驱动行为
+↓
+行为的结果影响基因的传播
+</code></pre>
+<h2 id="核心论点四利他行为是更广泛的自私">核心论点四：利他行为是”更广泛的自私”<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心论点四利他行为是更广泛的自私" role="anchor" tabindex="-1"></a></h2>
+<p>这是书里最有趣的部分。</p>
+<p>道金斯说：</p>
+<blockquote>
+<p><strong>所有的”利他行为”，本质上都是”更广泛的自私”。</strong></p>
+</blockquote>
+<p><strong>亲属选择（Kin Selection）</strong></p>
+<ul>
+<li>你为什么愿意为家人牺牲？因为家人有跟你相同的基因</li>
+<li>父母愿意为孩子牺牲，因为孩子有父母50%的基因</li>
+<li>这个逻辑解释了为什么”血浓于水”——我们对亲人的利他行为，是基因”计算”后的结果</li>
+</ul>
+<p><strong>互惠利他（Reciprocal Altruism）</strong></p>
+<ul>
+<li>你为什么愿意帮助朋友？因为朋友以后可能回报你</li>
+<li>这个逻辑解释了为什么人类社会有”礼尚往来”的规范——它能提高双方基因的传播概率</li>
+</ul>
+<p><strong>群体选择（Group Selection）</strong>（有争议）</p>
+<ul>
+<li>道金斯在后期承认，群体选择可能在某些情况下存在</li>
+<li>如果一个群体的成员互相合作，而另一个群体的成员互相竞争，前者可能在群体竞争中胜出</li>
+<li>但这种”群体选择”是建立在”个体选择”基础上的——基因在群体内部仍然是自私的</li>
+</ul>
+<p><strong>三个层次的自私：</strong></p>
+<div class="table-container"><table><thead><tr><th>层次</th><th>自私的对象</th><th>例子</th></tr></thead><tbody><tr><td>基因层</td><td>基因本身</td><td>牺牲个体保护基因</td></tr><tr><td>个体层</td><td>个体自身</td><td>争夺资源</td></tr><tr><td>群体层</td><td>群体利益</td><td>为群体牺牲（较少见）</td></tr></tbody></table></div>
+<h2 id="核心论点五觅母meme文化的基因">核心论点五：觅母（Meme）——文化的基因<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心论点五觅母meme文化的基因" role="anchor" tabindex="-1"></a></h2>
+<p>这是道金斯在书的后半部分提出的一个革命性概念。</p>
+<p>他说：</p>
+<blockquote>
+<p><strong>如果基因是生物进化的基本单位，那么”觅母”（Meme）就是文化进化的基本单位。</strong></p>
+</blockquote>
+<p>什么是觅母？</p>
+<ul>
+<li>一首歌、一句话、一个创意、一个信仰——这些都是觅母</li>
+<li>觅母能在人的大脑之间传播</li>
+<li>某些觅母比另一些觅母更容易传播</li>
+</ul>
+<p>觅母的”成功”标准是什么？</p>
+<ul>
+<li>真实性：越”真实”的观点越容易传播</li>
+<li>重要性：越”重要”的信息越容易传播</li>
+<li>简洁性：越简短的观点越容易传播</li>
+<li>情感性：越能引发情感共鸣的内容越容易传播</li>
+</ul>
+<p><strong>基因靠DNA复制，觅母靠大脑复制。</strong></p>
+<p>这个概念对理解互联网时代特别有用——</p>
+<ul>
+<li>为什么某些短视频会爆火？因为它们有”病毒式传播”的觅母特性</li>
+<li>为什么某些谣言比真相传播得更快？因为谣言更简洁、更有情感冲击力</li>
+<li>为什么某些品牌/人物会有”粉丝文化”？因为它们创造了强大的觅母</li>
+</ul>
+<blockquote>
+<p><strong>“人类是基因的生存机器，但人类也可以成为觅母的生存机器。“</strong></p>
+</blockquote>
+<h2 id="核心论点六人类是唯一能反抗基因的物种">核心论点六：人类是唯一能反抗基因的物种<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心论点六人类是唯一能反抗基因的物种" role="anchor" tabindex="-1"></a></h2>
+<p>这是道金斯全书中最重要的一个论点。</p>
+<p>他说：</p>
+<blockquote>
+<p><strong>其他物种是基因的傀儡，但人类不一样——人类有意识和理性，能够”反思”基因对我们的控制。</strong></p>
+</blockquote>
+<p>人类为什么特殊？</p>
+<ul>
+<li>我们有语言，能传播复杂的觅母</li>
+<li>我们有文化，能积累和传承知识</li>
+<li>我们有意识，能”知道”自己在做什么</li>
+</ul>
+<p><strong>关键洞察：</strong></p>
+<blockquote>
+<p><strong>“基因是-build置入我们的大脑的，它们的目标不一定对我们有利——比如对糖的渴望、对性的执念、对社交的焦虑。但我们的大脑有理性能力，可以’审视’这些本能，选择是否服从。”</strong></p>
+</blockquote>
+<p>这个观点对理解”自我控制”特别重要：</p>
+<ul>
+<li>我们想吃垃圾食品——这是基因的”糖渴望”策略</li>
+<li>我们想刷手机——这是APP设计的”多巴胺陷阱”</li>
+<li>我们想躺平——这是身体的”节能模式”</li>
+</ul>
+<p><strong>意识到这些是”基因的驱动”而不是”我们的真实需求”，你就能做出更理性的选择。</strong></p>
+<h2 id="清单总结这本书的核心知识点">清单总结：这本书的核心知识点<a aria-hidden="true" class="internal" data-no-popover="true" href="#清单总结这本书的核心知识点" role="anchor" tabindex="-1"></a></h2>
+<p><strong>记住这6个核心论点就够了：</strong></p>
+<ol>
+<li><strong>基因是复制因子</strong> — 进化的基本单位是基因，不是物种或个体</li>
+<li><strong>基因是自私的</strong> — 它们会采取一切策略来最大化自己的复制</li>
+<li><strong>基因决定行为</strong> — 大脑、情绪、理性都是基因的工具</li>
+<li><strong>利他是更广泛的自私</strong> — 亲属选择和互惠利他都能归结为基因利益</li>
+<li><strong>觅母是文化基因</strong> — 文化进化有自己的一套”基因”</li>
+<li><strong>人类能反抗基因</strong> — 意识让我们能审视自己的本能</li>
+</ol>
+<p><strong>其他关键概念（需要时查阅）：</strong></p>
+<ul>
+<li>亲缘关系指数（r）</li>
+<li>ESS（进化稳定策略）</li>
+<li>合作博弈</li>
+<li>延迟满足</li>
+<li>双面市场</li>
+</ul>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li>暂无明确跨库关联</li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/自私的基因_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/自私的基因_适合阅读的大学生群体" href="../自私的基因_适合阅读的大学生群体/index.html">自私的基因_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/自卑与超越_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/自卑与超越_阅读价值与能解决的痛点" href="../自卑与超越_阅读价值与能解决的痛点/index.html">自卑与超越_阅读价值与能解决的痛点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/自私的基因_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/自私的基因_阅读价值与能解决的痛点" href="../自私的基因_阅读价值与能解决的痛点/index.html">自私的基因_阅读价值与能解决的痛点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/自卑与超越_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/自卑与超越_适合阅读的大学生群体" href="../自卑与超越_适合阅读的大学生群体/index.html">自卑与超越_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/AI未来进行式_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/AI未来进行式_核心思想与关键论点" href="../AI未来进行式_核心思想与关键论点/index.html">AI未来进行式_核心思想与关键论点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/自卑与超越_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/自卑与超越_核心思想与关键论点" href="../自卑与超越_核心思想与关键论点/index.html">自卑与超越_核心思想与关键论点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000A_主题分类导航" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000A_主题分类导航" href="../0000A_主题分类导航/index.html">0000A_主题分类导航</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000B_年级推荐路线" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000B_年级推荐路线" href="../0000B_年级推荐路线/index.html">0000B_年级推荐路线</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000C_痛点推荐路线" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000C_痛点推荐路线" href="../0000C_痛点推荐路线/index.html">0000C_痛点推荐路线</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/1984_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/1984_核心思想与关键论点" href="../1984_核心思想与关键论点/index.html">1984_核心思想与关键论点</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>进阶大学图书馆</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/自私的基因_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/自私的基因_适合阅读的大学生群体" href="../自私的基因_适合阅读的大学生群体/index.html">下一篇：自私的基因_适合阅读的大学生群体</a></li>
+</ul>
+
+</div>
+</body></html>

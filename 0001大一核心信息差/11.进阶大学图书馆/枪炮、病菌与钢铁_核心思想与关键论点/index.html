@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>枪炮、病菌与钢铁_核心思想与关键论点 · 进阶知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body><style>
+#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
+#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
+#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
+#lj-sel .lj-opt:hover{background:#e2e8f0}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
+<script>
+(function(){
+  var PASS='1yzx', PAGE='article';
+  var PROMPT={
+    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
+    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
+    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
+    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
+    'zsxq':'请加入知识星球「大学生情报局」'
+  };
+  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
+  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
+  var comm=read('lj_community');
+  function showGate(){
+    if(read('lj_unlocked')==='1yzx')return;
+    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
+    gate.style.display='flex';
+    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
+    function unlock(){
+      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }
+    document.getElementById('lj-btn').addEventListener('click',unlock);
+    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+    i.focus();
+  }
+  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
+  else{
+    sel.style.display='flex';
+    sel.querySelectorAll('.lj-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
+        sel.style.display='none';
+        if(PAGE==='article')showGate();
+      });
+    });
+  }
+})();
+</script>
+
+
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 进阶知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/11.进阶大学图书馆/枪炮、病菌与钢铁_核心思想与关键论点</div>
+<h1>枪炮、病菌与钢铁_核心思想与关键论点</h1>
+
+<h1 id="枪炮病菌与钢铁核心思想地理决定论的历史解读">《枪炮、病菌与钢铁》核心思想：地理决定论的历史解读<a aria-hidden="true" class="internal" data-no-popover="true" href="#枪炮病菌与钢铁核心思想地理决定论的历史解读" role="anchor" tabindex="-1"></a></h1>
+<p>说实话，我读《枪炮、病菌与钢铁》最大的感受是——<strong>这本书彻底颠覆了我对历史的认知</strong>。</p>
+<p>贾雷德·戴蒙德用一套非常严密的逻辑，回答了一个我们平时不会去想、但细想又特别重要的问题：</p>
+<blockquote>
+<p><strong>为什么在过去500年里，是欧洲人征服了世界，而不是反过来？</strong></p>
+</blockquote>
+<p>今天给你们拆解一下这本书的核心思想。</p>
+<h2 id="核心论点一不是人种决定命运是地理决定命运">核心论点一：不是人种决定命运，是地理决定命运<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心论点一不是人种决定命运是地理决定命运" role="anchor" tabindex="-1"></a></h2>
+<p>这是全书最重要的论点。</p>
+<p>很多人有一种误解：欧洲人征服美洲、非洲、澳洲，是因为他们更聪明、更优秀、更”先进”。</p>
+<p>戴蒙德用大量证据证明：<strong>这种想法是错的。</strong></p>
+<p>欧洲人征服世界的关键因素，不是什么”西方文明优越性”，而是<strong>地理位置的偶然性</strong>。</p>
+<p>具体来说：</p>
+<ul>
+<li><strong>可驯化的动植物</strong>：新月沃地（中东）恰好有大量适合农业的野生植物，欧洲农民可以驯化小麦、豌豆、绵羊。</li>
+<li><strong>东西轴线</strong>：欧亚大陆是东西走向的，气候相似，文化和技术可以横向传播。</li>
+<li><strong>新月沃地 vs 美洲</strong>：新月沃地位于地中海气候带，农作物产量高；美洲的玉米、马铃薯虽然产量也高，但驯化时间晚。</li>
+</ul>
+<blockquote>
+<p><strong>“历史上最大的讽刺是：征服者的成功，往往不是因为他们更优秀，而是因为他们恰好出生在正确的地理位置。“</strong></p>
+</blockquote>
+<h2 id="核心论点二农业是一切的基础">核心论点二：农业是一切的基础<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心论点二农业是一切的基础" role="anchor" tabindex="-1"></a></h2>
+<p>这是戴蒙德论证的核心——<strong>谁先发展出农业，谁就赢在了起跑线</strong>。</p>
+<p>书里有一个核心观点：</p>
+<blockquote>
+<p><strong>农业不只是”种地”，它是一套复杂的社会系统——粮食剩余、人口增长、社会分层、专职职业、文字、技术。</strong></p>
+</blockquote>
+<p>农业带来的人口增长，是所有后续发展的基础——</p>
+<ol>
+<li><strong>人口增长</strong> → 劳动力增加 → 开垦更多土地</li>
+<li><strong>粮食剩余</strong> → 不用所有人都种地 → 出现专职职业（工匠、士兵、官员）</li>
+<li><strong>专职职业</strong> → 技术积累 → 发明创新</li>
+<li><strong>技术创新</strong> → 军事优势 → 扩张征服</li>
+</ol>
+<p>欧洲农业的优势从哪里来？</p>
+<p>戴蒙德说：新月沃地（中东）是”世界上最早最好的农业发源地”——这里有大量可驯化的野生植物和动物，而且气候适宜。</p>
+<p>而美洲、非洲的很多地方，要么缺乏可驯化的动植物（比如非洲的野生动物不适合驯化），要么气候条件不理想。</p>
+<h2 id="核心论点三枪炮病菌钢铁只是结果不是原因">核心论点三：枪炮、病菌、钢铁只是结果，不是原因<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心论点三枪炮病菌钢铁只是结果不是原因" role="anchor" tabindex="-1"></a></h2>
+<p>书名”枪炮、病菌与钢铁”，指的是欧洲征服者的三大优势。</p>
+<p>但戴蒙德说：<strong>这些只是表面原因，真正的原因是更深层的东西。</strong></p>
+<p><strong>枪炮</strong>：欧洲的冶金技术确实先进，但这不是凭空出现的——它需要铁器时代的积累，需要大量的金属矿藏和熟练工匠。</p>
+<p><strong>病菌</strong>：这是最让人意外的一个因素。欧洲人带到美洲的天花、麻疹、流感，杀死了90%以上的原住民——这才是欧洲人能轻易征服美洲的根本原因。</p>
+<p>但欧洲人为什么有更强的疾病抵抗力？因为他们长期与家畜接触——牛、猪、羊携带的疾病，在欧洲人与之长期共存的过程中，让欧洲人获得了免疫力。</p>
+<p>非洲人也有类似的经历（与疟疾的抗争让他们有一定的抵抗力），这也是为什么欧洲人在非洲的殖民化比美洲困难得多。</p>
+<p><strong>钢铁</strong>：道理同上，技术积累的结果。</p>
+<blockquote>
+<p><strong>“病菌、技术、政府组织——这些是成功的直接因素；地理和生态——这些是成功的根本因素。“</strong></p>
+</blockquote>
+<h2 id="核心论点四地理的统一性-vs-碎片性">核心论点四：地理的统一性 vs 碎片性<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心论点四地理的统一性-vs-碎片性" role="anchor" tabindex="-1"></a></h2>
+<p>这是戴蒙德解释”为什么欧洲超过中国”的核心论点。</p>
+<p>书里有一个观点很有意思：</p>
+<blockquote>
+<p><strong>中国之所以在历史上领先，也是因为地理的统一性；但中国之所以在近代落后，同样是因为地理的统一性。</strong></p>
+</blockquote>
+<p>怎么理解？</p>
+<p><strong>中国的优势</strong>：大一统的地理环境让中国早早实现统一，统一的中央政府能调动大量资源——修长城、挖运河、打大仗。</p>
+<p><strong>中国的劣势</strong>：一旦出现强大的中央政府，任何创新都需要得到朝廷的认可——郑和下西洋可以，哥伦布发现美洲不行，因为朝廷觉得”没必要”。</p>
+<p>欧洲则相反——<strong>地理碎片化</strong>，没有统一的中央政府。各国之间互相竞争——你不去探索，我就去；你搞技术创新，我就学。</p>
+<p>竞争推动创新，这是欧洲近代崛起的关键。</p>
+<p>这个视角解释了很多事情：</p>
+<ul>
+<li>为什么工业革命发生在英国而不是中国？</li>
+<li>为什么明朝的郑和下西洋没有变成殖民扩张？</li>
+<li>为什么欧洲的”分裂”反而成了优势？</li>
+</ul>
+<h2 id="核心论点五历史是有偏见的">核心论点五：历史是有偏见的<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心论点五历史是有偏见的" role="anchor" tabindex="-1"></a></h2>
+<p>戴蒙德在书里特别批判了”欧洲中心论”——那种认为”西方文明代表了人类进步的顶峰，其他文明都是落后的”的观点。</p>
+<p>他说：</p>
+<blockquote>
+<p><strong>历史从来不是客观的——写历史的人总是从自己的视角出发，把自己的成功归结为”优秀”，把别人的失败归结为”落后”。</strong></p>
+</blockquote>
+<p>比如，传统史学把欧洲殖民美洲描述为”文明的传播”——但实际上这是一场种族灭绝。</p>
+<p>戴蒙德的书帮你<strong>重新审视历史——不是要否定一切，而是要有批判性思维</strong>。</p>
+<p>这个能力在留学申请中特别重要——招生官想看到的不是一个”只会接受结论”的学生，而是一个”会质疑、会分析、会独立思考”的学生。</p>
+<h2 id="实际应用这套框架怎么用">实际应用：这套框架怎么用？<a aria-hidden="true" class="internal" data-no-popover="true" href="#实际应用这套框架怎么用" role="anchor" tabindex="-1"></a></h2>
+<p><strong>场景1：面试被问到”你怎么看待东西方文明差异”</strong></p>
+<blockquote>
+<p>“这个问题其实很复杂。我以前觉得是文化差异，后来读了戴蒙德的《枪炮、病菌与钢铁》，意识到地理和生态可能才是更根本的因素。欧亚大陆的东西轴线让技术可以横向传播，而非洲的南北轴线则阻碍了这种传播。这个视角让我对’文明’这个概念有了更谦逊的理解——所谓’先进’和’落后’，往往不是能力的问题，而是机遇的问题。”</p>
+</blockquote>
+<p><strong>场景2：写申请文书关于”为什么想学这个专业”</strong></p>
+<blockquote>
+<p>“作为一个在中国长大的学生，我一直在思考一个问题：为什么中国能在过去40年里实现经济腾飞？为什么同样的政策在不同国家会产生完全不同的效果？《枪炮、病菌与钢铁》这本书给了我一个重要的启示——经济发展不能脱离历史和地理的语境。这也坚定了我学习经济学的决心：我想理解那些影响经济发展的深层因素，而不仅仅是表面现象。”</p>
+</blockquote>
+<p><strong>场景3：跟国际学生讨论”殖民主义遗产”</strong></p>
+<blockquote>
+<ol>
+<li>“你觉得殖民主义对现在的影响有多大？”</li>
+<li>“发展中国家和发达国家之间的差距，是历史的偶然还是必然？”</li>
+<li>“我们应该如何看待历史中的’成功者’和’失败者’？”</li>
+</ol>
+</blockquote>
+<p>这些话题能展示你的批判性思维和跨文化理解能力。</p>
+<h2 id="学长私房话">学长私房话<a aria-hidden="true" class="internal" data-no-popover="true" href="#学长私房话" role="anchor" tabindex="-1"></a></h2>
+<p>说实话，这本书的信息量很大，我读了两遍才敢说真正理解。</p>
+<p>它涉及的知识面太广——历史、地理、生物、农业、医学、语言学……</p>
+<p>但我还是强烈建议你们读一读。</p>
+<p><strong>因为它能帮你建立一个”思考大问题”的框架。</strong></p>
+<p>很多人一辈子都只会想”眼前的事”——成绩、考研、工作、赚钱。</p>
+<p>但如果你想成为一个”有意思的人”、一个”有深度的人”，你需要学会思考更大的问题——</p>
+<ul>
+<li>历史为什么会是今天这个样子？</li>
+<li>我们习以为常的”常识”，真的经得起推敲吗？</li>
+<li>不同的视角，会得出怎样不同的结论？</li>
+</ul>
+<blockquote>
+<p><strong>“读《枪炮、病菌与钢铁》最大的收获，不是记住了多少知识点，而是学会了对’理所当然’的事情保持怀疑。“</strong></p>
+</blockquote>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择/index.html">就业：大厂vs小公司vs创业公司：第一份工作的平台选择</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板/index.html">就业：1000「高价值」20份简历模板</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程/index.html">就业：1000「高价值」常见的部门面试流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南/index.html">考研：考研择校选专业指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差/index.html">考研：考研专业信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差/index.html">考研：考研复试与调剂信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划/index.html">留学：1000「高价值」留学基本认知与四年规划</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/出国申请流程" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/出国申请流程" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/出国申请流程/index.html">留学：出国申请流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学文书写作指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学文书写作指南" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学文书写作指南/index.html">留学：1000「高价值」留学文书写作指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/留学：科研与实习经历积累" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/留学：科研与实习经历积累" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/留学：科研与实习经历积累/index.html">留学：留学：科研与实习经历积累</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择/index.html">大厂vs小公司vs创业公司：第一份工作的平台选择</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板/index.html">1000「高价值」20份简历模板</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程/index.html">1000「高价值」常见的部门面试流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南/index.html">考研择校选专业指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差/index.html">考研专业信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差/index.html">考研复试与调剂信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划/index.html">1000「高价值」留学基本认知与四年规划</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/出国申请流程" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/出国申请流程" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/出国申请流程/index.html">出国申请流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学文书写作指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学文书写作指南" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学文书写作指南/index.html">1000「高价值」留学文书写作指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/留学：科研与实习经历积累" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/留学：科研与实习经历积累" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/留学：科研与实习经历积累/index.html">留学：科研与实习经历积累</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>进阶大学图书馆</code></li>
+<li><code>就业</code></li>
+<li><code>考研</code></li>
+<li><code>留学</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/枪炮、病菌与钢铁_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/枪炮、病菌与钢铁_适合阅读的大学生群体" href="../枪炮、病菌与钢铁_适合阅读的大学生群体/index.html">下一篇：枪炮、病菌与钢铁_适合阅读的大学生群体</a></li>
+</ul>
+
+</div>
+</body></html>

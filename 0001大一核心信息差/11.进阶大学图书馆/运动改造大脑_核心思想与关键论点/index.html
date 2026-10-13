@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>运动改造大脑_核心思想与关键论点 · 进阶知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body><style>
+#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
+#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
+#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
+#lj-sel .lj-opt:hover{background:#e2e8f0}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
+<script>
+(function(){
+  var PASS='1yzx', PAGE='article';
+  var PROMPT={
+    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
+    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
+    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
+    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
+    'zsxq':'请加入知识星球「大学生情报局」'
+  };
+  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
+  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
+  var comm=read('lj_community');
+  function showGate(){
+    if(read('lj_unlocked')==='1yzx')return;
+    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
+    gate.style.display='flex';
+    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
+    function unlock(){
+      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }
+    document.getElementById('lj-btn').addEventListener('click',unlock);
+    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+    i.focus();
+  }
+  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
+  else{
+    sel.style.display='flex';
+    sel.querySelectorAll('.lj-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
+        sel.style.display='none';
+        if(PAGE==='article')showGate();
+      });
+    });
+  }
+})();
+</script>
+
+
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 进阶知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/11.进阶大学图书馆/运动改造大脑_核心思想与关键论点</div>
+<h1>运动改造大脑_核心思想与关键论点</h1>
+
+<h1 id="运动改造大脑核心内容与科学原理">《运动改造大脑》核心内容与科学原理<a aria-hidden="true" class="internal" data-no-popover="true" href="#运动改造大脑核心内容与科学原理" role="anchor" tabindex="-1"></a></h1>
+<p>《运动改造大脑》是哈佛医学院教授约翰·瑞迪的代表作，用科学证据证明了运动对大脑的益处。</p>
+<h2 id="核心发现一运动让大脑更聪明">核心发现一：运动让大脑更聪明<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心发现一运动让大脑更聪明" role="anchor" tabindex="-1"></a></h2>
+<p>瑞迪教授的研究发现：</p>
+<blockquote>
+<p><strong>“运动能在大脑内制造出新的细胞，建立新的联系，生成新的神经回路。”</strong></p>
+</blockquote>
+<p>简单的说：运动让大脑更聪明。</p>
+<p>具体表现：</p>
+<ul>
+<li>提高注意力</li>
+<li>增强记忆力</li>
+<li>提升学习能力</li>
+</ul>
+<h2 id="核心发现二运动是最好的减压方式">核心发现二：运动是最好的减压方式<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心发现二运动是最好的减压方式" role="anchor" tabindex="-1"></a></h2>
+<p>很多人压力大、焦虑、情绪低落，但不愿意运动。</p>
+<p>研究证明：<strong>运动可以减轻压力、缓解焦虑、改善情绪。</strong></p>
+<p>运动减压的原理：</p>
+<ul>
+<li>促进多巴胺和血清素分泌</li>
+<li>降低皮质醇水平</li>
+<li>释放内啡肽</li>
+</ul>
+<h2 id="核心发现三运动可以治疗心理疾病">核心发现三：运动可以治疗心理疾病<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心发现三运动可以治疗心理疾病" role="anchor" tabindex="-1"></a></h2>
+<p>运动不仅能预防心理疾病，还能治疗心理疾病。</p>
+<p>研究证明：<strong>运动对抑郁症、焦虑症、多动症都有显著的治疗效果。</strong></p>
+<p>这被称为”运动疗法”。</p>
+<h2 id="关键论点一运动类型与效果">关键论点一：运动类型与效果<a aria-hidden="true" class="internal" data-no-popover="true" href="#关键论点一运动类型与效果" role="anchor" tabindex="-1"></a></h2>
+<p>不同类型的运动，效果不同：</p>
+<p><strong>有氧运动</strong>：跑步、游泳、骑车——提高心肺功能，改善大脑供氧</p>
+<p><strong>力量训练</strong>：举重、俯卧撑——增强肌肉，促进神经生长</p>
+<p><strong>复杂运动</strong>：舞蹈、乒乓球——需要协调能力，刺激大脑多个区域</p>
+<h2 id="关键论点二运动量与效果">关键论点二：运动量与效果<a aria-hidden="true" class="internal" data-no-popover="true" href="#关键论点二运动量与效果" role="anchor" tabindex="-1"></a></h2>
+<p>运动多少才有效？</p>
+<p><strong>每周3-5次，每次30-60分钟的中等强度运动。</strong></p>
+<p>关键在于<strong>坚持</strong>，而不是强度。</p>
+<h2 id="关键论点三运动时机">关键论点三：运动时机<a aria-hidden="true" class="internal" data-no-popover="true" href="#关键论点三运动时机" role="anchor" tabindex="-1"></a></h2>
+<p>什么时候运动最好？</p>
+<p>研究显示：<strong>下午运动对睡眠更有帮助。</strong></p>
+<p>但对于学习来说，<strong>运动后2小时内学习效果最好</strong>。</p>
+<h2 id="悦榕学姐私房话">悦榕学姐私房话<a aria-hidden="true" class="internal" data-no-popover="true" href="#悦榕学姐私房话" role="anchor" tabindex="-1"></a></h2>
+<p>读完《运动改造大脑》，我最大的改变是：<strong>开始把运动当作学习的一部分。</strong></p>
+<p>以前我总觉得运动是”浪费时间”，现在我明白了：<strong>运动是最高效的学习方式。</strong></p>
+<p>每次跑完步回来学习，效率真的提高了。</p>
+<p><strong>不是心理作用，是科学证据。</strong></p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li>暂无明确跨库关联</li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/运动改造大脑_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/运动改造大脑_适合阅读的大学生群体" href="../运动改造大脑_适合阅读的大学生群体/index.html">运动改造大脑_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/跃迁_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/跃迁_阅读价值与能解决的痛点" href="../跃迁_阅读价值与能解决的痛点/index.html">跃迁_阅读价值与能解决的痛点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/运动改造大脑_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/运动改造大脑_阅读价值与能解决的痛点" href="../运动改造大脑_阅读价值与能解决的痛点/index.html">运动改造大脑_阅读价值与能解决的痛点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/跃迁_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/跃迁_适合阅读的大学生群体" href="../跃迁_适合阅读的大学生群体/index.html">跃迁_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/早起的奇迹_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/早起的奇迹_核心思想与关键论点" href="../早起的奇迹_核心思想与关键论点/index.html">早起的奇迹_核心思想与关键论点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/跃迁_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/跃迁_核心思想与关键论点" href="../跃迁_核心思想与关键论点/index.html">跃迁_核心思想与关键论点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000A_主题分类导航" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000A_主题分类导航" href="../0000A_主题分类导航/index.html">0000A_主题分类导航</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000B_年级推荐路线" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000B_年级推荐路线" href="../0000B_年级推荐路线/index.html">0000B_年级推荐路线</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000C_痛点推荐路线" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000C_痛点推荐路线" href="../0000C_痛点推荐路线/index.html">0000C_痛点推荐路线</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/1984_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/1984_核心思想与关键论点" href="../1984_核心思想与关键论点/index.html">1984_核心思想与关键论点</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>进阶大学图书馆</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/运动改造大脑_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/运动改造大脑_适合阅读的大学生群体" href="../运动改造大脑_适合阅读的大学生群体/index.html">下一篇：运动改造大脑_适合阅读的大学生群体</a></li>
+</ul>
+
+</div>
+</body></html>

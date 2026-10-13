@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>思考快与慢_阅读价值与能解决的痛点 · 进阶知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body><style>
+#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
+#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
+#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
+#lj-sel .lj-opt:hover{background:#e2e8f0}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
+<script>
+(function(){
+  var PASS='1yzx', PAGE='article';
+  var PROMPT={
+    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
+    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
+    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
+    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
+    'zsxq':'请加入知识星球「大学生情报局」'
+  };
+  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
+  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
+  var comm=read('lj_community');
+  function showGate(){
+    if(read('lj_unlocked')==='1yzx')return;
+    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
+    gate.style.display='flex';
+    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
+    function unlock(){
+      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }
+    document.getElementById('lj-btn').addEventListener('click',unlock);
+    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+    i.focus();
+  }
+  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
+  else{
+    sel.style.display='flex';
+    sel.querySelectorAll('.lj-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
+        sel.style.display='none';
+        if(PAGE==='article')showGate();
+      });
+    });
+  }
+})();
+</script>
+
+
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 进阶知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/11.进阶大学图书馆/思考快与慢_阅读价值与能解决的痛点</div>
+<h1>思考快与慢_阅读价值与能解决的痛点</h1>
+
+<h1 id="思考快与慢为什么你总是做出后悔的决定">《思考快与慢》：为什么你总是做出”后悔”的决定？<a aria-hidden="true" class="internal" data-no-popover="true" href="#思考快与慢为什么你总是做出后悔的决定" role="anchor" tabindex="-1"></a></h1>
+<p>说实话，我读这本书的时候，整个人都愣住了。</p>
+<p>我室友总说我是”直觉型选手”，做什么决定都凭感觉。但看完《思考快与慢》之后我才明白——原来我的那些”直觉”，全都是坑啊！</p>
+<h2 id="这本书能解决什么问题">这本书能解决什么问题？<a aria-hidden="true" class="internal" data-no-popover="true" href="#这本书能解决什么问题" role="anchor" tabindex="-1"></a></h2>
+<h3 id="1-选课选专业总后悔">1. 选课选专业总后悔？<a aria-hidden="true" class="internal" data-no-popover="true" href="#1-选课选专业总后悔" role="anchor" tabindex="-1"></a></h3>
+<p>你有没有过这种经历——期末复习的时候，觉得这门课特别简单，结果成绩出来傻眼了？</p>
+<p>这就是<strong>系统1在作怪</strong>。</p>
+<p>卡尼曼告诉我们，人的大脑有两套系统：</p>
+<ul>
+<li><strong>系统1</strong>：快思考，直觉反应，“感觉这事很简单”</li>
+<li><strong>系统2</strong>：慢思考，理性分析，“让我仔细算算”</li>
+</ul>
+<p>我们总觉得自己的选择是理性的，但其实是系统在偷懒！遇到复杂问题，系统2就躲在后面，让系统1出来”拍脑袋”。</p>
+<blockquote>
+<p><strong>学姐踩过的坑</strong></p>
+<p>大二的时候我凭”直觉”选了一门选修课，觉得名字听起来很有意思。结果期中考试傻眼了——全是数学推导！那节课我熬了整整三周才勉强及格。</p>
+</blockquote>
+<h3 id="2-总觉得自己判断很准">2. 总觉得自己判断很准？<a aria-hidden="true" class="internal" data-no-popover="true" href="#2-总觉得自己判断很准" role="anchor" tabindex="-1"></a></h3>
+<p>你有没有过这种迷之自信——“我觉得这次考试肯定能过”或者”这段代码肯定没问题”？</p>
+<p>这就是<strong>过度自信偏差</strong>。</p>
+<p>卡尼曼做了很多实验，发现我们普遍高估自己的判断准确率。比如：</p>
+<ul>
+<li>90%的司机觉得自己驾驶技术在中上游——但统计数据显示，只有50%的司机能在平均水平以上</li>
+<li>学生估计自己的考试排名，往往比实际高出20%</li>
+</ul>
+<p><strong>所以啊，不要太相信自己的”直觉”</strong>——尤其是当你特别自信的时候。</p>
+<h3 id="3-买东西总被打折骗">3. 买东西总被”打折”骗？<a aria-hidden="true" class="internal" data-no-popover="true" href="#3-买东西总被打折骗" role="anchor" tabindex="-1"></a></h3>
+<p>你有没有过这种经历——本来只想买个20块钱的东西，结果看到”原价200，现价50”的标签，就觉得”赚大了”？</p>
+<p>这就是<strong>锚定效应</strong>。</p>
+<p>商家故意先给你看一个很高的”原价”，让你觉得现在很划算。但其实那个原价可能从来就没卖过！</p>
+<blockquote>
+<p><strong>学姐碎碎念</strong></p>
+<p>我以前特别吃这套，什么”限时折扣""最后一天”——现在想想都是商家的套路。但知道原理归知道，看到”骨折价”还是忍不住心动……人性啊人性。</p>
+</blockquote>
+<h3 id="4-损失带来的痛苦比收获大得多">4. 损失带来的痛苦比收获大得多？<a aria-hidden="true" class="internal" data-no-popover="true" href="#4-损失带来的痛苦比收获大得多" role="anchor" tabindex="-1"></a></h3>
+<p>你有没有过这种体验——丢了100块钱的痛苦，要用捡到150块钱才能弥补？</p>
+<p>这就是<strong>损失厌恶</strong>。</p>
+<p>卡尼曼的研究发现，同样是100块钱，失去的痛苦感约等于获得的2倍。所以我们在做决策的时候，会本能地规避损失——即使这个决策可能带来更大的收益。</p>
+<p>这个原理在投资和赌博里特别明显：</p>
+<ul>
+<li>亏钱的时候舍不得止损（怕”真的亏了”）</li>
+<li>赚钱的时候急着落袋（怕”又跌回去”）</li>
+</ul>
+<p>结果就是——<strong>高买低卖，完美踩雷</strong>。</p>
+<h3 id="5-同样的信息换个说法就改变主意">5. 同样的信息，换个说法就改变主意？<a aria-hidden="true" class="internal" data-no-popover="true" href="#5-同样的信息换个说法就改变主意" role="anchor" tabindex="-1"></a></h3>
+<p>你有没有发现——医生说”手术成功率90%“和”手术失败率10%“，听起来完全不一样？</p>
+<p>这就是<strong>框架效应</strong>。</p>
+<p>同一件事，用不同方式表述，你的感受和决策会完全不同。所以遇到重大决策的时候，试着把正反两面都想想，别被表述方式带偏了。</p>
+<h2 id="学姐亲测好用的方法">学姐亲测好用的方法<a aria-hidden="true" class="internal" data-no-popover="true" href="#学姐亲测好用的方法" role="anchor" tabindex="-1"></a></h2>
+<h3 id="方法一给自己设置冷静期">方法一：给自己设置”冷静期”<a aria-hidden="true" class="internal" data-no-popover="true" href="#方法一给自己设置冷静期" role="anchor" tabindex="-1"></a></h3>
+<p>遇到重大决策（比如选课、买数码产品、决定要不要参加某个比赛），不要当场拍板。</p>
+<p>给自己24小时的冷静期，让系统2有时间上线。</p>
+<h3 id="方法二量化风险别凭感觉">方法二：量化风险，别凭感觉<a aria-hidden="true" class="internal" data-no-popover="true" href="#方法二量化风险别凭感觉" role="anchor" tabindex="-1"></a></h3>
+<p>与其说”我觉得这事风险不大”，不如问自己：</p>
+<ul>
+<li>最坏情况是什么？</li>
+<li>发生的概率有多大？</li>
+<li>我能承受这个结果吗？</li>
+</ul>
+<p>用数字代替感觉，决策质量会大幅提升。</p>
+<h3 id="方法三反向思考">方法三：反向思考<a aria-hidden="true" class="internal" data-no-popover="true" href="#方法三反向思考" role="anchor" tabindex="-1"></a></h3>
+<p>当你想做某个决定的时候，试着想想：</p>
+<ul>
+<li>如果我反过来做，会怎么样？</li>
+<li>这个判断有没有可能是错的？</li>
+</ul>
+<p>这种”事后诸葛亮”的练习，能帮你识别系统1的偏差。</p>
+<h2 id="这本书适合谁读">这本书适合谁读？<a aria-hidden="true" class="internal" data-no-popover="true" href="#这本书适合谁读" role="anchor" tabindex="-1"></a></h2>
+<p>✅ <strong>容易冲动消费的购物狂</strong>（尤其是被”打折”骗过的）
+✅ <strong>对自己的判断迷之自信的人</strong>（比如我室友那种）
+✅ <strong>想提升决策质量的同学</strong>
+✅ <strong>学心理学、商学、经济学的学生</strong>（这可是诺奖得主写的教材级著作）</p>
+<p>❌ <strong>不喜欢看学术类书籍的同学慎入</strong>——虽然是畅销书，但还是有不少实验数据和论证过程</p>
+<h2 id="学姐私房书评">学姐私房书评<a aria-hidden="true" class="internal" data-no-popover="true" href="#学姐私房书评" role="anchor" tabindex="-1"></a></h2>
+<p>说实话，这本书不算”好读”。有些章节比较学术，需要慢慢消化。但你一旦理解了那些核心概念，看世界的眼光就不一样了。</p>
+<p>我现在遇到重要决定，都会下意识问自己：“这是系统1在说话，还是系统2在分析？”</p>
+<p>有时候真能救命。</p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差/index.html">竞赛：0000竞赛高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南/index.html">竞赛：1000「高价值」竞赛信息获取全面指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧/index.html">竞赛：1000「高价值」竞赛成果转化与简历文书撰写技巧</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南/index.html">竞赛：1000「高价值」竞赛团队组建与分工协作指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习/index.html">竞赛：竞赛经验分享与人物访谈：向成功者学习</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差/index.html">0000竞赛高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南/index.html">1000「高价值」竞赛信息获取全面指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧/index.html">1000「高价值」竞赛成果转化与简历文书撰写技巧</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南/index.html">1000「高价值」竞赛团队组建与分工协作指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习/index.html">竞赛经验分享与人物访谈：向成功者学习</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/苏东坡传_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/苏东坡传_核心思想与关键论点" href="../苏东坡传_核心思想与关键论点/index.html">苏东坡传_核心思想与关键论点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/思考快与慢_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/思考快与慢_适合阅读的大学生群体" href="../思考快与慢_适合阅读的大学生群体/index.html">思考快与慢_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/苏东坡传_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/苏东坡传_适合阅读的大学生群体" href="../苏东坡传_适合阅读的大学生群体/index.html">苏东坡传_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/思考快与慢_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/思考快与慢_核心思想与关键论点" href="../思考快与慢_核心思想与关键论点/index.html">思考快与慢_核心思想与关键论点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/苏东坡传_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/苏东坡传_阅读价值与能解决的痛点" href="../苏东坡传_阅读价值与能解决的痛点/index.html">苏东坡传_阅读价值与能解决的痛点</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>进阶大学图书馆</code></li>
+<li><code>竞赛</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/苏东坡传_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/苏东坡传_核心思想与关键论点" href="../苏东坡传_核心思想与关键论点/index.html">下一篇：苏东坡传_核心思想与关键论点</a></li>
+</ul>
+
+</div>
+</body></html>

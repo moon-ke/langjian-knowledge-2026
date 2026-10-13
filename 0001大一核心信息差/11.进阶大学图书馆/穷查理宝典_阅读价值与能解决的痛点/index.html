@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>穷查理宝典_阅读价值与能解决的痛点 · 进阶知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body><style>
+#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
+#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
+#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
+#lj-sel .lj-opt:hover{background:#e2e8f0}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
+<script>
+(function(){
+  var PASS='1yzx', PAGE='article';
+  var PROMPT={
+    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
+    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
+    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
+    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
+    'zsxq':'请加入知识星球「大学生情报局」'
+  };
+  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
+  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
+  var comm=read('lj_community');
+  function showGate(){
+    if(read('lj_unlocked')==='1yzx')return;
+    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
+    gate.style.display='flex';
+    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
+    function unlock(){
+      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }
+    document.getElementById('lj-btn').addEventListener('click',unlock);
+    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+    i.focus();
+  }
+  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
+  else{
+    sel.style.display='flex';
+    sel.querySelectorAll('.lj-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
+        sel.style.display='none';
+        if(PAGE==='article')showGate();
+      });
+    });
+  }
+})();
+</script>
+
+
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 进阶知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/11.进阶大学图书馆/穷查理宝典_阅读价值与能解决的痛点</div>
+<h1>穷查理宝典_阅读价值与能解决的痛点</h1>
+
+<h1 id="穷查理宝典巴菲特的合伙人教我用多元思维模型看世界">《穷查理宝典》：巴菲特的合伙人，教我用”多元思维模型”看世界<a aria-hidden="true" class="internal" data-no-popover="true" href="#穷查理宝典巴菲特的合伙人教我用多元思维模型看世界" role="anchor" tabindex="-1"></a></h1>
+<p>说实话，这本书我读了三遍，每一遍都有新收获。</p>
+<p>查理·芒格（Charlie Munger）是巴菲特的黄金搭档，伯克希尔·哈撒韦的副主席。</p>
+<p>两个人合作了50多年，把巴菲特从一个小散户变成了世界首富。</p>
+<p>芒格最厉害的地方不是投资，而是他的<strong>思维方式</strong>——他称之为”多元思维模型”。</p>
+<h2 id="先说说芒格是谁">先说说芒格是谁<a aria-hidden="true" class="internal" data-no-popover="true" href="#先说说芒格是谁" role="anchor" tabindex="-1"></a></h2>
+<p>芒格是个跨界天才：</p>
+<ul>
+<li>毕业于哈佛法学院</li>
+<li>做过律师、房地产开发商</li>
+<li>40岁才开始接触投资</li>
+<li>最终成为世界顶级投资大师</li>
+</ul>
+<p>他最有名的一句话：</p>
+<blockquote>
+<p><strong>“在手握锤子的人看来，世界就是一颗钉子。”</strong></p>
+</blockquote>
+<p>他的意思是：<strong>如果你只有一个思维模型，你会把所有问题都套用这个模型去解决——但很多问题需要不同的工具。</strong></p>
+<h2 id="这本书能解决什么问题">这本书能解决什么问题？<a aria-hidden="true" class="internal" data-no-popover="true" href="#这本书能解决什么问题" role="anchor" tabindex="-1"></a></h2>
+<h3 id="1-看待问题太片面怎么办">1. 看待问题太片面怎么办？<a aria-hidden="true" class="internal" data-no-popover="true" href="#1-看待问题太片面怎么办" role="anchor" tabindex="-1"></a></h3>
+<p>你有没有过这种体验——</p>
+<ul>
+<li>分析问题总是”从众”，别人怎么说你就怎么想</li>
+<li>看待事物只有”好”或”坏”，没有中间地带</li>
+<li>遇到复杂问题不知道从哪里下手</li>
+<li>总是被”单一视角”带偏</li>
+</ul>
+<p>问题出在哪？</p>
+<p><strong>你的思维工具太少了。</strong></p>
+<p>芒格的方法：</p>
+<blockquote>
+<p><strong>掌握100种思维模型，然后根据问题选择合适的模型组合。</strong></p>
+</blockquote>
+<p>比如分析一家公司：</p>
+<ul>
+<li>用经济学模型：供需关系、成本结构</li>
+<li>用心理学模型：消费者行为、员工激励</li>
+<li>用工程学模型：效率、容错率</li>
+<li>用历史学模型：行业周期、竞争格局</li>
+</ul>
+<p><strong>不同学科的视角叠加，才能看到问题的全貌。</strong></p>
+<blockquote>
+<p><strong>学长踩过的坑</strong></p>
+<p>我大一学经济学的时候，觉得”经济规律可以解释一切”。</p>
+<p>后来我发现——有些经济现象用心理学解释更清楚，有些用社会学更准确。</p>
+<p>芒格教会我：<strong>不要被单一学科束缚，跨学科思考才能接近真相。</strong></p>
+</blockquote>
+<h3 id="2-投资理财不知道从哪开始">2. 投资理财不知道从哪开始？<a aria-hidden="true" class="internal" data-no-popover="true" href="#2-投资理财不知道从哪开始" role="anchor" tabindex="-1"></a></h3>
+<p>很多人对投资有两个极端：</p>
+<ul>
+<li>要么完全不懂，觉得”投资就是赌博”</li>
+<li>要么懂一点但亏钱，觉得”投资就是骗人的”</li>
+</ul>
+<p>芒格的投资哲学帮你建立正确的投资观：</p>
+<h4 id="核心原则1能力圈">核心原则1：能力圈<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心原则1能力圈" role="anchor" tabindex="-1"></a></h4>
+<blockquote>
+<p><strong>“知道自己知道什么，也要知道自己不知道什么。”</strong></p>
+</blockquote>
+<p>只投资你真正懂的领域。不懂的不要碰。</p>
+<h4 id="核心原则2逆向思维">核心原则2：逆向思维<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心原则2逆向思维" role="anchor" tabindex="-1"></a></h4>
+<p>芒格最喜欢说：</p>
+<blockquote>
+<p><strong>“如果我知道我会死在哪里，我就永远不去那个地方。”</strong></p>
+</blockquote>
+<p>翻译成人话：</p>
+<ul>
+<li>想成功 → 先研究别人怎么失败的</li>
+<li>想赚钱 → 先研究别人怎么亏钱的</li>
+<li>想投资成功 → 先研究投资失败的案例</li>
+</ul>
+<h4 id="核心原则3长期主义">核心原则3：长期主义<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心原则3长期主义" role="anchor" tabindex="-1"></a></h4>
+<blockquote>
+<p><strong>“如果你不打算持有一只股票10年，那就不要持有它10分钟。“</strong></p>
+</blockquote>
+<h3 id="3-做决策总是后悔怎么办">3. 做决策总是后悔怎么办？<a aria-hidden="true" class="internal" data-no-popover="true" href="#3-做决策总是后悔怎么办" role="anchor" tabindex="-1"></a></h3>
+<p>芒格有一个”决策检查清单”：</p>
+<ol>
+<li><strong>问题是什么？</strong></li>
+<li><strong>问题的本质是什么？</strong></li>
+<li><strong>我的答案/方案是什么？</strong></li>
+<li><strong>可能出错的概率有多大？</strong></li>
+<li><strong>最坏的情况是什么？我能承受吗？</strong></li>
+<li><strong>如果出错了，我该怎么应对？</strong></li>
+</ol>
+<blockquote>
+<p><strong>学长碎碎念</strong></p>
+<p>用这个清单做决策，帮我躲过了很多坑。</p>
+<p>比如大三暑假实习选择：</p>
+<ul>
+<li>A公司：名气大，但实习内容是打杂</li>
+<li>B公司：名气小，但能接触核心业务</li>
+</ul>
+<p>用清单分析：</p>
+<ul>
+<li>目标：学习实战技能</li>
+<li>A公司虽然名气大，但对目标帮助有限</li>
+<li>B公司虽然名气小，但更符合目标</li>
+</ul>
+<p>最后选了B公司，学到了真正有用的东西。</p>
+</blockquote>
+<h3 id="4-如何避免认知偏差">4. 如何避免”认知偏差”？<a aria-hidden="true" class="internal" data-no-popover="true" href="#4-如何避免认知偏差" role="anchor" tabindex="-1"></a></h3>
+<p>芒格总结了25种人类常见的”心理倾向”（也叫认知偏差），比如：</p>
+<div class="table-container"><table><thead><tr><th>认知偏差</th><th>表现</th><th>应对方法</th></tr></thead><tbody><tr><td>确认偏差</td><td>只看支持自己观点的信息</td><td>主动寻找反对意见</td></tr><tr><td>过度自信</td><td>高估自己的能力</td><td>问自己”我可能错在哪里”</td></tr><tr><td>损失厌恶</td><td>对损失的痛苦大于收益的快乐</td><td>用概率思维做决策</td></tr><tr><td>社会认同</td><td>随大流</td><td>独立思考，逆向行动</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>知道这些陷阱在哪里，就能避开它们。</strong></p>
+</blockquote>
+<h2 id="大学生最该学的三个思维模型">大学生最该学的三个思维模型<a aria-hidden="true" class="internal" data-no-popover="true" href="#大学生最该学的三个思维模型" role="anchor" tabindex="-1"></a></h2>
+<h3 id="模型1复利思维">模型1：复利思维<a aria-hidden="true" class="internal" data-no-popover="true" href="#模型1复利思维" role="anchor" tabindex="-1"></a></h3>
+<blockquote>
+<p><strong>“复利是世界第八大奇迹。理解它的人赚取它，不理解的人支付它。”</strong></p>
+</blockquote>
+<p>在大学里的应用：</p>
+<ul>
+<li>每天比昨天进步1%，一年后你会比现在强37倍</li>
+<li>建立好习惯（早睡、运动、学习）比突击更有效</li>
+<li>投资自己（学技能、攒人脉）比省钱更重要</li>
+</ul>
+<h3 id="模型2概率思维">模型2：概率思维<a aria-hidden="true" class="internal" data-no-popover="true" href="#模型2概率思维" role="anchor" tabindex="-1"></a></h3>
+<blockquote>
+<p><strong>“概率不是确定的，但它告诉你应该怎么下注。”</strong></p>
+</blockquote>
+<p>在大学里的应用：</p>
+<ul>
+<li>不是说”考研一定成功”，而是”考研成功率60%，留学成功率40%，我选择成功率更高的”</li>
+<li>不是”创业一定失败”，而是”创业成功率10%，但成功后收益100倍，期望值是正的”</li>
+<li>学会用”概率”思考，而不是”非此即彼”</li>
+</ul>
+<h3 id="模型3逆向思维">模型3：逆向思维<a aria-hidden="true" class="internal" data-no-popover="true" href="#模型3逆向思维" role="anchor" tabindex="-1"></a></h3>
+<blockquote>
+<p><strong>“对于复杂适应系统和人，如果你知道你要去哪里，你应该首先研究怎么不去那里。”</strong></p>
+</blockquote>
+<p>在大学里的应用：</p>
+<ul>
+<li>想拿奖学金 → 先研究”怎么才会挂科”，然后避开</li>
+<li>想找到好工作 → 先研究”简历有哪些坑”，然后避免</li>
+<li>想健康长寿 → 先研究”什么习惯会短命”，然后改掉</li>
+</ul>
+<h2 id="这本书适合谁读">这本书适合谁读？<a aria-hidden="true" class="internal" data-no-popover="true" href="#这本书适合谁读" role="anchor" tabindex="-1"></a></h2>
+<p>✅ <strong>想提升思维深度、看问题更全面的同学</strong>
+✅ <strong>对投资理财感兴趣的大学生</strong>
+✅ <strong>做决策总是后悔、想提升决策质量的人</strong>
+✅ <strong>想建立”跨学科思维”的人</strong>
+✅ <strong>即将进入职场/创业，想提前学习商业思维的人</strong></p>
+<p>❌ <strong>追求”快速致富捷径”的同学</strong>——这本书教的是慢富思维
+❌ <strong>觉得”我不需要学其他学科”的同学</strong>——越专业的人越需要跨学科</p>
+<h2 id="学长私房话">学长私房话<a aria-hidden="true" class="internal" data-no-popover="true" href="#学长私房话" role="anchor" tabindex="-1"></a></h2>
+<p>读这本书最大的收获是什么？</p>
+<p><strong>我开始用”多元视角”看问题了。</strong></p>
+<p>以前看到一件事，只有一个反应。</p>
+<p>现在我会问自己：</p>
+<ul>
+<li>用经济学怎么看？</li>
+<li>用心理学怎么看？</li>
+<li>用历史学怎么看？</li>
+<li>用物理学怎么看？</li>
+</ul>
+<p><strong>视角多了，答案就不一样了。</strong></p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈" href="../../../0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈/index.html">实习：实习经验分享与人物访谈</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验" href="../../../0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验/index.html">实习：0000大学老油条找实习的25条野路子经验</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历" href="../../../0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历/index.html">实习：如何制作一份有竞争力的实习简历</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择/index.html">就业：大厂vs小公司vs创业公司：第一份工作的平台选择</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板/index.html">就业：1000「高价值」20份简历模板</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程/index.html">就业：1000「高价值」常见的部门面试流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南/index.html">考研：考研择校选专业指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差/index.html">考研：考研专业信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差/index.html">考研：考研复试与调剂信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划/index.html">留学：1000「高价值」留学基本认知与四年规划</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/出国申请流程" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/出国申请流程" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/出国申请流程/index.html">留学：出国申请流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学文书写作指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学文书写作指南" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学文书写作指南/index.html">留学：1000「高价值」留学文书写作指南</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈" href="../../../0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈/index.html">实习经验分享与人物访谈</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验" href="../../../0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验/index.html">0000大学老油条找实习的25条野路子经验</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历" href="../../../0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历/index.html">如何制作一份有竞争力的实习简历</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/大厂vs小公司vs创业公司：第一份工作的平台选择/index.html">大厂vs小公司vs创业公司：第一份工作的平台选择</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」20份简历模板/index.html">1000「高价值」20份简历模板</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程" href="../../../0003大四核心信息差/4.【直接就业】高价值信息差/1000「高价值」常见的部门面试流程/index.html">1000「高价值」常见的部门面试流程</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研择校选专业指南/index.html">考研择校选专业指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研专业信息差/index.html">考研专业信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差" href="../../../0002大二大三核心信息差/5.【考研】高价值信息差/考研复试与调剂信息差/index.html">考研复试与调剂信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划" href="../../../0002大二大三核心信息差/7.【出国留学】高价值信息差/1000「高价值」留学基本认知与四年规划/index.html">1000「高价值」留学基本认知与四年规划</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>进阶大学图书馆</code></li>
+<li><code>实习</code></li>
+<li><code>就业</code></li>
+<li><code>考研</code></li>
+<li><code>留学</code></li>
+<li><code>创业</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/人类群星闪耀时_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/人类群星闪耀时_核心思想与关键论点" href="../人类群星闪耀时_核心思想与关键论点/index.html">下一篇：人类群星闪耀时_核心思想与关键论点</a></li>
+</ul>
+
+</div>
+</body></html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>0000A_主题分类导航 · 进阶知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body><style>
+#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
+#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
+#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
+#lj-sel .lj-opt:hover{background:#e2e8f0}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
+<script>
+(function(){
+  var PASS='1yzx', PAGE='article';
+  var PROMPT={
+    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
+    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
+    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
+    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
+    'zsxq':'请加入知识星球「大学生情报局」'
+  };
+  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
+  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
+  var comm=read('lj_community');
+  function showGate(){
+    if(read('lj_unlocked')==='1yzx')return;
+    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
+    gate.style.display='flex';
+    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
+    function unlock(){
+      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }
+    document.getElementById('lj-btn').addEventListener('click',unlock);
+    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+    i.focus();
+  }
+  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
+  else{
+    sel.style.display='flex';
+    sel.querySelectorAll('.lj-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
+        sel.style.display='none';
+        if(PAGE==='article')showGate();
+      });
+    });
+  }
+})();
+</script>
+
+
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 进阶知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/11.进阶大学图书馆/0000A_主题分类导航</div>
+<h1>0000A_主题分类导航</h1>
+
+<h1 id="进阶大学图书馆--主题分类导航">进阶大学图书馆 · 主题分类导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#进阶大学图书馆--主题分类导航" role="anchor" tabindex="-1"></a></h1>
+<blockquote class="callout info" data-callout="info">
+<div class="callout-title">
+
+<div class="callout-title-inner"><p>Info</p></div>
+</div>
+<div class="callout-content">
+<p>这是一份按主题分类的书单导航，按你当前的需求或兴趣直接找到最合适的书。不确定读什么？先看这里。</p>
+</div>
+</blockquote>
+<hr/>
+<h2 id="一认知与思维学会更好地思考">一、认知与思维（学会更好地思考）<a aria-hidden="true" class="internal" data-no-popover="true" href="#一认知与思维学会更好地思考" role="anchor" tabindex="-1"></a></h2>
+<p><strong>核心痛点</strong>：看问题太浅、决策总是后悔、脑子不够用</p>
+<div class="table-container"><table><thead><tr><th>书名</th><th>适合谁读</th><th>核心一句话</th></tr></thead><tbody><tr><td><a class="internal alias" data-graph-raw="穷查理宝典_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/穷查理宝典_核心思想与关键论点" href="../穷查理宝典_核心思想与关键论点/index.html">穷查理宝典</a></td><td>想建立多元思维模型的人</td><td>掌握100种思维模型，看问题不再单一</td></tr><tr><td><a class="internal alias" data-graph-raw="思考快与慢_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/思考快与慢_核心思想与关键论点" href="../思考快与慢_核心思想与关键论点/index.html">思考快与慢</a></td><td>容易冲动判断、事后后悔的人</td><td>人类思维有两大系统，认清它才能少犯错</td></tr><tr><td><a class="internal alias" data-graph-raw="学会提问_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/学会提问_核心思想与关键论点" href="../学会提问_核心思想与关键论点/index.html">学会提问</a></td><td>不会独立思考、容易被带节奏的人</td><td>会提问比会回答更重要</td></tr><tr><td><a class="internal alias" data-graph-raw="金字塔原理_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/金字塔原理_核心思想与关键论点" href="../金字塔原理_核心思想与关键论点/index.html">金字塔原理</a></td><td>表达不清楚、写文章没条理的人</td><td>结论先行，把话说到点子上</td></tr><tr><td><a class="internal alias" data-graph-raw="底层逻辑_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/底层逻辑_核心思想与关键论点" href="../底层逻辑_核心思想与关键论点/index.html">底层逻辑</a></td><td>看问题只看表面、想深层原因的人</td><td>透视商业和社会的4个底层逻辑</td></tr><tr><td><a class="internal alias" data-graph-raw="认知觉醒_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/认知觉醒_核心思想与关键论点" href="../认知觉醒_核心思想与关键论点/index.html">认知觉醒</a></td><td>想提升认知但找不到方法的人</td><td>认识大脑规律，用策略代替蛮干</td></tr><tr><td><a class="internal alias" data-graph-raw="刻意练习_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/刻意练习_核心思想与关键论点" href="../刻意练习_核心思想与关键论点/index.html">刻意练习</a></td><td>想快速提升任何技能的人</td><td>天才不是天生的，正确训练才能突破</td></tr><tr><td><a class="internal alias" data-graph-raw="学会辩论_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/学会辩论_核心思想与关键论点" href="../学会辩论_核心思想与关键论点/index.html">学会辩论</a></td><td>遇到冲突就回避、不善表达观点的人</td><td>有理有据地说服别人</td></tr></tbody></table></div>
+<hr/>
+<h2 id="二自我成长与心理认识自己管理自己">二、自我成长与心理（认识自己、管理自己）<a aria-hidden="true" class="internal" data-no-popover="true" href="#二自我成长与心理认识自己管理自己" role="anchor" tabindex="-1"></a></h2>
+<p><strong>核心痛点</strong>：焦虑迷茫、自卑内耗、情绪失控、不满意自己</p>
+<div class="table-container"><table><thead><tr><th>书名</th><th>适合谁读</th><th>核心一句话</th></tr></thead><tbody><tr><td><a class="internal alias" data-graph-raw="被讨厌的勇气_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/被讨厌的勇气_核心思想与关键论点" href="../被讨厌的勇气_核心思想与关键论点/index.html">被讨厌的勇气</a></td><td>在意别人看法、不敢说”不”的人</td><td>你不需要被所有人喜欢，接纳自己才是答案</td></tr><tr><td><a class="internal alias" data-graph-raw="当下的力量_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/当下的力量_核心思想与关键论点" href="../当下的力量_核心思想与关键论点/index.html">当下的力量</a></td><td>总在后悔过去、焦虑未来的人</td><td>过去已逝，未来未到，唯一拥有的是此刻</td></tr><tr><td><a class="internal alias" data-graph-raw="自卑与超越_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/自卑与超越_核心思想与关键论点" href="../自卑与超越_核心思想与关键论点/index.html">自卑与超越</a></td><td>觉得自己不够好、总拿自己和别人比的人</td><td>自卑不是弱点，用对了是成长动力</td></tr><tr><td><a class="internal alias" data-graph-raw="心流_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/心流_核心思想与关键论点" href="../心流_核心思想与关键论点/index.html">心流</a></td><td>学习工作总是走神、效率低下的人</td><td>专注到忘我，才是最高效的状态</td></tr><tr><td><a class="internal alias" data-graph-raw="非暴力沟通_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/非暴力沟通_核心思想与关键论点" href="../非暴力沟通_核心思想与关键论点/index.html">非暴力沟通</a></td><td>容易和人起冲突、说话伤人的的人</td><td>不用指责和攻击，照样把话说清楚</td></tr><tr><td><a class="internal alias" data-graph-raw="反脆弱_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/反脆弱_核心思想与关键论点" href="../反脆弱_核心思想与关键论点/index.html">反脆弱</a></td><td>害怕变化、遇到挫折就崩溃的人</td><td>脆弱的反面不是坚强，是能从冲击中获益</td></tr><tr><td><a class="internal alias" data-graph-raw="高效能人士的七个习惯_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/高效能人士的七个习惯_核心思想与关键论点" href="../高效能人士的七个习惯_核心思想与关键论点/index.html">高效能人士的七个习惯</a></td><td>想改变但不知道从哪开始的人</td><td>7个底层习惯，重塑你的生活方式</td></tr><tr><td><a class="internal alias" data-graph-raw="原则_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/原则_核心思想与关键论点" href="../原则_核心思想与关键论点/index.html">原则</a></td><td>做事没章法、决策全凭感觉的人</td><td>把经验提炼成原则，用原则驱动人生</td></tr><tr><td><a class="internal alias" data-graph-raw="专注力_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/专注力_核心思想与关键论点" href="../专注力_核心思想与关键论点/index.html">专注力</a></td><td>无法长时间集中注意力的人</td><td>专注力是可以训练的能力，这里有方法</td></tr><tr><td><a class="internal alias" data-graph-raw="成长型思维_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/成长型思维_核心思想与关键论点" href="../成长型思维_核心思想与关键论点/index.html">成长型思维</a></td><td>遇到困难就觉得自己不行的人</td><td>能力不是固定的，努力可以改变一切</td></tr></tbody></table></div>
+<hr/>
+<h2 id="三商业与财富理解世界运转的规律">三、商业与财富（理解世界运转的规律）<a aria-hidden="true" class="internal" data-no-popover="true" href="#三商业与财富理解世界运转的规律" role="anchor" tabindex="-1"></a></h2>
+<p><strong>核心痛点</strong>：不懂商业逻辑、不会理财、对钱没概念</p>
+<div class="table-container"><table><thead><tr><th>书名</th><th>适合谁读</th><th>核心一句话</th></tr></thead><tbody><tr><td><a class="internal alias" data-graph-raw="从零到一_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/从零到一_核心思想与关键论点" href="../从零到一_核心思想与关键论点/index.html">从零到一</a></td><td>有创业想法或想理解商业本质的人</td><td>进步不是从1到N，是从0到1</td></tr><tr><td><a class="internal alias" data-graph-raw="创新者的窘境_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/创新者的窘境_核心思想与关键论点" href="../创新者的窘境_核心思想与关键论点/index.html">创新者的窘境</a></td><td>对科技行业、创新规律感兴趣的人</td><td>大企业为什么会失败？创新者的两难困境</td></tr><tr><td><a class="internal alias" data-graph-raw="浪潮之巅_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/浪潮之巅_核心思想与关键论点" href="../浪潮之巅_核心思想与关键论点/index.html">浪潮之巅</a></td><td>对科技公司历史和行业规律感兴趣的人</td><td>近百年科技公司的兴衰规律</td></tr><tr><td><a class="internal alias" data-graph-raw="纳瓦尔宝典_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/纳瓦尔宝典_核心思想与关键论点" href="../纳瓦尔宝典_核心思想与关键论点/index.html">纳瓦尔宝典</a></td><td>想理解财富本质、追求财务自由的人</td><td>财富是你睡着也能产生收入的东西</td></tr><tr><td><a class="internal alias" data-graph-raw="财务自由之路_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/财务自由之路_核心思想与关键论点" href="../财务自由之路_核心思想与关键论点/index.html">财务自由之路</a></td><td>理财小白、建立财务习惯的人</td><td>博多·舍费尔的财务自由三阶段路径</td></tr><tr><td><a class="internal alias" data-graph-raw="黑天鹅_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/黑天鹅_核心思想与关键论点" href="../黑天鹅_核心思想与关键论点/index.html">黑天鹅</a></td><td>对风险和不确定性缺乏认知的人</td><td>不可预测的重大事件才是历史的主角</td></tr><tr><td><a class="internal alias" data-graph-raw="穷查理宝典_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/穷查理宝典_核心思想与关键论点" href="../穷查理宝典_核心思想与关键论点/index.html">穷查理宝典</a></td><td>想建立投资思维和多元认知的人</td><td>多元思维模型+逆向思维+长期主义</td></tr><tr><td><a class="internal alias" data-graph-raw="国富论_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/国富论_核心思想与关键论点" href="../国富论_核心思想与关键论点/index.html">国富论</a></td><td>想理解市场运行底层逻辑的人</td><td>现代经济学的起点，每个大学生都该知道</td></tr><tr><td><a class="internal alias" data-graph-raw="薛兆丰经济学讲义_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/薛兆丰经济学讲义_核心思想与关键论点" href="../薛兆丰经济学讲义_核心思想与关键论点/index.html">薛兆丰经济学讲义</a></td><td>觉得经济学枯燥、想入门的人</td><td>用有趣的故事讲透经济学原理</td></tr></tbody></table></div>
+<hr/>
+<h2 id="四ai与科技理解正在发生的变化">四、AI与科技（理解正在发生的变化）<a aria-hidden="true" class="internal" data-no-popover="true" href="#四ai与科技理解正在发生的变化" role="anchor" tabindex="-1"></a></h2>
+<p><strong>核心痛点</strong>：对AI一知半解、担心被技术取代、不知道学什么技能</p>
+<div class="table-container"><table><thead><tr><th>书名</th><th>适合谁读</th><th>核心一句话</th></tr></thead><tbody><tr><td><a class="internal alias" data-graph-raw="AI未来进行式_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/AI未来进行式_核心思想与关键论点" href="../AI未来进行式_核心思想与关键论点/index.html">AI未来进行式</a></td><td>想了解AI对生活和工作影响的人</td><td>20个AI故事，透视10-20年后的世界</td></tr><tr><td><a class="internal alias" data-graph-raw="智能时代_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/智能时代_核心思想与关键论点" href="../智能时代_核心思想与关键论点/index.html">智能时代</a></td><td>想系统理解大数据和AI原理的人</td><td>大数据和机器智能如何改变商业与社会</td></tr><tr><td><a class="internal alias" data-graph-raw="数学之美_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/数学之美_核心思想与关键论点" href="../数学之美_核心思想与关键论点/index.html">数学之美</a></td><td>CS或理工科学生、对算法感兴趣的人</td><td>用数学思维解决工程问题之美</td></tr><tr><td><a class="internal alias" data-graph-raw="Python编程_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/Python编程_核心思想与关键论点" href="../Python编程_核心思想与关键论点/index.html">Python编程</a></td><td>零基础想学编程的人</td><td>编程是最值得掌握的AI时代基础技能</td></tr></tbody></table></div>
+<hr/>
+<h2 id="五哲学与历史理解人是什么世界从何而来">五、哲学与历史（理解人是什么、世界从何而来）<a aria-hidden="true" class="internal" data-no-popover="true" href="#五哲学与历史理解人是什么世界从何而来" role="anchor" tabindex="-1"></a></h2>
+<p><strong>核心痛点</strong>：不知道人生意义、对历史和社会缺乏认知、想提升人文素养</p>
+<div class="table-container"><table><thead><tr><th>书名</th><th>适合谁读</th><th>核心一句话</th></tr></thead><tbody><tr><td><a class="internal alias" data-graph-raw="理想国_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/理想国_核心思想与关键论点" href="../理想国_核心思想与关键论点/index.html">理想国</a></td><td>对哲学入门感兴趣、想理解正义与善的人</td><td>两千年前的哲学经典，哲学思维的起点</td></tr><tr><td><a class="internal alias" data-graph-raw="西方哲学史_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/西方哲学史_核心思想与关键论点" href="../西方哲学史_核心思想与关键论点/index.html">西方哲学史</a></td><td>想系统了解哲学发展脉络的人</td><td>从苏格拉底到萨特，两千年思想史全景</td></tr><tr><td><a class="internal alias" data-graph-raw="中国哲学简史_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/中国哲学简史_核心思想与关键论点" href="../中国哲学简史_核心思想与关键论点/index.html">中国哲学简史</a></td><td>想了解中国思想传统的人</td><td>从孔孟到老庄，中国哲学的精华提炼</td></tr><tr><td><a class="internal alias" data-graph-raw="苏菲的世界_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/苏菲的世界_核心思想与关键论点" href="../苏菲的世界_核心思想与关键论点/index.html">苏菲的世界</a></td><td>觉得哲学太难、不知从何入门的人</td><td>一个故事串起整个哲学史，入门首选</td></tr><tr><td><a class="internal alias" data-graph-raw="尼采_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/尼采_核心思想与关键论点" href="../尼采_核心思想与关键论点/index.html">尼采</a></td><td>对生命意义、强力意志感兴趣的人</td><td>”上帝死了”，尼采的哲学震动了世界</td></tr><tr><td><a class="internal alias" data-graph-raw="枪炮、病菌与钢铁_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/枪炮、病菌与钢铁_核心思想与关键论点" href="../枪炮、病菌与钢铁_核心思想与关键论点/index.html">枪炮、病菌与钢铁</a></td><td>对人类社会不平等根源感兴趣的人</td><td>为什么是欧洲殖民了世界，而非反过来？</td></tr><tr><td><a class="internal alias" data-graph-raw="人类群星闪耀时_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/人类群星闪耀时_核心思想与关键论点" href="../人类群星闪耀时_核心思想与关键论点/index.html">人类群星闪耀时</a></td><td>喜欢历史故事、人文素养提升</td><td>14个历史瞬间，看命运如何被改写</td></tr></tbody></table></div>
+<hr/>
+<h2 id="六文学与人文理解人性和人心">六、文学与人文（理解人性和人心）<a aria-hidden="true" class="internal" data-no-popover="true" href="#六文学与人文理解人性和人心" role="anchor" tabindex="-1"></a></h2>
+<p><strong>核心痛点</strong>：缺乏文学素养、想提升共情能力和表达力</p>
+<div class="table-container"><table><thead><tr><th>书名</th><th>适合谁读</th><th>核心一句话</th></tr></thead><tbody><tr><td><a class="internal alias" data-graph-raw="1984_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/1984_核心思想与关键论点" href="../1984_核心思想与关键论点/index.html">1984</a></td><td>对权力、控制和自由感兴趣的人</td><td>反乌托邦经典，理解极权的必读之作</td></tr><tr><td><a class="internal alias" data-graph-raw="动物农场_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/动物农场_核心思想与关键论点" href="../动物农场_核心思想与关键论点/index.html">动物农场</a></td><td>想读懂政治隐喻、社会寓言的人</td><td>一部薄薄的政治寓言，道尽权力腐败</td></tr><tr><td><a class="internal alias" data-graph-raw="小王子_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/小王子_核心思想与关键论点" href="../小王子_核心思想与关键论点/index.html">小王子</a></td><td>觉得成人世界复杂、怀念纯真的人</td><td>每个大人曾经都是孩子，可惜大多数忘了</td></tr><tr><td><a class="internal alias" data-graph-raw="围城_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/围城_核心思想与关键论点" href="../围城_核心思想与关键论点/index.html">围城</a></td><td>对人情世故、婚姻与人生感兴趣的人</td><td>”城外的人想进去，城里的人想出来”</td></tr><tr><td><a class="internal alias" data-graph-raw="百年孤独_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/百年孤独_核心思想与关键论点" href="../百年孤独_核心思想与关键论点/index.html">百年孤独</a></td><td>喜欢魔幻现实主义、拉美文学的人</td><td>马尔克斯的家族史诗，拉美魔幻现实主义代表作</td></tr><tr><td><a class="internal alias" data-graph-raw="月亮与六便士_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/月亮与六便士_核心思想与关键论点" href="../月亮与六便士_核心思想与关键论点/index.html">月亮与六便士</a></td><td>在理想和现实之间纠结的人</td><td>”满地都是六便士，他却抬头看见了月亮”</td></tr><tr><td><a class="internal alias" data-graph-raw="刀锋_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/刀锋_核心思想与关键论点" href="../刀锋_核心思想与关键论点/index.html">刀锋</a></td><td>在物质和意义之间寻找平衡的人</td><td>追求精神自由 vs 物质生活的永恒张力</td></tr><tr><td><a class="internal alias" data-graph-raw="活着_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/活着_核心思想与关键论点" href="../活着_核心思想与关键论点/index.html">活着</a></td><td>对生命韧性和人生苦难有感触的人</td><td>一个人的一生，普通人的命运缩影</td></tr></tbody></table></div>
+<hr/>
+<h2 id="七人物传记向真实的过来人学习">七、人物传记（向真实的过来人学习）<a aria-hidden="true" class="internal" data-no-popover="true" href="#七人物传记向真实的过来人学习" role="anchor" tabindex="-1"></a></h2>
+<p><strong>核心痛点</strong>：缺乏榜样参照、不知道杰出人物是怎么思考和行动的</p>
+<div class="table-container"><table><thead><tr><th>书名</th><th>适合谁读</th><th>核心一句话</th></tr></thead><tbody><tr><td><a class="internal alias" data-graph-raw="乔布斯传_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/乔布斯传_核心思想与关键论点" href="../乔布斯传_核心思想与关键论点/index.html">乔布斯传</a></td><td>想理解创新者和企业家精神的人</td><td>乔布斯的疯狂与偏执，造就了苹果帝国</td></tr><tr><td><a class="internal alias" data-graph-raw="埃隆马斯克传_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/埃隆马斯克传_核心思想与关键论点" href="../埃隆马斯克传_核心思想与关键论点/index.html">埃隆马斯克传</a></td><td>对科技前沿、冒险精神感兴趣的人</td><td>从PayPal到SpaceX到特斯拉，疯狂的冒险家</td></tr><tr><td><a class="internal alias" data-graph-raw="曾国藩传_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/曾国藩传_核心思想与关键论点" href="../曾国藩传_核心思想与关键论点/index.html">曾国藩传</a></td><td>对中国历史人物、自我修炼感兴趣的人</td><td>从笨人到”半个圣人”，曾国藩的逆袭之路</td></tr><tr><td><a class="internal alias" data-graph-raw="王阳明传_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/王阳明传_核心思想与关键论点" href="../王阳明传_核心思想与关键论点/index.html">王阳明传</a></td><td>想了解心学和中国传统智慧的人</td><td>”知行合一”，阳明心学的传奇人生</td></tr><tr><td><a class="internal alias" data-graph-raw="苏东坡传_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/苏东坡传_核心思想与关键论点" href="../苏东坡传_核心思想与关键论点/index.html">苏东坡传</a></td><td>喜欢中国文人、精神力量的人</td><td>一代文豪的人生起伏与豁达</td></tr></tbody></table></div>
+<hr/>
+<h2 id="八人际与沟通建立更好的关系">八、人际与沟通（建立更好的关系）<a aria-hidden="true" class="internal" data-no-popover="true" href="#八人际与沟通建立更好的关系" role="anchor" tabindex="-1"></a></h2>
+<p><strong>核心痛点</strong>：和家人/朋友/恋人有矛盾、不善于表达和说服</p>
+<div class="table-container"><table><thead><tr><th>书名</th><th>适合谁读</th><th>核心一句话</th></tr></thead><tbody><tr><td><a class="internal alias" data-graph-raw="亲密关系_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/亲密关系_核心思想与关键论点" href="../亲密关系_核心思想与关键论点/index.html">亲密关系</a></td><td>恋爱困惑、亲密关系经营不好的人</td><td>亲密关系是认识自己的镜子</td></tr><tr><td><a class="internal alias" data-graph-raw="非暴力沟通_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/非暴力沟通_核心思想与关键论点" href="../非暴力沟通_核心思想与关键论点/index.html">非暴力沟通</a></td><td>容易和人起冲突、说话伤人的的人</td><td>不指责、不攻击，照样把话说清楚</td></tr><tr><td><a class="internal alias" data-graph-raw="关键对话_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/关键对话_核心思想与关键论点" href="../关键对话_核心思想与关键论点/index.html">关键对话</a></td><td>遇到重要冲突就回避、不会处理的人</td><td>高风险对话的正确打开方式</td></tr><tr><td><a class="internal alias" data-graph-raw="沟通的艺术_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/沟通的艺术_核心思想与关键论点" href="../沟通的艺术_核心思想与关键论点/index.html">沟通的艺术</a></td><td>想系统提升沟通能力的人</td><td>人际交往的心理学基础和实用技巧</td></tr><tr><td><a class="internal alias" data-graph-raw="先发影响力_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/先发影响力_核心思想与关键论点" href="../先发影响力_核心思想与关键论点/index.html">先发影响力</a></td><td>想提升说服力、影响力的人</td><td>在开口之前，就已经在影响别人了</td></tr></tbody></table></div>
+<hr/>
+<h2 id="九技能与方法可操作的工具箱">九、技能与方法（可操作的工具箱）<a aria-hidden="true" class="internal" data-no-popover="true" href="#九技能与方法可操作的工具箱" role="anchor" tabindex="-1"></a></h2>
+<p><strong>核心痛点</strong>：想学具体技能但不知道方法、效率低下</p>
+<div class="table-container"><table><thead><tr><th>书名</th><th>适合谁读</th><th>核心一句话</th></tr></thead><tbody><tr><td><a class="internal alias" data-graph-raw="如何阅读一本书_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/如何阅读一本书_核心思想与关键论点" href="../如何阅读一本书_核心思想与关键论点/index.html">如何阅读一本书</a></td><td>读书效率低、读完就忘的人</td><td>阅读是分层次的，这里教你最高效的读法</td></tr><tr><td><a class="internal alias" data-graph-raw="卡片笔记写作法_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/卡片笔记写作法_核心思想与关键论点" href="../卡片笔记写作法_核心思想与关键论点/index.html">卡片笔记写作法</a></td><td>想建立知识体系、写不出文章的人</td><td>卢曼的卡片笔记法，知识复利的秘密</td></tr><tr><td><a class="internal alias" data-graph-raw="深度工作_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/深度工作_核心思想与关键论点" href="../深度工作_核心思想与关键论点/index.html">深度工作</a></td><td>总被打扰、无法专注的人</td><td>在碎片化时代，深度工作能力就是竞争力</td></tr><tr><td><a class="internal alias" data-graph-raw="子弹笔记_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/子弹笔记_核心思想与关键论点" href="../子弹笔记_核心思想与关键论点/index.html">子弹笔记</a></td><td>想建立个人管理系统的人</td><td>比任何App都强大的手写笔记系统</td></tr><tr><td><a class="internal alias" data-graph-raw="演讲的力量_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/演讲的力量_核心思想与关键论点" href="../演讲的力量_核心思想与关键论点/index.html">演讲的力量</a></td><td>不敢公众表达、汇报总是紧张的人</td><td>TED掌门人教你如何做一场打动人心的演讲</td></tr></tbody></table></div>
+<hr/>
+<h2 id="十时间管理与健康管好自己的身体和生活">十、时间管理与健康（管好自己的身体和生活）<a aria-hidden="true" class="internal" data-no-popover="true" href="#十时间管理与健康管好自己的身体和生活" role="anchor" tabindex="-1"></a></h2>
+<p><strong>核心痛点</strong>：时间不够用、效率低、不够自律</p>
+<div class="table-container"><table><thead><tr><th>书名</th><th>适合谁读</th><th>核心一句话</th></tr></thead><tbody><tr><td><a class="internal alias" data-graph-raw="睡眠革命_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/睡眠革命_核心思想与关键论点" href="../睡眠革命_核心思想与关键论点/index.html">睡眠革命</a></td><td>睡眠质量差、总觉得睡不够的人</td><td>睡好才能学好，R90睡眠法了解一下</td></tr><tr><td><a class="internal alias" data-graph-raw="运动改造大脑_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/运动改造大脑_核心思想与关键论点" href="../运动改造大脑_核心思想与关键论点/index.html">运动改造大脑</a></td><td>久坐不动、想改善大脑状态的人</td><td>运动不只是锻炼身体，更是锻炼大脑</td></tr><tr><td><a class="internal alias" data-graph-raw="早起的奇迹_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/早起的奇迹_核心思想与关键论点" href="../早起的奇迹_核心思想与关键论点/index.html">早起的奇迹</a></td><td>早上起不来、总觉得时间不够的人</td><td>早起不是自虐，是给自己一段高质量的时间</td></tr><tr><td><a class="internal alias" data-graph-raw="把时间当作朋友_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/把时间当作朋友_核心思想与关键论点" href="../把时间当作朋友_核心思想与关键论点/index.html">把时间当作朋友</a></td><td>总在和时间赛跑、却总输的人</td><td>时间不可管理，能管理的只有自己</td></tr></tbody></table></div>
+<hr/>
+<h2 id="快速入口">快速入口<a aria-hidden="true" class="internal" data-no-popover="true" href="#快速入口" role="anchor" tabindex="-1"></a></h2>
+<ul>
+<li>不知道读什么？→ <a class="internal alias" data-graph-raw="0000C_痛点推荐路线" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000C_痛点推荐路线" href="../0000C_痛点推荐路线/index.html">按你的痛点找书</a></li>
+<li>想知道大一大二大三分别读什么？→ <a class="internal alias" data-graph-raw="0000B_年级推荐路线" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000B_年级推荐路线" href="../0000B_年级推荐路线/index.html">按年级找书</a></li>
+<li>想找最经典的10本？→ 看各主题第一本，都是精选</li>
+</ul>
+<hr/>
+<h2 id="导航索引">导航索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#导航索引" role="anchor" tabindex="-1"></a></h2>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a> ← 返回全库索引</li>
+<li><a class="internal alias" data-graph-raw="0000B_年级推荐路线" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000B_年级推荐路线" href="../0000B_年级推荐路线/index.html">按年级推荐</a> ← 大一/大二/大三/大四分别读什么</li>
+<li><a class="internal alias" data-graph-raw="0000C_痛点推荐路线" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000C_痛点推荐路线" href="../0000C_痛点推荐路线/index.html">按痛点推荐</a> ← 不知道选什么？按痛点来</li>
+</ul>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差/index.html">创业：0000创业高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目/index.html">创业：怎样从0到1开始跑通一个项目</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目/index.html">创业：1000「高价值」适合学生做的低风险创业项目</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/0000创业高价值信息差/index.html">0000创业高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/怎样从0到1开始跑通一个项目/index.html">怎样从0到1开始跑通一个项目</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目" href="../../../0002大二大三核心信息差/1.【创业】高价值信息差/1000「高价值」适合学生做的低风险创业项目/index.html">1000「高价值」适合学生做的低风险创业项目</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000B_年级推荐路线" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000B_年级推荐路线" href="../0000B_年级推荐路线/index.html">0000B_年级推荐路线</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000C_痛点推荐路线" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000C_痛点推荐路线" href="../0000C_痛点推荐路线/index.html">0000C_痛点推荐路线</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/1984_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/1984_核心思想与关键论点" href="../1984_核心思想与关键论点/index.html">1984_核心思想与关键论点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/1984_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/1984_适合阅读的大学生群体" href="../1984_适合阅读的大学生群体/index.html">1984_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/1984_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/1984_阅读价值与能解决的痛点" href="../1984_阅读价值与能解决的痛点/index.html">1984_阅读价值与能解决的痛点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/埃隆马斯克传_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/埃隆马斯克传_核心思想与关键论点" href="../埃隆马斯克传_核心思想与关键论点/index.html">埃隆马斯克传_核心思想与关键论点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/埃隆马斯克传_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/埃隆马斯克传_适合阅读的大学生群体" href="../埃隆马斯克传_适合阅读的大学生群体/index.html">埃隆马斯克传_适合阅读的大学生群体</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>进阶大学图书馆</code></li>
+<li><code>创业</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000B_年级推荐路线" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000B_年级推荐路线" href="../0000B_年级推荐路线/index.html">下一篇：0000B_年级推荐路线</a></li>
+</ul>
+
+</div>
+</body></html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>人类群星闪耀时_阅读价值与能解决的痛点 · 进阶知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body><style>
+#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
+#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
+#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
+#lj-sel .lj-opt:hover{background:#e2e8f0}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
+<script>
+(function(){
+  var PASS='1yzx', PAGE='article';
+  var PROMPT={
+    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
+    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
+    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
+    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
+    'zsxq':'请加入知识星球「大学生情报局」'
+  };
+  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
+  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
+  var comm=read('lj_community');
+  function showGate(){
+    if(read('lj_unlocked')==='1yzx')return;
+    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
+    gate.style.display='flex';
+    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
+    function unlock(){
+      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }
+    document.getElementById('lj-btn').addEventListener('click',unlock);
+    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+    i.focus();
+  }
+  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
+  else{
+    sel.style.display='flex';
+    sel.querySelectorAll('.lj-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
+        sel.style.display='none';
+        if(PAGE==='article')showGate();
+      });
+    });
+  }
+})();
+</script>
+
+
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 进阶知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/11.进阶大学图书馆/人类群星闪耀时_阅读价值与能解决的痛点</div>
+<h1>人类群星闪耀时_阅读价值与能解决的痛点</h1>
+
+<h1 id="人类群星闪耀时阅读价值与能解决的痛点">《人类群星闪耀时》阅读价值与能解决的痛点<a aria-hidden="true" class="internal" data-no-popover="true" href="#人类群星闪耀时阅读价值与能解决的痛点" role="anchor" tabindex="-1"></a></h1>
+<p>说实话，我读《人类群星闪耀时》是在大一那年暑假。那是我第一次读茨威格，读完之后久久不能平静。</p>
+<p>这本书讲了14个历史人物的故事——他们都是在某个瞬间做出了改变历史的决定。</p>
+<p>它不是干巴巴的历史教科书，而是一个个激动人心的故事。</p>
+<h2 id="这本书能解决什么问题">这本书能解决什么问题<a aria-hidden="true" class="internal" data-no-popover="true" href="#这本书能解决什么问题" role="anchor" tabindex="-1"></a></h2>
+<h3 id="痛点一觉得历史很无聊提不起兴趣">痛点一：觉得历史很无聊，提不起兴趣<a aria-hidden="true" class="internal" data-no-popover="true" href="#痛点一觉得历史很无聊提不起兴趣" role="anchor" tabindex="-1"></a></h3>
+<p>很多人觉得历史就是背年代、背事件、背意义，无聊透顶。</p>
+<p>茨威格告诉你：<strong>历史不是那些干巴巴的年份，而是由一个个”决定性瞬间”组成的。</strong></p>
+<p>读这本书，你会发现历史可以像小说一样精彩。</p>
+<h3 id="痛点二不知道什么是勇气和担当">痛点二：不知道什么是”勇气”和”担当”<a aria-hidden="true" class="internal" data-no-popover="true" href="#痛点二不知道什么是勇气和担当" role="anchor" tabindex="-1"></a></h3>
+<p>大学四年，很多人都在纠结——要不要参加比赛、要不要争取机会、要不要挑战自己……</p>
+<p>这些历史人物的故事会告诉你：<strong>有时候，一个瞬间的决定，就能改变一生。</strong></p>
+<h3 id="痛点三对未来感到迷茫不知道该何去何从">痛点三：对未来感到迷茫，不知道该何去何从<a aria-hidden="true" class="internal" data-no-popover="true" href="#痛点三对未来感到迷茫不知道该何去何从" role="anchor" tabindex="-1"></a></h3>
+<p>历史人物也曾迷茫过，但他们还是做出了选择。</p>
+<p>读他们的故事，你会获得面对未来的勇气。</p>
+<h2 id="学姐碎碎念">学姐碎碎念<a aria-hidden="true" class="internal" data-no-popover="true" href="#学姐碎碎念" role="anchor" tabindex="-1"></a></h2>
+<blockquote>
+<p><strong>学姐碎碎念</strong></p>
+<p>说实话，读完《人类群星闪耀时》，我最大的感受是：<strong>原来历史是这样被创造的。</strong></p>
+<p>滑铁卢战役的胜负，只取决于一个副官晚到了几分钟；
+淘金者发现黄金的那一刻，整个世界都变了；
+一个绝望的音乐家，写下了不朽的《安魂曲》……</p>
+<p>这些故事让我意识到：<strong>我们每个人都在创造历史。</strong></p>
+</blockquote>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差/index.html">竞赛：0000竞赛高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南/index.html">竞赛：1000「高价值」竞赛信息获取全面指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧/index.html">竞赛：1000「高价值」竞赛成果转化与简历文书撰写技巧</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南/index.html">竞赛：1000「高价值」竞赛团队组建与分工协作指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习/index.html">竞赛：竞赛经验分享与人物访谈：向成功者学习</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/0000竞赛高价值信息差/index.html">0000竞赛高价值信息差</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛信息获取全面指南/index.html">1000「高价值」竞赛信息获取全面指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛成果转化与简历文书撰写技巧/index.html">1000「高价值」竞赛成果转化与简历文书撰写技巧</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/1000「高价值」竞赛团队组建与分工协作指南/index.html">1000「高价值」竞赛团队组建与分工协作指南</a></li>
+<li><a class="internal alias" data-graph-raw="0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习" data-graph-syntax="wikilink" data-slug="0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习" href="../../../0002大二大三核心信息差/3.【竞赛】高价值信息差/竞赛经验分享与人物访谈：向成功者学习/index.html">竞赛经验分享与人物访谈：向成功者学习</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/认知觉醒_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/认知觉醒_核心思想与关键论点" href="../认知觉醒_核心思想与关键论点/index.html">认知觉醒_核心思想与关键论点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/人类群星闪耀时_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/人类群星闪耀时_适合阅读的大学生群体" href="../人类群星闪耀时_适合阅读的大学生群体/index.html">人类群星闪耀时_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/认知觉醒_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/认知觉醒_适合阅读的大学生群体" href="../认知觉醒_适合阅读的大学生群体/index.html">认知觉醒_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/人类群星闪耀时_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/人类群星闪耀时_核心思想与关键论点" href="../人类群星闪耀时_核心思想与关键论点/index.html">人类群星闪耀时_核心思想与关键论点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/认知觉醒_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/认知觉醒_阅读价值与能解决的痛点" href="../认知觉醒_阅读价值与能解决的痛点/index.html">认知觉醒_阅读价值与能解决的痛点</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>进阶大学图书馆</code></li>
+<li><code>竞赛</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/认知觉醒_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/认知觉醒_核心思想与关键论点" href="../认知觉醒_核心思想与关键论点/index.html">下一篇：认知觉醒_核心思想与关键论点</a></li>
+</ul>
+
+</div>
+</body></html>

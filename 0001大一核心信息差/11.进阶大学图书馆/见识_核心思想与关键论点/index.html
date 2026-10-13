@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>见识_核心思想与关键论点 · 进阶知识库</title>
+<style>
+:root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--bg:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:10px 0}
+.topbar .inner{max-width:840px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.topbar a{color:var(--accent);text-decoration:none;font-weight:600}
+.topbar .crumb{color:var(--muted);font-size:13.5px}
+.wrap{max-width:840px;margin:0 auto;padding:26px 20px 80px}
+h1{font-size:30px;line-height:1.35;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:23px;margin:1.6em 0 .6em;padding-bottom:.35em;border-bottom:1px solid var(--line)}
+h3{font-size:19px;margin:1.4em 0 .5em}
+h4{font-size:17px;margin:1.2em 0 .4em}
+p{margin:.9em 0}
+ul,ol{margin:.8em 0;padding-left:1.6em}
+li{margin:.35em 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#f3f4f6;border-radius:4px;padding:.12em .35em;font-size:.9em;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;color:#be123c}
+pre{background:#111827;color:#f9fafb;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1em 0}
+pre code{background:none;color:inherit;padding:0;font-size:.9em}
+blockquote{border-left:4px solid var(--accent);margin:1.2em 0;padding:.3em 1.1em;color:#374151;
+  background:#f8fafc;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+th{background:#f8fafc;font-weight:600}
+tr:nth-child(even) td{background:#fcfcfd}
+img{max-width:100%;height:auto;border-radius:6px}
+hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.meta{color:var(--muted);font-size:14px;margin:6px 0 18px}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:99px;padding:2px 10px;
+  font-size:13px;margin:0 4px 6px 0}
+.back{display:inline-block;margin-bottom:14px;font-size:14px}
+@media(max-width:600px){body{font-size:15.5px}h1{font-size:25px}}
+</style></head>
+<body><style>
+#lj-sel,#lj-gate{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:rgba(17,24,39,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#lj-sel .lj-box,#lj-gate .lj-box{background:#fff;border-radius:16px;max-width:430px;width:100%;padding:30px 26px;text-align:center;box-shadow:0 12px 50px rgba(0,0,0,.4);max-height:90vh;overflow:auto}
+#lj-sel h3,#lj-gate h3{margin:0 0 8px;font-size:19px;color:#111}
+#lj-sel p,#lj-gate p{color:#555;font-size:14px;line-height:1.65;margin:0 0 16px}
+#lj-sel .lj-opt{display:block;width:100%;margin:8px 0;padding:13px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;font-size:15px;color:#0f172a;cursor:pointer;transition:background .15s}
+#lj-sel .lj-opt:hover{background:#e2e8f0}
+#lj-gate .lj-key{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;text-align:center;outline:none}
+#lj-gate .lj-key:focus{border-color:#2563eb}
+#lj-gate .lj-btn{width:100%;margin-top:12px;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+#lj-gate .lj-btn:hover{background:#1d4ed8}
+#lj-gate .lj-err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+#lj-gate .lj-hint{font-size:12px;color:#9ca3af;margin-top:14px}
+</style>
+<div id="lj-sel"><div class="lj-box"><h3>请选择你的社区</h3><p>选择你所在的社区后，即可浏览内容</p><button class="lj-opt" data-comm="szu">深圳大学</button><button class="lj-opt" data-comm="gdut">广东工业大学</button><button class="lj-opt" data-comm="scnu">华南师范大学</button><button class="lj-opt" data-comm="scau">华南农业大学</button><button class="lj-opt" data-comm="zsxq">知识星球</button></div></div>
+<div id="lj-gate"><div class="lj-box"><h3>阅读验证</h3><p class="lj-msg">请获取阅读密码后填写</p><input id="lj-key" class="lj-key" type="password" placeholder="请输入阅读密码" autocomplete="off"><div class="lj-err"></div><button id="lj-btn" class="lj-btn" type="button">确认阅读</button><div class="lj-hint">验证一次，本会话内全站解锁</div></div></div>
+<script>
+(function(){
+  var PASS='1yzx', PAGE='article';
+  var PROMPT={
+    'szu':'请关注公众号「深大包打听」，发送关键词『验证码』',
+    'gdut':'请关注公众号「广工学习通」，发送关键词『验证码』',
+    'scnu':'请关注公众号「华小师学习通」，发送关键词『验证码』',
+    'scau':'请关注公众号「华小农包打听」，发送关键词『验证码』',
+    'zsxq':'请加入知识星球「大学生情报局」'
+  };
+  var sel=document.getElementById('lj-sel'), gate=document.getElementById('lj-gate');
+  function store(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return sessionStorage.getItem(k)||'';}catch(e){return '';}}
+  var comm=read('lj_community');
+  function showGate(){
+    if(read('lj_unlocked')==='1yzx')return;
+    if(comm&&PROMPT[comm]){gate.querySelector('.lj-msg').textContent=PROMPT[comm]+'，即可正常阅读';}
+    gate.style.display='flex';
+    var i=document.getElementById('lj-key'),e=gate.querySelector('.lj-err');
+    function unlock(){
+      if(i.value.trim()===PASS){store('lj_unlocked','1yzx');gate.parentNode.removeChild(gate);}
+      else{e.textContent='密码错误，请重新输入';i.select();}
+    }
+    document.getElementById('lj-btn').addEventListener('click',unlock);
+    i.addEventListener('keydown',function(ev){if(ev.key==='Enter')unlock();});
+    i.focus();
+  }
+  if(comm){ sel.style.display='none'; if(PAGE==='article')showGate(); }
+  else{
+    sel.style.display='flex';
+    sel.querySelectorAll('.lj-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        store('lj_community',b.getAttribute('data-comm')); comm=b.getAttribute('data-comm');
+        sel.style.display='none';
+        if(PAGE==='article')showGate();
+      });
+    });
+  }
+})();
+</script>
+
+
+<div class="topbar"><div class="inner"><a href="../../../index.html">🏠 进阶知识库 2026</a></div></div>
+<div class="wrap">
+<div class="back">← <a href="../../../index.html">返回目录 / 首页</a></div><div class="crumb" style="margin-bottom:6px">当前位置：首页/0001大一核心信息差/11.进阶大学图书馆/见识_核心思想与关键论点</div>
+<h1>见识_核心思想与关键论点</h1>
+
+<h1 id="见识核心思想与关键论点">《见识》核心思想与关键论点<a aria-hidden="true" class="internal" data-no-popover="true" href="#见识核心思想与关键论点" role="anchor" tabindex="-1"></a></h1>
+<p>《见识》是吴军老师在”得到”专栏文章的基础上整理成书的。</p>
+<p>吴军老师是Google早期员工、腾讯副总裁、硅谷风险投资人。他的见识和视野，远超普通人。</p>
+<h2 id="核心思想一见识决定命运">核心思想一：见识决定命运<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心思想一见识决定命运" role="anchor" tabindex="-1"></a></h2>
+<p>吴军老师在这本书里反复强调一个观点：<strong>见识决定命运。</strong></p>
+<p>什么叫见识？</p>
+<p>见识不仅仅是知识，更是<strong>对世界的理解、对人生的感悟、对未来的判断</strong>。</p>
+<p>两个能力相当的人，因为见识不同，最后的成就可能天差地别。</p>
+<h2 id="核心思想二人生需要做减法">核心思想二：人生需要做减法<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心思想二人生需要做减法" role="anchor" tabindex="-1"></a></h2>
+<p>吴军老师提出了一个重要观点：<strong>人生需要做减法。</strong></p>
+<blockquote>
+<p><strong>“人的一生是有限的，不要把时间浪费在不重要的事情上。”</strong></p>
+</blockquote>
+<p>太多人做加法——要更多绩点、更多证书、更多实习……但做的都是低质量的积累。</p>
+<p>真正的高手做减法——把有限的时间集中在最重要的事情上。</p>
+<h2 id="核心思想三比成功更重要的是成长">核心思想三：比成功更重要的是成长<a aria-hidden="true" class="internal" data-no-popover="true" href="#核心思想三比成功更重要的是成长" role="anchor" tabindex="-1"></a></h2>
+<p>吴军老师说：<strong>“比成功更重要的是成长。”</strong></p>
+<p>很多人把成功当作目标，但成功是结果，不是目标。</p>
+<p>如果你把成功当作目标，你可能会不择手段；但如果你把成长当作目标，你会更关注过程。</p>
+<h2 id="关键论点一关于金钱">关键论点一：关于金钱<a aria-hidden="true" class="internal" data-no-popover="true" href="#关键论点一关于金钱" role="anchor" tabindex="-1"></a></h2>
+<p>吴军老师说了一个很反直觉的观点：<strong>“不要为了赚钱而工作，要为了成长而工作。”</strong></p>
+<p>短期看，赚钱很重要；长期看，成长更重要。</p>
+<p>因为当你成长了，赚钱是自然而然的事情。</p>
+<h2 id="关键论点二关于选择">关键论点二：关于选择<a aria-hidden="true" class="internal" data-no-popover="true" href="#关键论点二关于选择" role="anchor" tabindex="-1"></a></h2>
+<p>吴军老师说：<strong>“选择比努力更重要。”</strong></p>
+<p>做出好选择的三个原则：</p>
+<ol>
+<li><strong>选择少的</strong>：选项太多不一定是好事</li>
+<li><strong>选择长期价值高的</strong>：不要只看眼前利益</li>
+<li><strong>选择后能让自己成长的</strong>：成长比什么都重要</li>
+</ol>
+<h2 id="关键论点三关于人脉">关键论点三：关于人脉<a aria-hidden="true" class="internal" data-no-popover="true" href="#关键论点三关于人脉" role="anchor" tabindex="-1"></a></h2>
+<p>吴军老师说：<strong>“人脉不是你认识多少人，而是多少人愿意帮你。”</strong></p>
+<p>建立人脉的方式不是去讨好别人，而是<strong>让自己变得有价值</strong>。</p>
+<p>当你有价值了，人脉自然就来了。</p>
+<h2 id="关键论点四关于幸福">关键论点四：关于幸福<a aria-hidden="true" class="internal" data-no-popover="true" href="#关键论点四关于幸福" role="anchor" tabindex="-1"></a></h2>
+<p>吴军老师说：<strong>“幸福取决于你对生活的态度，而不是生活本身。”</strong></p>
+<p>同样的事情，不同的态度会有不同的感受。</p>
+<p>学会感恩、学会活在当下、学会接受不完美——这些都是幸福的方法。</p>
+<h2 id="吴军老师的思维方式">吴军老师的思维方式<a aria-hidden="true" class="internal" data-no-popover="true" href="#吴军老师的思维方式" role="anchor" tabindex="-1"></a></h2>
+<h3 id="长期思维">长期思维<a aria-hidden="true" class="internal" data-no-popover="true" href="#长期思维" role="anchor" tabindex="-1"></a></h3>
+<p>吴军老师看问题都是长期的——不是看眼前，而是看5年、10年、甚至一辈子。</p>
+<h3 id="概率思维">概率思维<a aria-hidden="true" class="internal" data-no-popover="true" href="#概率思维" role="anchor" tabindex="-1"></a></h3>
+<p>吴军老师会说：<strong>“做大概率会赢的事情。”</strong></p>
+<p>不是追求100%成功，而是提高成功的概率。</p>
+<h3 id="成长思维">成长思维<a aria-hidden="true" class="internal" data-no-popover="true" href="#成长思维" role="anchor" tabindex="-1"></a></h3>
+<p>吴军老师看任何事情都会问：<strong>“这能让我成长吗？”</strong></p>
+<p>成长是一切的核心。</p>
+<h2 id="学姐私房话">学姐私房话<a aria-hidden="true" class="internal" data-no-popover="true" href="#学姐私房话" role="anchor" tabindex="-1"></a></h2>
+<p>读完《见识》，我最大的感受是：<strong>我的视野被拓宽了。</strong></p>
+<p>吴军老师讲了很多我从来没想过的问题——比如”人生为什么要活得长”、“什么才是真正的成功”……</p>
+<p>这些问题可能很多人一辈子都不会想，但读了之后，你会发现：<strong>想清楚这些问题，比什么都重要。</strong></p>
+<hr/>
+<h2 id="继续阅读导航">继续阅读导航<a aria-hidden="true" class="internal" data-no-popover="true" href="#继续阅读导航" role="anchor" tabindex="-1"></a></h2>
+<h3 id="上级目录">上级目录<a aria-hidden="true" class="internal" data-no-popover="true" href="#上级目录" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">全库目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0000_目录索引" href="../../0000_目录索引/index.html">0001大一核心信息差 目录索引</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="同目录索引">同目录索引<a aria-hidden="true" class="internal" data-no-popover="true" href="#同目录索引" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/0000_目录索引" href="../0000_目录索引/index.html">11.进阶大学图书馆 目录索引</a></li>
+</ul>
+<h3 id="跨库关联">跨库关联<a aria-hidden="true" class="internal" data-no-popover="true" href="#跨库关联" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈" href="../../../0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈/index.html">实习：实习经验分享与人物访谈</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验" href="../../../0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验/index.html">实习：0000大学老油条找实习的25条野路子经验</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历" href="../../../0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历/index.html">实习：如何制作一份有竞争力的实习简历</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/3.保研_高价值信息差/1000「高价值」保研都要干一些什么" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/3.保研_高价值信息差/1000「高价值」保研都要干一些什么" href="../../3.保研_高价值信息差/1000「高价值」保研都要干一些什么/index.html">保研：1000「高价值」保研都要干一些什么</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0.大学小白必看核心经验文档/保研留学两手抓——高绩点的必修之路_【叶子学姐】" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0.大学小白必看核心经验文档/保研留学两手抓——高绩点的必修之路_【叶子学姐】" href="../../0.大学小白必看核心经验文档/保研留学两手抓——高绩点的必修之路_【叶子学姐】/index.html">保研：保研留学两手抓——高绩点的必修之路_【叶子学姐】</a></li>
+</ul>
+<h3 id="同主题推荐">同主题推荐<a aria-hidden="true" class="internal" data-no-popover="true" href="#同主题推荐" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈" href="../../../0003大四核心信息差/2.【实习】高价值信息差/实习经验分享与人物访谈/index.html">实习经验分享与人物访谈</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验" href="../../../0003大四核心信息差/2.【实习】高价值信息差/0000大学老油条找实习的25条野路子经验/index.html">0000大学老油条找实习的25条野路子经验</a></li>
+<li><a class="internal alias" data-graph-raw="0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历" data-graph-syntax="wikilink" data-slug="0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历" href="../../../0003大四核心信息差/2.【实习】高价值信息差/如何制作一份有竞争力的实习简历/index.html">如何制作一份有竞争力的实习简历</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/3.保研_高价值信息差/1000「高价值」保研都要干一些什么" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/3.保研_高价值信息差/1000「高价值」保研都要干一些什么" href="../../3.保研_高价值信息差/1000「高价值」保研都要干一些什么/index.html">1000「高价值」保研都要干一些什么</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/0.大学小白必看核心经验文档/保研留学两手抓——高绩点的必修之路_【叶子学姐】" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/0.大学小白必看核心经验文档/保研留学两手抓——高绩点的必修之路_【叶子学姐】" href="../../0.大学小白必看核心经验文档/保研留学两手抓——高绩点的必修之路_【叶子学姐】/index.html">保研留学两手抓——高绩点的必修之路_【叶子学姐】</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/见识_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/见识_适合阅读的大学生群体" href="../见识_适合阅读的大学生群体/index.html">见识_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/即兴演讲_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/即兴演讲_阅读价值与能解决的痛点" href="../即兴演讲_阅读价值与能解决的痛点/index.html">即兴演讲_阅读价值与能解决的痛点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/见识_阅读价值与能解决的痛点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/见识_阅读价值与能解决的痛点" href="../见识_阅读价值与能解决的痛点/index.html">见识_阅读价值与能解决的痛点</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/即兴演讲_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/即兴演讲_适合阅读的大学生群体" href="../即兴演讲_适合阅读的大学生群体/index.html">即兴演讲_适合阅读的大学生群体</a></li>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/解忧杂货店_核心思想与关键论点" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/解忧杂货店_核心思想与关键论点" href="../解忧杂货店_核心思想与关键论点/index.html">解忧杂货店_核心思想与关键论点</a></li>
+</ul>
+<h3 id="相关标签">相关标签<a aria-hidden="true" class="internal" data-no-popover="true" href="#相关标签" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><code>大一核心信息差</code></li>
+<li><code>进阶大学图书馆</code></li>
+<li><code>实习</code></li>
+<li><code>保研</code></li>
+</ul>
+<h3 id="下一步阅读">下一步阅读<a aria-hidden="true" class="internal" data-no-popover="true" href="#下一步阅读" role="anchor" tabindex="-1"></a></h3>
+<ul>
+<li><a class="internal alias" data-graph-raw="0001大一核心信息差/11.进阶大学图书馆/见识_适合阅读的大学生群体" data-graph-syntax="wikilink" data-slug="0001大一核心信息差/11.进阶大学图书馆/见识_适合阅读的大学生群体" href="../见识_适合阅读的大学生群体/index.html">下一篇：见识_适合阅读的大学生群体</a></li>
+</ul>
+
+</div>
+</body></html>
